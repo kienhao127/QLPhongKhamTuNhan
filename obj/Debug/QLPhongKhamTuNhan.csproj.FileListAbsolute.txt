@@ -1,0 +1,16 @@
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\bin\Debug\QLPhongKhamTuNhan.exe.config
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\bin\Debug\QLPhongKhamTuNhan.exe
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\bin\Debug\QLPhongKhamTuNhan.pdb
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.csprojResolveAssemblyReference.cache
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\LoginWindow.g.cs
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\App.g.cs
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan_MarkupCompile.cache
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan_MarkupCompile.lref
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\LoginWindow.baml
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.g.resources
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.Properties.Resources.resources
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.csproj.GenerateResource.Cache
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.exe
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.pdb
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.g.cs
+F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.baml
