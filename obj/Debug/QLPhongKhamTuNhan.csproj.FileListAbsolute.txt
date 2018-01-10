@@ -14,3 +14,6 @@ F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongK
 F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.pdb
 F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.g.cs
 F:\Study\NhapMonCNPM\DoAn\QLPhongKhamTuNhan\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.baml
+D:\Zitch\QLPhongKhamTuNhan\bin\Debug\QLPhongKhamTuNhan.exe.config
+D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.exe
+D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.pdb
