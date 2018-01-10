@@ -5,9 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIGeneral"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525"
+        Title="Quản lý phòng khám tư nhân" Height="350" Width="525"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <TabControl TabStripPlacement="Left">
+            <TabItem Header="Tab 1">Content tab 1</TabItem>
+            <TabItem Header="Tab 2">Content tab 2</TabItem>
+        </TabControl>
     </Grid>
 </Window>
