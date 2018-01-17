@@ -35,8 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.10.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -76,6 +79,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\ChangeRegulation.cs" />
+    <Compile Include="Model\MedicalExam.cs" />
+    <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Prescription.cs" />
+    <Compile Include="Model\Role.cs" />
+    <Compile Include="Model\Sickness.cs" />
+    <Compile Include="Model\UnitMedicine.cs" />
+    <Compile Include="Model\UnitPriceMedicine.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserMedicine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -110,8 +124,11 @@
     <Folder Include="GUI\UIAdmin\" />
     <Folder Include="GUI\UIDoctor\" />
     <Folder Include="GUI\UIReceptionist\" />
-    <Folder Include="Model\" />
+    <Folder Include="GUI\UIReport\" />
     <Folder Include="Utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
