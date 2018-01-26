@@ -22,7 +22,6 @@ D:\Zitch\QLPhongKhamTuNhan\bin\Debug\QLPhongKhamTuNhan.pdb
 D:\Zitch\QLPhongKhamTuNhan\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 D:\Zitch\QLPhongKhamTuNhan\bin\Debug\MySql.Data.dll
 D:\Zitch\QLPhongKhamTuNhan\bin\Debug\MySql.Data.xml
-D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.csprojResolveAssemblyReference.cache
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\LoginWindow.g.cs
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.g.cs
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\App.g.cs
@@ -33,3 +32,6 @@ D:\Zitch\QLPhongKhamTuNhan\obj\Debug\GUI\UIGeneral\MainWindow.baml
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.g.resources
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.Properties.Resources.resources
 D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.csproj.GenerateResource.Cache
+D:\Zitch\QLPhongKhamTuNhan\obj\Debug\QLPhongKhamTuNhan.csprojResolveAssemblyReference.cache
+D:\Zitch\QLPhongKhamTuNhan\obj\Debug\GUI\UIReport\testGrid.g.cs
+D:\Zitch\QLPhongKhamTuNhan\obj\Debug\GUI\UIReport\testGrid.baml

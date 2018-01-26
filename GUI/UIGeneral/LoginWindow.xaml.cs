@@ -1,5 +1,8 @@
-﻿using System;
+﻿using QLPhongKhamTuNhan.DataHelper;
+using QLPhongKhamTuNhan.GUI.UIReport;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +29,9 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            relatedUser rU = new relatedUser();
+            int iLogIn = rU.logIn(txtUserName.Text, txtPassword.Password);
+
             if (true)
             {
                 MainWindow mainWindow = new MainWindow();
