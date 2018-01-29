@@ -42,15 +42,15 @@ namespace QLPhongKhamTuNhan.DataHelper
             }
         }
 
-        static public int insert(string query)
+        static public short insert(string query)
         {
-            int change = 0;
+            short change = 0;
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    change = cmd.ExecuteNonQuery();
+                    change = Convert.ToInt16(cmd.ExecuteNonQuery());
                 }
                 return change;
             }
@@ -60,15 +60,15 @@ namespace QLPhongKhamTuNhan.DataHelper
             }
         }
 
-        static public int update(string query)
+        static public short update(string query)
         {
-            int change = 0;
+            short change = 0;
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    change = cmd.ExecuteNonQuery();
+                    change = Convert.ToInt16(cmd.ExecuteNonQuery());
                 }
                 return change;
             }
@@ -78,15 +78,15 @@ namespace QLPhongKhamTuNhan.DataHelper
             }
         }
 
-        public int delete(string query)
+        public short delete(string query)
         {
-            int change = 0;
+            short change = 0;
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    change = cmd.ExecuteNonQuery();
+                    change = Convert.ToInt16(cmd.ExecuteNonQuery());
                 }
                 return change;
             }

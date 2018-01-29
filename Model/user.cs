@@ -23,5 +23,14 @@ namespace QLPhongKhamTuNhan.Model
         public string email { get { return _email; } set { _email = value; } }
         public int role_id { get { return _role_id; } set { _role_id = value; } }
         internal List<Role> role { get { return _role; } set { _role = value; } }
+
+        public User(string name,string full_name, string password,string email,int role_id)
+        {
+            _name = name;
+            _full_name = full_name;
+            _password = password;
+            _email = email;
+            _role_id = role_id;
+        }
     }
 }
