@@ -70,6 +70,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataHelper\Active.cs" />
+    <Compile Include="DataHelper\relatedChangeReg.cs" />
+    <Compile Include="DataHelper\relatedUser.cs" />
     <Compile Include="GUI\UIGeneral\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -77,8 +80,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GUI\UIReport\testGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\UIReport\testGrid.xaml.cs">
+      <DependentUpon>testGrid.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\ChangeRegulation.cs" />
     <Compile Include="Model\MedicalExam.cs" />
     <Compile Include="Model\Medicine.cs" />
@@ -118,13 +128,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomControls\" />
-    <Folder Include="DataHelper\" />
     <Folder Include="DataManager\" />
     <Folder Include="Data\" />
     <Folder Include="GUI\UIAdmin\" />
     <Folder Include="GUI\UIDoctor\" />
     <Folder Include="GUI\UIReceptionist\" />
-    <Folder Include="GUI\UIReport\" />
     <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
