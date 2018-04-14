@@ -5,24 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIGeneral"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="300"
+        Title="Đăng nhập" Height="350" Width="450"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Name="lblUserName" Content="Tài khoản" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Label Grid.Row="1" Name="lblPassword" Content="Mật khẩu" HorizontalAlignment="Center"  VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" Name="txtUserName" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10"/>
-        <PasswordBox Grid.Column="1" Grid.Row="1" Name="txtPassword" VerticalAlignment="Center" Margin="10"/>
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Name="btnLogin" Content="Đăng nhập" VerticalAlignment="Center" HorizontalAlignment="Center"
-                Click="btnLogin_Click"/>
-        <Label Name="lblForgetPassword" Content="Quên mật khẩu?" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.ColumnSpan="2" Content="ĐĂNG NHẬP HỆ THỐNG" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+        <Label Grid.Row="1" Name="lblUserName" Content="Tài khoản:" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        <Label Grid.Row="2" Name="lblPassword" Content="Mật khẩu:" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="txtUserName" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="300" FontSize="16" />
+        <PasswordBox Grid.Column="1" Grid.Row="2" Name="txtPassword" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="300" FontSize="16"/>
+        <Button Grid.Row="3" Grid.Column="1" Name="btnLogin" Content="Đăng nhập" VerticalAlignment="Top" HorizontalAlignment="Right"
+                Click="btnLogin_Click" Margin="0,20,45,0" Width="100" Height="30"/>
+        <Label Name="lblForgetPassword" Content="Quên mật khẩu?" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,20,10,10"/>
     </Grid>
 </Window>
