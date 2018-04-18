@@ -5,12 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIGeneral"
         mc:Ignorable="d"
-        Title="Quản lý phòng khám tư nhân" Height="350" Width="525"
+        Title="Quản lý phòng khám tư nhân" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TabControl TabStripPlacement="Left">
-            <TabItem Header="Tab 1">Content tab 1</TabItem>
-            <TabItem Header="Tab 2">Content tab 2</TabItem>
-        </TabControl>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Width="60" Orientation="Vertical" HorizontalAlignment="Left" Background="Blue">
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50" Background="DarkCyan">
+                <TextBlock Text="Avatar" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnDashboard" Click="btnDashboard_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/Dashboard.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnMakeListPatientMenu" Click="btnMakeListPatientMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/list_patient.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnListPatientMenu" Click="btnListPatientMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/patient.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnTurnOverMenu" Click="btnTurnOverMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/turnover.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnMedicineMenu" Click="btnMedicineMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/medicine.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnRegulationMenu" Click="btnRegulationMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/rules.png" />
+                </Button>
+            </Border>
+            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
+                <Button Name="btnUserMenu" Click="btnUserMenu_Click" Background="Transparent" Padding="0">
+                    <Image Source="../Icons/user.png" />
+                </Button>
+            </Border>
+        </StackPanel>
+        <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>
