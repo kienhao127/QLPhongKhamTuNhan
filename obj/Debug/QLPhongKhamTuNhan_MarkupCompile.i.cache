@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Zitch\QLPhongKhamTuNhan\obj\Debug\
+C:\Github\DoAn\NMCNPM\QLPhongKhamTuNhan\obj\Debug\
 QLPhongKhamTuNhan
 none
 false
 DEBUG;TRACE
-D:\Zitch\QLPhongKhamTuNhan\App.xaml
+C:\Github\DoAn\NMCNPM\QLPhongKhamTuNhan\App.xaml
 31011274902
 
-251427800815
-161424654957
+26228280336
+18219830550
 GUI\UIGeneral\LoginWindow.xaml;GUI\UIGeneral\MainWindow.xaml;GUI\UIReport\testGrid.xaml;
 
 False
