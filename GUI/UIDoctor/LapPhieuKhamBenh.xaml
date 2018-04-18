@@ -1,0 +1,12 @@
+﻿<Window x:Class="QLPhongKhamTuNhan.GUI.UIDoctor.LapPhieuKhamBenh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIDoctor"
+        mc:Ignorable="d"
+        Title="LapPhieuKhamBenh" Height="400" Width="600" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <TextBlock Text="Đây là màn hình bác sĩ lập phiếu khám bệnh" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
+    </Grid>
+</Window>
