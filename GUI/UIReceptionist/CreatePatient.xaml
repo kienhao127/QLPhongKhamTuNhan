@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIReceptionist"
         mc:Ignorable="d"
-        Title="CreatePatient" Height="300" Width="400">
+        Title="CreatePatient" Height="300" Width="400"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <StackPanel>
         <TextBlock Text="THÔNG TIN BỆNH NHÂN" FontSize="25" HorizontalAlignment="Center"/>
         <Grid>
@@ -37,7 +38,7 @@
             <TextBox Grid.Row="3" Grid.Column="1" Name="txtDiaChi" Margin="5"/>
             
             <!--Hàng 5-->
-            <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center">Thêm</Button>
+            <Button Grid.Row="4" Grid.ColumnSpan="2" x:Name="btnCreate" Click="btnCreate_Click" HorizontalAlignment="Center">Thêm</Button>
         </Grid>
     </StackPanel>
 </Window>

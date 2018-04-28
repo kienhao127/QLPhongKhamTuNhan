@@ -35,18 +35,27 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 
             DataContext = listPatient;
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            //CreateBill bill = new CreateBill();
-            //bill.ShowDialog();
-        }
-
+        
         private void btnCreatePatient_Click(object sender, RoutedEventArgs e)
         {
             CreatePatient createPatient = new CreatePatient();
             createPatient.ShowDialog();
+        }
+
+        private void btnCreateBill_Click(object sender, RoutedEventArgs e)
+        {
+            CreateBill bill = new CreateBill();
+            bill.ShowDialog();
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

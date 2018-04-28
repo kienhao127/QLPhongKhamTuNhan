@@ -23,5 +23,10 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         {
             InitializeComponent();
         }
+
+        private void btnOK_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

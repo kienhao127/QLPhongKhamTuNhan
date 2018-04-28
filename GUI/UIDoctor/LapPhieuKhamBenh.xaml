@@ -85,7 +85,7 @@
             </DataGrid>
             
             <!--Hàng 4-->
-            <Button Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center">OK</Button>
+            <Button Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center" x:Name="btnOK" Click="btnOK_Click">OK</Button>
         </Grid>
     </StackPanel>
 

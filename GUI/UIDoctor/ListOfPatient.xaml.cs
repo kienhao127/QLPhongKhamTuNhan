@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QLPhongKhamTuNhan.GUI.UIDoctor;
+using QLPhongKhamTuNhan.Model;
 
 namespace QLPhongKhamTuNhan.GUI.UIDoctor
 {
@@ -24,9 +25,17 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         public ListOfPatient()
         {
             InitializeComponent();
-        }
+            List<Patient> listPatient = new List<Patient>();
+            for (int i = 0; i < 10; i++)
+            {
+                var data = new Patient { id = 1, full_name = "Test2", address = "add", is_delete = false, sex = "Nam", year_of_birth = 1996 };
+                listPatient.Add(data);
+            }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+            DataContext = listPatient;
+        }
+        
+        private void btnLapPhieuKhamBenh_Click(object sender, RoutedEventArgs e)
         {
             LapPhieuKhamBenh phieu = new LapPhieuKhamBenh();
             phieu.ShowDialog();
