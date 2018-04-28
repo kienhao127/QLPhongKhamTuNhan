@@ -1,0 +1,43 @@
+﻿<Window x:Class="QLPhongKhamTuNhan.GUI.UIReceptionist.CreatePatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIReceptionist"
+        mc:Ignorable="d"
+        Title="CreatePatient" Height="300" Width="400">
+    <StackPanel>
+        <TextBlock Text="THÔNG TIN BỆNH NHÂN" FontSize="25" HorizontalAlignment="Center"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <!--Hàng 1-->
+            <TextBlock Grid.Column="0" Text="Tên bệnh nhân: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+            <TextBox Grid.Column="1" Name="txtHoTen" Margin="5"/>
+            
+            <!--Hàng 2-->
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Giới tính: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txtGioiTinh" Margin="5"/>
+            
+            <!--Hàng 3-->
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Năm sinh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txtNamSinh" Margin="5"/>
+
+            <!--Hàng 4-->
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Địa chỉ: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="txtDiaChi" Margin="5"/>
+            
+            <!--Hàng 5-->
+            <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center">Thêm</Button>
+        </Grid>
+    </StackPanel>
+</Window>

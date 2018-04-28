@@ -43,6 +43,10 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             //bill.ShowDialog();
         }
 
-
+        private void btnCreatePatient_Click(object sender, RoutedEventArgs e)
+        {
+            CreatePatient createPatient = new CreatePatient();
+            createPatient.ShowDialog();
+        }
     }
 }

@@ -20,7 +20,7 @@
             <TextBlock Width="200" Height="50" Text="Ngày khám:" FontSize="35" />
             <TextBlock Width="200" Height="50" Text="20/4/2018" x:Name="currentDay"  FontSize="35" FontWeight="Bold" />
         </StackPanel>
-        <Button Grid.Row="2" x:Name="btnPatient" Width="150" Height="50" Content="Thêm bệnh nhân" HorizontalAlignment="Center"/>
+        <Button Grid.Row="2" x:Name="btnCreatePatient" Width="150" Height="50" Content="Thêm bệnh nhân" HorizontalAlignment="Center" Click="btnCreatePatient_Click"/>
         <DataGrid Grid.Row="3" CanUserAddRows="False"  
                  x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
