@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Github\DoAn\NMCNPM\QLPhongKhamTuNhan\obj\Debug\
+D:\7.Study\13.NhapMonCongNghePhanMen\DoAn\QLPhongKhamTuNhan\obj\Debug\
 QLPhongKhamTuNhan
 none
 false
 DEBUG;TRACE
-C:\Github\DoAn\NMCNPM\QLPhongKhamTuNhan\App.xaml
-31011274902
+D:\7.Study\13.NhapMonCongNghePhanMen\DoAn\QLPhongKhamTuNhan\App.xaml
+14-1865265973
 
-26228280336
-18219830550
-GUI\UIGeneral\LoginWindow.xaml;GUI\UIGeneral\MainWindow.xaml;GUI\UIReport\testGrid.xaml;
+37-1022901782
+181457571604
+GUI\UIAdmin\Dashboard.xaml;GUI\UIAdmin\Regulation.xaml;GUI\UIAdmin\User.xaml;GUI\UIDoctor\LapPhieuKhamBenh.xaml;GUI\UIDoctor\ListOfPatient.xaml;GUI\UIGeneral\Home.xaml;GUI\UIGeneral\LoginWindow.xaml;GUI\UIGeneral\MainWindow.xaml;GUI\UIReceptionist\CreateBill.xaml;GUI\UIReceptionist\CreatePatient.xaml;GUI\UIReceptionist\MakeListPatient.xaml;GUI\UIReport\Medicine.xaml;GUI\UIReport\testGrid.xaml;GUI\UIReport\Turnover.xaml;
 
-False
+True
 

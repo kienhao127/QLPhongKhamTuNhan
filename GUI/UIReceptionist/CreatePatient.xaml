@@ -26,7 +26,7 @@
             
             <!--Hàng 2-->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Giới tính: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Name="txtGioiTinh" Margin="5"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" Name="cboGioiTinh" Margin="5"/>
             
             <!--Hàng 3-->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Năm sinh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
