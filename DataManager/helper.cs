@@ -10,7 +10,6 @@ namespace QLPhongKhamTuNhan.DataManager
     {
         static public string getDateTimeNow()
         {
-
             return String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
         }
     }

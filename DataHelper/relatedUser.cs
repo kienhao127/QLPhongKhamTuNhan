@@ -69,6 +69,6 @@ namespace QLPhongKhamTuNhan.DataHelper
         {
             return (from row in Active.@select("SELECT function FROM role_function WHERE role='" + role_id + "' and is_delete=0").AsEnumerable()
                     select Convert.ToInt32(row["function"])).ToList();
-        }
+        }        
     }
 }

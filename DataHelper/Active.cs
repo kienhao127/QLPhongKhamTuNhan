@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace QLPhongKhamTuNhan.DataHelper
 {
@@ -13,13 +14,18 @@ namespace QLPhongKhamTuNhan.DataHelper
         static protected string connectString()
         {
             MySqlConnectionStringBuilder connectString = new MySqlConnectionStringBuilder();
-            connectString.Server = "85.10.205.173";
+            connectString.Server = "localhost";
+            connectString.UserID = "root";
+            connectString.Password = "";
+            connectString.Database = "db_priclinicmgt";
+            connectString.CharacterSet = "utf8";
+            connectString.Port = 3307;
+            /*connectString.Server = "85.10.205.173";
             connectString.UserID = "ad_priclinicmgt";
             connectString.Password = "nmcnpm28";
             connectString.Database = "db_priclinicmgt";
             connectString.CharacterSet = "utf8";
-            connectString.Port = 3307;
-            // server = 85.10.205.173; user = ad_priclinicmgt; database = db_priclinicmgt; port = 3307; password = nmcnpm28; charset = utf8
+            connectString.Port = 3307;*/
 
             return connectString.ToString();
         }
@@ -36,7 +42,7 @@ namespace QLPhongKhamTuNhan.DataHelper
                 }
                 return dt;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
@@ -54,7 +60,7 @@ namespace QLPhongKhamTuNhan.DataHelper
                 }
                 return change;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return -1;
             }
@@ -72,7 +78,7 @@ namespace QLPhongKhamTuNhan.DataHelper
                 }
                 return change;
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return -1;
             }

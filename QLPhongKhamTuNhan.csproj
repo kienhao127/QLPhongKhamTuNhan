@@ -104,8 +104,10 @@
     </Compile>
     <Compile Include="DataHelper\Active.cs" />
     <Compile Include="DataHelper\relatedChangeReg.cs" />
+    <Compile Include="DataHelper\relatedMedicalExam.cs" />
     <Compile Include="DataHelper\relatedUser.cs" />
     <Compile Include="DataManager\encodePassword.cs" />
+    <Compile Include="DataManager\helper.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
