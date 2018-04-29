@@ -1,0 +1,27 @@
+180429 21:36:12 [Note] Plugin 'FEDERATED' is disabled.
+InnoDB: The first specified data file .\ibdata1 did not exist:
+InnoDB: a new database to be created!
+180429 21:36:13  InnoDB: Setting file .\ibdata1 size to 10 MB
+InnoDB: Database physically writes the file full: wait...
+180429 21:36:14  InnoDB: Log file .\ib_logfile0 did not exist: new to be created
+InnoDB: Setting log file .\ib_logfile0 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+180429 21:36:14  InnoDB: Log file .\ib_logfile1 did not exist: new to be created
+InnoDB: Setting log file .\ib_logfile1 size to 5 MB
+InnoDB: Database physically writes the file full: wait...
+InnoDB: Doublewrite buffer not found: creating new
+InnoDB: Doublewrite buffer created
+InnoDB: Creating foreign key constraint system tables
+InnoDB: Foreign key constraint system tables created
+180429 21:36:15  InnoDB: Started; log sequence number 0 0
+180429 21:36:15 [Note] Event Scheduler: Loaded 0 events
+180429 21:36:15 [Note] wampmysqld: ready for connections.
+Version: '5.1.36-community-log'  socket: ''  port: 3306  MySQL Community Server (GPL)
+180429 22:04:27 [Note] wampmysqld: Normal shutdown
+
+180429 22:04:27 [Note] Event Scheduler: Purging the queue. 0 events
+180429 22:04:27  InnoDB: Starting shutdown...
+180429 22:04:30  InnoDB: Shutdown completed; log sequence number 0 191928
+180429 22:04:30 [Warning] Forcing shutdown of 1 plugins
+180429 22:04:30 [Note] wampmysqld: Shutdown complete
+
