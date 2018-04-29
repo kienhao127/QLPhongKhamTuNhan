@@ -12,45 +12,31 @@
             <ColumnDefinition Width="60" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Width="60" Orientation="Vertical" HorizontalAlignment="Left" Background="Blue">
+        <StackPanel Width="60" Orientation="Vertical" HorizontalAlignment="Left" Background="#FF03A9F4">
             <Border CornerRadius="50" Margin="5" Width="50" Height="50" Background="DarkCyan">
                 <TextBlock Text="Avatar" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
             </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnDashboard" Click="btnDashboard_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/Dashboard.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnMakeListPatientMenu" Click="btnMakeListPatientMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/list_patient.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnListPatientMenu" Click="btnListPatientMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/patient.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnTurnOverMenu" Click="btnTurnOverMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/turnover.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnMedicineMenu" Click="btnMedicineMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/medicine.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnRegulationMenu" Click="btnRegulationMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/rules.png" />
-                </Button>
-            </Border>
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50">
-                <Button Name="btnUserMenu" Click="btnUserMenu_Click" Background="Transparent" Padding="0">
-                    <Image Source="../Icons/user.png" />
-                </Button>
-            </Border>
+            <Button Name="btnDashboard" Click="btnDashboard_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Dashboard" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/Dashboard.png" Width="50" />
+            </Button>
+            <Button Name="btnMakeListPatientMenu" Click="btnMakeListPatientMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Lập danh sách bệnh nhân" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/list_patient.png" Width="50" />
+            </Button>
+            <Button Name="btnListPatientMenu" Click="btnListPatientMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Danh sách bệnh nhân" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/patient.png" Width="50" />
+            </Button>
+            <Button Name="btnTurnOverMenu" Click="btnTurnOverMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Báo cáo doanh thu" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/turnover.png" Width="50" />
+            </Button>
+            <Button Name="btnMedicineMenu" Click="btnMedicineMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Báo cáo sử dụng thuốc" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/medicine.png" Width="50" />
+            </Button>
+            <Button Name="btnRegulationMenu" Click="btnRegulationMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Quản lý quy định" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/rules.png" Width="50" />
+            </Button>
+            <Button Name="btnUserMenu" Click="btnUserMenu_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Quản lý người dùng" ToolTipService.Placement="Right" >
+                <Image Source="../Icons/user.png" Width="50" />
+            </Button>
         </StackPanel>
         <Frame Grid.Column="1" x:Name="Main" NavigationUIVisibility="Hidden" />
     </Grid>

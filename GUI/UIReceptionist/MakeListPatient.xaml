@@ -15,7 +15,9 @@
             <RowDefinition Height="50"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Lập danh sách khám bệnh" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+            <TextBlock Text="Lập danh sách khám bệnh" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        </Border>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
             <TextBlock Width="200" Height="50" Text="Ngày khám:" FontSize="35" />
             <TextBlock Width="200" Height="50" Text="20/4/2018" x:Name="currentDay"  FontSize="35" FontWeight="Bold" />

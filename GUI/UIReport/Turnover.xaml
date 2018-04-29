@@ -13,6 +13,8 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Báo cáo doanh thu" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+            <TextBlock Text="Báo cáo doanh thu" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        </Border>
     </Grid>
 </Page>

@@ -13,7 +13,9 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <TextBlock Text="Danh sách bệnh nhân" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+            <TextBlock Text="Danh sách bệnh nhân" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        </Border>
 
         <DataGrid Grid.Row="3" CanUserAddRows="False"  
                  x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
