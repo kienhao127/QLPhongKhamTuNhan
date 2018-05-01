@@ -24,6 +24,7 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
     /// </summary>
     public partial class LoginWindow : Window
     {
+        
         public LoginWindow()
         {
             InitializeComponent();
@@ -36,6 +37,11 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
 
             if (currentUser != null)
             {
+                if (Application.Current.Properties["UserInfo"] == null)
+                {
+                    Application.Current.Properties["UserInfo"] = currentUser;
+                }
+
                 MainWindow mainWindow = new MainWindow();
                 this.Close();
                 mainWindow.Show();

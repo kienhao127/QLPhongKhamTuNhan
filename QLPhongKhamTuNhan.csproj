@@ -102,10 +102,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataHelper\Active.cs" />
-    <Compile Include="DataManager\relatedChangeReg.cs" />
-    <Compile Include="DataManager\relatedMedicalExam.cs" />
-    <Compile Include="DataManager\relatedUser.cs" />
+    <Compile Include="Helper\Active.cs" />
+    <Compile Include="Helper\DataHelper.cs" />
+    <Compile Include="Manager\DataManager.cs" />
     <Compile Include="Utils\encodePassword.cs" />
     <Compile Include="Utils\helper.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
@@ -339,7 +338,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomControls\" />
-    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

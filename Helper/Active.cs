@@ -7,11 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace QLPhongKhamTuNhan.DataHelper
+namespace Helper
 {
-    class Active
+    public static class Active
     {
-        static protected string connectString()
+        static string connectString()
         {
             MySqlConnectionStringBuilder connectString = new MySqlConnectionStringBuilder();
             connectString.Server = "localhost";
@@ -19,7 +19,7 @@ namespace QLPhongKhamTuNhan.DataHelper
             connectString.Password = "";
             connectString.Database = "db_priclinicmgt";
             connectString.CharacterSet = "utf8";
-            connectString.Port = 3307;
+            connectString.Port = 3306;
             /*connectString.Server = "85.10.205.173";
             connectString.UserID = "ad_priclinicmgt";
             connectString.Password = "nmcnpm28";
@@ -30,7 +30,7 @@ namespace QLPhongKhamTuNhan.DataHelper
             return connectString.ToString();
         }
 
-        static public DataTable select(string query)
+        public static DataTable select(string query)
         {
             try
             {
@@ -48,7 +48,28 @@ namespace QLPhongKhamTuNhan.DataHelper
             }
         }
 
-        static public short insert(string query)
+        public static short insert(string query)
+        {
+            short change = 0;
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectString()))
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    connection.Open();
+                    change = Convert.ToInt16(cmd.ExecuteNonQuery());
+                    connection.Close();
+                }
+                return change;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+                return -1;
+            }
+        }
+
+        public static short update(string query)
         {
             short change = 0;
             try
@@ -66,25 +87,7 @@ namespace QLPhongKhamTuNhan.DataHelper
             }
         }
 
-        static public short update(string query)
-        {
-            short change = 0;
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectString()))
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
-                {
-                    change = Convert.ToInt16(cmd.ExecuteNonQuery());
-                }
-                return change;
-            }
-            catch (Exception e)
-            {
-                return -1;
-            }
-        }
-
-        public short delete(string query)
+        public static short delete(string query)
         {
             short change = 0;
             try
