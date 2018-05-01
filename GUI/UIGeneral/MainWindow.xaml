@@ -5,12 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIGeneral"
         mc:Ignorable="d"
-        xmlns:c="clr-namespace:QLPhongKhamTuNhan.Utils"
         Title="Quản lý phòng khám tư nhân" Height="720" Width="1280"
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <c:RoleVisibilityConverter x:Key="BoolToVisConv" />
-    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60" />

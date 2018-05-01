@@ -24,6 +24,8 @@ namespace QLPhongKhamTuNhan.Model
         public int role_id { get { return _role_id; } set { _role_id = value; } }
         internal List<Role> role { get { return _role; } set { _role = value; } }
 
+        public User() { }
+
         public User(string name,string full_name, string password,string email,int role_id)
         {
             _name = name;
