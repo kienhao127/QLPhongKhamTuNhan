@@ -33,5 +33,23 @@ namespace Manager
             DataHelper dataHelper = new DataHelper();
             return dataHelper.getRoleFunction(roleId);
         }
+
+        public int countAllUser()
+        {
+            DataHelper dataHelper = new DataHelper();
+            return dataHelper.countAllUser();
+        }
+
+        public int countAllPatient()
+        {
+            DataHelper dataHelper = new DataHelper();
+            return dataHelper.countAllPatient();
+        }
+
+        public int getTurnover()
+        {
+            DataHelper dataHelper = new DataHelper();
+            return dataHelper.getTurnover();
+        }
     }
 }

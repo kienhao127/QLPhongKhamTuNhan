@@ -41,5 +41,28 @@ namespace Helper
             }
             return listFunc;
         }
+
+        public int countAllUser()
+        {
+            DataTable dt = Active.select("SELECT * FROM user");
+            return dt.Rows.Count;
+        }
+
+        public int countAllPatient()
+        {
+            DataTable dt = Active.select("SELECT COUNT(DISTINCT p.id) totalPatient FROM patient p, medical_exam me WHERE p.id = me.patient_id and MONTH(me.`date_exam`) = MONTH(CURRENT_DATE()) ");
+            return Convert.ToInt32(dt.Rows[0]["totalPatient"]);
+        }
+
+        public int getTurnover()
+        {
+            DataTable dt = Active.select("SELECT SUM(me.fee_exam) + SUM(me.fee_medicine) as turnover FROM medical_exam as me WHERE MONTH(me.`date_exam`) = MONTH(CURRENT_DATE()) ");
+            int result = 0;
+            if (dt.Rows[0]["turnover"].ToString() != "")
+            {
+                result = Convert.ToInt32(dt.Rows[0]["turnover"]);
+            }
+            return result;
+        }
     }
 }

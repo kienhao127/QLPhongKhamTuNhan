@@ -17,9 +17,50 @@
             <TextBlock Text="Dashboard" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
         </Border>
         <StackPanel Grid.Row="1">
-            <Button x:Name="btnAdminUser" Background="#268e16" Width="200" Height="150">
-                Total User
-            </Button>
+            <WrapPanel>
+                <!--Button User-->
+                <Button Background="Transparent" x:Name="btnAdminUser" Margin="10,20,10,5" Width="180" Height="80" BorderThickness="0,0,1,0" BorderBrush="Black" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Icons/ad_user.png" Width="20" VerticalAlignment="Center" />
+                            <TextBlock Text="Total Users" FontSize="16" VerticalAlignment="Center" Foreground="Black" Margin="10,0,0,0" />
+                        </StackPanel>
+                        <TextBlock Name="tblTotalUser" Grid.Row="1" FontSize="40" Foreground="Blue" HorizontalAlignment="Center"/>
+                    </Grid>
+                </Button>
+                <!-- Button Patient -->
+                <Button Background="Transparent" x:Name="btnAdminPatient" Margin="10,20,10,5" Width="180" Height="80" BorderThickness="0,0,1,0" BorderBrush="Black" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Icons/ad_user.png" Width="20" VerticalAlignment="Center" />
+                            <TextBlock Text="Total Patients" FontSize="16" VerticalAlignment="Center" Foreground="Black" Margin="10,0,0,0" />
+                        </StackPanel>
+                        <TextBlock Name="tblTotalPatient" Grid.Row="1" FontSize="40" Foreground="Blue" HorizontalAlignment="Center" />
+                    </Grid>
+                </Button>
+                <!-- Button Turnover -->
+                <Button Background="Transparent" x:Name="btnAdminTurnover" Margin="10,20,10,5" Width="180" Height="80" BorderThickness="0" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Icons/ad_user.png" Width="20" VerticalAlignment="Center" />
+                            <TextBlock Text="Turnover" FontSize="16" VerticalAlignment="Center" Foreground="Black" Margin="10,0,0,0" />
+                        </StackPanel>
+                        <TextBlock Name="tblTotalTurnover" Grid.Row="1" FontSize="40" Foreground="Blue" HorizontalAlignment="Center" />
+                    </Grid>
+                </Button>
+            </WrapPanel>
         </StackPanel>
     </Grid>
 </Page>

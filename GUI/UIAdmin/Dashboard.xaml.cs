@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         public Dashboard()
         {
             InitializeComponent();
+            int totalUser = DataManager.getInstance().countAllUser();
+            tblTotalUser.Text = totalUser.ToString();
+            int totalPatient = DataManager.getInstance().countAllPatient();
+            tblTotalPatient.Text = totalPatient.ToString();
+            int turnover = DataManager.getInstance().getTurnover();
+            tblTotalTurnover.Text = turnover.ToString();
         }
     }
 }
