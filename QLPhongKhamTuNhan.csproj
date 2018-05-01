@@ -66,6 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utils\Converter.cs" />
     <Page Include="GUI\UIAdmin\Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,7 +224,6 @@
     <Folder Include="CustomControls\" />
     <Folder Include="Data\" />
     <Folder Include="packages\MaterialDesignThemes.2.3.0.823\src\" />
-    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

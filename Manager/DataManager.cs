@@ -1,5 +1,6 @@
 ﻿using Helper;
 using QLPhongKhamTuNhan.Model;
+using System.Collections.Generic;
 
 namespace Manager
 {
@@ -25,6 +26,12 @@ namespace Manager
         {
             DataHelper dataHelper = new DataHelper();
             return dataHelper.login(username, pw);
+        }
+
+        public List<int> getRoleFunction(int roleId)
+        {
+            DataHelper dataHelper = new DataHelper();
+            return dataHelper.getRoleFunction(roleId);
         }
     }
 }
