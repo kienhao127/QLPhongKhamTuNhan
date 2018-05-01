@@ -1,4 +1,4 @@
-﻿using Helper;
+﻿using QLPhongKhamTuNhan.DataHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
