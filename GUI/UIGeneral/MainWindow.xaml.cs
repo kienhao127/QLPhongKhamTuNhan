@@ -57,7 +57,7 @@ namespace QLPhongKhamTuNhan
 
         private void btnUserMenu_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new User();
+            Main.Content = new UserManagement();
         }
 
         void setRold(List<int> listFunc)

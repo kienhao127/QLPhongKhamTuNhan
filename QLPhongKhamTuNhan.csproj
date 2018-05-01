@@ -66,6 +66,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="GUI\UIAdmin\AddUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\UIAdmin\Dashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,7 +78,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GUI\UIAdmin\User.xaml">
+    <Page Include="GUI\UIAdmin\UserManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,6 +106,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GUI\UIAdmin\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helper\Active.cs" />
     <Compile Include="Helper\DataHelper.cs" />
     <Compile Include="Manager\DataManager.cs" />
@@ -113,8 +120,8 @@
     <Compile Include="GUI\UIAdmin\Regulation.xaml.cs">
       <DependentUpon>Regulation.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GUI\UIAdmin\User.xaml.cs">
-      <DependentUpon>User.xaml</DependentUpon>
+    <Compile Include="GUI\UIAdmin\UserManagement.xaml.cs">
+      <DependentUpon>UserManagement.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UIDoctor\LapPhieuKhamBenh.xaml.cs">
       <DependentUpon>LapPhieuKhamBenh.xaml</DependentUpon>

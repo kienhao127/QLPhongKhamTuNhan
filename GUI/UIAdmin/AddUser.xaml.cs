@@ -10,19 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace QLPhongKhamTuNhan.GUI.UIAdmin
 {
     /// <summary>
-    /// Interaction logic for User.xaml
+    /// Interaction logic for AddUser.xaml
     /// </summary>
-    public partial class User : Page
+    public partial class AddUser : Window
     {
-        public User()
+        public AddUser()
         {
             InitializeComponent();
+            var role = new Dictionary<int, string>
+            {
+                [1] = "Admin",
+                [2] = "Bác sĩ",
+                [3] = "Tiếp tân"
+            };
+            cbRole.DataContext = role;
+        }
+
+        private void btnAddUserDB_Click(object sender, RoutedEventArgs e)
+        {
+            var selectRole = cbRole.SelectedItem;
         }
     }
 }
