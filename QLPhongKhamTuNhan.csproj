@@ -341,10 +341,7 @@
   <ItemGroup>
     <Folder Include="CustomControls\" />
     <Folder Include="Data\" />
-<<<<<<< HEAD
     <Folder Include="packages\MaterialDesignThemes.2.3.0.823\src\" />
-=======
->>>>>>> b43f1abcc1002bb11fd21c0ef95f725fe08a9abf
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
