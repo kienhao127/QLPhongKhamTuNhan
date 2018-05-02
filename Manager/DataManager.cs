@@ -24,32 +24,27 @@ namespace Manager
 
         public User login(string username, string pw)
         {
-            DataHelper dataHelper = new DataHelper();
-            return dataHelper.login(username, pw);
+            return DataHelper.login(username, pw);
         }
 
         public List<int> getRoleFunction(int roleId)
         {
-            DataHelper dataHelper = new DataHelper();
-            return dataHelper.getRoleFunction(roleId);
+            return DataHelper.getRoleFunction(roleId);
         }
 
         public int countAllUser()
         {
-            DataHelper dataHelper = new DataHelper();
-            return dataHelper.countAllUser();
+            return DataHelper.countAllUser();
         }
 
         public int countAllPatient()
         {
-            DataHelper dataHelper = new DataHelper();
-            return dataHelper.countAllPatient();
+            return DataHelper.countAllPatient();
         }
 
         public int getTurnover()
         {
-            DataHelper dataHelper = new DataHelper();
-            return dataHelper.getTurnover();
+            return DataHelper.getTurnover();
         }
     }
 }

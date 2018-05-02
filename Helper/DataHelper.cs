@@ -17,7 +17,7 @@ namespace Helper
         }
 
         //Người dùng
-        public User login(string username, string pw)
+        static public User login(string username, string pw)
         {
             DataTable dt = Active.select("SELECT id, role_id FROM [user] WHERE user='" + username + "' and pw='" + pw + "';");
             User user = new User();
@@ -30,7 +30,7 @@ namespace Helper
         }
 
         //Phân quyền người dùng
-        public List<int> getRoleFunction(int roleid)
+        static public List<int> getRoleFunction(int roleid)
         {
             DataTable dt = Active.select("select function from [role_function] where role=" + roleid + " and is_delete = " + 0);
             List<int> listFunc = new List<int>();
@@ -42,19 +42,19 @@ namespace Helper
             return listFunc;
         }
 
-        public int countAllUser()
+        static public int countAllUser()
         {
             DataTable dt = Active.select("SELECT * FROM user");
             return dt.Rows.Count;
         }
 
-        public int countAllPatient()
+        static public int countAllPatient()
         {
             DataTable dt = Active.select("SELECT COUNT(DISTINCT p.id) totalPatient FROM [patient] p, [medical_exam] me WHERE p.id = me.patient_id and MONTH(me.`date_exam`) = MONTH(CURRENT_DATE()) ");
             return Convert.ToInt32(dt.Rows[0]["totalPatient"]);
         }
 
-        public int getTurnover()
+        static public int getTurnover()
         {
             DataTable dt = Active.select("SELECT SUM(me.fee_exam) + SUM(me.fee_medicine) as turnover FROM [medical_exam] as me WHERE MONTH(me.`date_exam`) = MONTH(CURRENT_DATE()) ");
             int result = 0;
