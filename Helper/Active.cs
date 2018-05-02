@@ -1,7 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,21 +13,9 @@ namespace Helper
     {
         static string connectString()
         {
-            MySqlConnectionStringBuilder connectString = new MySqlConnectionStringBuilder();
-            connectString.Server = "localhost";
-            connectString.UserID = "root";
-            connectString.Password = "";
-            connectString.Database = "db_priclinicmgt";
-            connectString.CharacterSet = "utf8";
-            connectString.Port = 3306;
-            /*connectString.Server = "85.10.205.173";
-            connectString.UserID = "ad_priclinicmgt";
-            connectString.Password = "nmcnpm28";
-            connectString.Database = "db_priclinicmgt";
-            connectString.CharacterSet = "utf8";
-            connectString.Port = 3307;*/
-
-            return connectString.ToString();
+            
+            return @"Provider=Microsoft.Jet.OLEDB.4.0;" +
+                                    @"Data Source=db_priclinicmgt.mdb";
         }
 
         public static DataTable select(string query)
@@ -35,15 +23,22 @@ namespace Helper
             try
             {
                 DataTable dt = new DataTable();
-                using (MySqlConnection connection = new MySqlConnection(connectString()))
-                using (MySqlDataAdapter adapter = new MySqlDataAdapter(query, connection))
+                using (OleDbConnection connection = new OleDbConnection(connectString()))
+                using (OleDbCommand command = new OleDbCommand())
                 {
-                    adapter.Fill(dt);
+                    connection.Open();
+                    command.CommandText = query;
+                    command.Connection = connection;
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                    {
+                        adapter.Fill(dt);
+                    }
                 }
                 return dt;
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return null;
             }
         }
@@ -53,8 +48,8 @@ namespace Helper
             short change = 0;
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectString()))
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (OleDbConnection connection = new OleDbConnection(connectString()))
+                using (OleDbCommand cmd = new OleDbCommand(query, connection))
                 {
                     connection.Open();
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
@@ -74,8 +69,8 @@ namespace Helper
             short change = 0;
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectString()))
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (OleDbConnection connection = new OleDbConnection(connectString()))
+                using (OleDbCommand cmd = new OleDbCommand(query, connection))
                 {
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
                 }
@@ -83,6 +78,7 @@ namespace Helper
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return -1;
             }
         }
@@ -92,15 +88,16 @@ namespace Helper
             short change = 0;
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connectString()))
-                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                using (OleDbConnection connection = new OleDbConnection(connectString()))
+                using (OleDbCommand cmd = new OleDbCommand(query, connection))
                 {
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
                 }
                 return change;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return -1;
             }
         }
