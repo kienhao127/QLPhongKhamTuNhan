@@ -44,6 +44,7 @@ namespace Helper
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return null;
             }
         }
@@ -83,6 +84,7 @@ namespace Helper
             }
             catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return -1;
             }
         }
@@ -99,8 +101,9 @@ namespace Helper
                 }
                 return change;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                MessageBox.Show(e.ToString());
                 return -1;
             }
         }

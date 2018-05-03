@@ -21,7 +21,7 @@ namespace Helper
         {
             DataTable dt = Active.select("select id, role_id from user where user='" + username + "' and pw='" + pw + "'");
             User user = new User();
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < dt.Rows.Count && dt != null; i++)
             {
                 user.id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
                 user.role_id = Convert.ToInt32(dt.Rows[i].ItemArray[1]);
