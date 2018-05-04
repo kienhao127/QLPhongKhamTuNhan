@@ -13,7 +13,7 @@
         <Label x:Name="label" Content=" Tháng:" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Năm:" HorizontalAlignment="Left" Margin="176,13,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbxYear" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="219,14,0,0" VerticalAlignment="Top" Width="92"/>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="522" Margin="0,47,0,0" VerticalAlignment="Top" Width="592">
+        <WindowsFormsHost Name="wfh" HorizontalAlignment="Left" Height="522" Margin="0,47,0,0" VerticalAlignment="Top" Width="592">
             <rv:ReportViewer x:Name="report"/>
         </WindowsFormsHost>
     </Grid>

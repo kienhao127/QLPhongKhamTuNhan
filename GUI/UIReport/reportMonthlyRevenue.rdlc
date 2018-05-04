@@ -6,19 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.05625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.98333in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.09375in</Width>
+              <Width>1.70208in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.61875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.30625in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -307,7 +307,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!day_revenue.Value</Value>
+                              <Value>=Format(Fields!day_revenue.Value,"#.##0")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -384,10 +384,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dataset</DataSetName>
-        <Top>0.80083in</Top>
-        <Left>0.25917in</Left>
+        <Top>0.95708in</Top>
+        <Left>0.405in</Left>
         <Height>0.5in</Height>
-        <Width>5.09375in</Width>
+        <Width>7.66667in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -402,7 +402,11 @@
             <TextRuns>
               <TextRun>
                 <Value>BÁO CÁO DOANH THU THEO NGÀY</Value>
-                <Style />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -413,7 +417,7 @@
         <rd:DefaultName>Textbox17</rd:DefaultName>
         <Top>0.155in</Top>
         <Height>0.25in</Height>
-        <Width>5.54167in</Width>
+        <Width>8.5in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -433,7 +437,10 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!txtMonth.Value</Value>
-                <Style />
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -441,9 +448,9 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>0.45708in</Top>
+        <Top>0.57167in</Top>
         <Height>0.25in</Height>
-        <Width>5.54167in</Width>
+        <Width>8.5in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -456,10 +463,14 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>1.54167in</Height>
-    <Style />
+    <Height>11in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
   </Body>
-  <Width>5.54167in</Width>
+  <Width>8.5in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>

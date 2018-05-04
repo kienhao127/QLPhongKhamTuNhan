@@ -1,5 +1,6 @@
 ﻿using Helper;
 using Microsoft.Reporting.WinForms;
+using QLPhongKhamTuNhan.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,24 +30,8 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
         private void button_Click(object sender, RoutedEventArgs e)
         {
             report.Reset();            
-            
-            
-            ReportDataSource ds = new ReportDataSource("dataset", Active.select("SELECT m0.date_exam, "+
-                                                                                "COUNT(*) num_patient, " +
-                                                                                "SUM(m0.fee_exam + m0.fee_medicine) day_revenue," +
-                                                                                "sum(m0.fee_exam + m0.fee_medicine) / totals.total radio" +
-                                                                                "FROM medical_exam m0, (" +
-                                                                                "    select m1.date_exam," +
-                                                                                "    SUM(m1.fee_exam + m1.fee_medicine) total" +
-                                                                                "    from medical_exam m1" +
-                                                                                "    WHERE MONTH(m1.date_exam) = "+cbxMonth.SelectedValue +
-                                                                                "        and YEAR(m1.date_exam) = " + cbxYear.SelectedValue +
-                                                                                "    GROUP BY m1.date_exam" +
-                                                                                ") as totals" +
-                                                                                "WHERE MONTH(m0.date_exam) = " + cbxMonth.SelectedValue +
-                                                                                "        and YEAR(m0.date_exam) = " + cbxYear.SelectedValue +
-                                                                                "        and totals.date_exam = m0.date_exam" +
-                                                                                "GROUP by date_exam"));
+                        
+            ReportDataSource ds = new ReportDataSource("dataset", DataReport.MonthlyRevenue(cbxMonth.SelectedValue.ToString(), cbxYear.SelectedValue.ToString()));
 
             report.LocalReport.DataSources.Add(ds);
 
@@ -55,6 +40,8 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
             ReportParameter rp = new ReportParameter("txtMonth", "Tháng: " + cbxMonth.SelectedValue + "/" + cbxYear.SelectedValue);
             report.LocalReport.SetParameters(new ReportParameter[] { rp });
 
+            report.ZoomMode = ZoomMode.PageWidth;
+            
             report.RefreshReport();
         }
 
@@ -65,10 +52,14 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
             cbxMonth.SelectedValue = DateTime.Now.Month.ToString();
 
             for (int i = DateTime.Now.Year; i >= 1996; i--)
-            {
                 cbxYear.Items.Add(i.ToString());
-            }
             cbxYear.SelectedValue = DateTime.Now.Year.ToString();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            wfh.Width = Width - 16;
+            wfh.Height = Height - 39 - 47;
         }
     }
 }

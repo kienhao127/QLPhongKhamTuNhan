@@ -5,15 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIReport"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
-        mc:Ignorable="d"
-        Title="reportDoanhThuThang" Height="600" Width="600" Initialized="Window_Initialized">
+        mc:Ignorable="d" Height="600" Width="600" Initialized="Window_Initialized" SizeChanged="Window_SizeChanged" Title="BÁO CÁO DOANH THU THEO THÁNG">
     <Grid>
         <Button x:Name="button" Content="Xuất báo cáo" HorizontalAlignment="Left" Margin="367,10,0,0" VerticalAlignment="Top" Width="121" Click="button_Click"/>
         <ComboBox x:Name="cbxMonth" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="64,14,0,0" VerticalAlignment="Top" Width="43"/>
         <Label x:Name="label" Content=" Tháng:" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Năm:" HorizontalAlignment="Left" Margin="176,13,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cbxYear" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="219,14,0,0" VerticalAlignment="Top" Width="92"/>
-        <WindowsFormsHost HorizontalAlignment="Left" Height="522" Margin="0,47,0,0" VerticalAlignment="Top" Width="592">
+        <WindowsFormsHost Name="wfh" HorizontalAlignment="Left" Height="553" Margin="0,47,0,0" VerticalAlignment="Top" Width="584">
             <rv:ReportViewer x:Name="report"/>
         </WindowsFormsHost>
 

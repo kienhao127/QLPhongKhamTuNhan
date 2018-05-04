@@ -130,6 +130,7 @@
     <Compile Include="Helper\Active.cs" />
     <Compile Include="Helper\DataHelper.cs" />
     <Compile Include="Manager\DataManager.cs" />
+    <Compile Include="Manager\DataReport.cs" />
     <Compile Include="Utils\encodePassword.cs" />
     <Compile Include="Utils\helper.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">

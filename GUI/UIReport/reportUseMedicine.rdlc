@@ -10,7 +10,10 @@
             <TextRuns>
               <TextRun>
                 <Value>BÁO CÁO SỬ DỤNG THUỐC</Value>
-                <Style />
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -20,8 +23,8 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.13417in</Top>
-        <Height>0.25in</Height>
-        <Width>4.85417in</Width>
+        <Height>0.27777in</Height>
+        <Width>8.5in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -40,7 +43,10 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!txtMonth.Value</Value>
-                <Style />
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -49,9 +55,9 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>0.45361in</Top>
+        <Top>0.57861in</Top>
         <Height>0.25in</Height>
-        <Width>4.85417in</Width>
+        <Width>8.5in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -67,19 +73,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.32292in</Width>
+              <Width>1.01667in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.81875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.69375in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.69375in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.69375in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -96,7 +102,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>STT</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -107,9 +116,9 @@
                       <rd:DefaultName>Textbox3</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Black</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -128,7 +137,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Thuốc</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -139,9 +151,9 @@
                       <rd:DefaultName>Textbox5</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Black</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -160,7 +172,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Đơn Vị Tính</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -171,9 +186,9 @@
                       <rd:DefaultName>Textbox9</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Black</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -192,7 +207,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Số Lượng</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -203,9 +221,9 @@
                       <rd:DefaultName>Textbox11</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Black</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -224,7 +242,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Số Lần Dùng</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                                <Color>White</Color>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -235,9 +256,9 @@
                       <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Black</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -272,7 +293,6 @@
                       <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -297,14 +317,13 @@
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Center</TextAlign>
+                            <TextAlign>Left</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>medicine_name</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -336,7 +355,6 @@
                       <rd:DefaultName>unit</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -368,7 +386,6 @@
                       <rd:DefaultName>amount</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -400,7 +417,6 @@
                       <rd:DefaultName>number_times</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
                         <PaddingLeft>2pt</PaddingLeft>
@@ -438,7 +454,7 @@
         <Top>0.98833in</Top>
         <Left>0.29167in</Left>
         <Height>0.5in</Height>
-        <Width>4.32292in</Width>
+        <Width>7.91667in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -447,10 +463,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>12in</Height>
     <Style />
   </Body>
-  <Width>4.85417in</Width>
+  <Width>8.5in</Width>
   <Page>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
