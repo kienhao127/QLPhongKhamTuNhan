@@ -21,9 +21,22 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
     /// </summary>
     public partial class AddUser : Window
     {
-        public AddUser()
+        public AddUser(User u)
         {
             InitializeComponent();
+            if(u != null)
+            {
+                lblTitle.Content = "CHỈNH SỬA NGƯỜI DÙNG";
+                DataContext = u;
+                u.role_id = u.role_id - 1;
+                btnAddUserDB.Visibility = Visibility.Hidden;            }
+            else
+            {
+                User us = new User();
+                DataContext = us;
+                us.role_id = 0;
+                btnEditUserDB.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnAddUserDB_Click(object sender, RoutedEventArgs e)
@@ -37,6 +50,11 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
             User newUser = new User(txtAddUsername.Text, txtAddFullname.Text, txtAddPassword.Password, txtAddEmail.Text, selectRole + 1);
             int id = DataManager.getInstance().insertUser(newUser);
+        }
+
+        private void btnEditUserDB_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

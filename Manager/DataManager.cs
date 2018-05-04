@@ -51,5 +51,10 @@ namespace Manager
         {
             return DataHelper.insertUser(u);
         }
+
+        public List<User> getAllUser()
+        {
+            return DataHelper.getAllUser();
+        }
     }
 }

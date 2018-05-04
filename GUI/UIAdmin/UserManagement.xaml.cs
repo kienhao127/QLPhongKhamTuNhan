@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Manager;
+using QLPhongKhamTuNhan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +25,20 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         public UserManagement()
         {
             InitializeComponent();
+            DataContext = DataManager.getInstance().getAllUser();
         }
 
         private void btnAddUser_Click(object sender, RoutedEventArgs e)
         {
-            AddUser newUser = new AddUser();
-            newUser.Show();
+            AddUser newUser = new AddUser(null);
+            newUser.ShowDialog();
+        }
+
+        private void btnEditUser_Click(object sender, RoutedEventArgs e)
+        {
+            User item = userDataGrid.SelectedItem as User;
+            AddUser editUser = new AddUser(item);
+            editUser.ShowDialog();
         }
     }
 }

@@ -21,24 +21,26 @@
             <RowDefinition Height="50" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Label Grid.ColumnSpan="2" Content="TẠO MỚI TÀI KHOẢN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+        <Label Grid.ColumnSpan="2" x:Name="lblTitle" Content="TẠO MỚI TÀI KHOẢN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">Tên người dùng:</Label>
         <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">Mật khẩu:</Label>
         <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">Nhập lại mật khẩu:</Label>
         <Label Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">Họ và tên:</Label>
         <Label Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">Email:</Label>
         <Label Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center">Loại người dùng:</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="txtAddUsername" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" />
+        <TextBox Grid.Column="1" Grid.Row="1" Name="txtAddUsername" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding name}" />
         <PasswordBox Grid.Column="1" Grid.Row="2" Name="txtAddPassword" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16"/>
         <PasswordBox Grid.Column="1" Grid.Row="3" Name="txtAddConfirmPass" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16"/>
-        <TextBox Grid.Column="1" Grid.Row="4" Name="txtAddFullname" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" />
-        <TextBox Grid.Column="1" Grid.Row="5" Name="txtAddEmail" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" />
-        <ComboBox x:Name="cbRole" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" >
-            <ComboBoxItem IsSelected="True">Admin</ComboBoxItem>
+        <TextBox Grid.Column="1" Grid.Row="4" Name="txtAddFullname" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding full_name}" />
+        <TextBox Grid.Column="1" Grid.Row="5" Name="txtAddEmail" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding email}" />
+        <ComboBox x:Name="cbRole" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" SelectedIndex="{Binding role_id}" >
+            <ComboBoxItem>Admin</ComboBoxItem>
             <ComboBoxItem>Bác sĩ</ComboBoxItem>
             <ComboBoxItem>Tiếp tân</ComboBoxItem>
         </ComboBox>
         <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnAddUserDB" Content="Thêm" VerticalAlignment="Top" HorizontalAlignment="Center"
                 Click="btnAddUserDB_Click" Width="120" Height="40" Margin="0,20,0,0"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnEditUserDB" Content="Cập nhật" VerticalAlignment="Top" HorizontalAlignment="Center"
+                Click="btnEditUserDB_Click" Width="120" Height="40" Margin="0,20,0,0"/>
     </Grid>
 </Window>

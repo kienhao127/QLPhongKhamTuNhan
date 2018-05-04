@@ -8,14 +8,71 @@
       d:DesignHeight="720" d:DesignWidth="1220"
       Title="User">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="80" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
             <TextBlock Text="Quản lý người dùng" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
         </Border>
         <Button Grid.Row="1" Width="200" Height="50" x:Name="btnAddUser" Click="btnAddUser_Click">Thêm</Button>
+        <DataGrid Grid.Row="2" CanUserAddRows="False"  
+                 x:Name="userDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+            <DataGrid.Columns>
+                <!--STT-->
+                <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Ten nguoi dung-->
+                <DataGridTemplateColumn Width="300"  Header="Tên người dùng" x:Name="usernameCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Ho va ten-->
+                <DataGridTemplateColumn Width="400"  Header="Họ và tên" x:Name="fullnameCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding full_name}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!--Email-->
+                <DataGridTemplateColumn Width="200"  Header="Email" x:Name="emailCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding email}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <!-- Chức năng -->
+                <DataGridTemplateColumn x:Name="editCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditUser" Click="btnEditUser_Click">Sửa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="delCol">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteUser" Background="Red" BorderBrush="Red">Xóa</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

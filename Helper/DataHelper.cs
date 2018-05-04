@@ -70,5 +70,24 @@ namespace Helper
             int id = Active.insert("INSERT INTO user(user, name, pw, email, role_id) VALUES ('" + u.name + "',N'" + u.full_name + "','" + u.password + "','" + u.email + "','" + u.role_id + "')");
             return id;
         }
+
+        static public List<User> getAllUser()
+        {
+            DataTable dt = Active.select("select * from user where is_delete = " + 0);
+            List<User> listUser = new List<User>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                User u = new User();
+                u.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                u.name = dt.Rows[i]["user"].ToString();
+                u.full_name = dt.Rows[i]["name"].ToString();
+                u.password = dt.Rows[i]["pw"].ToString();
+                u.email = dt.Rows[i]["email"].ToString();
+                u.role_id = Convert.ToInt32(dt.Rows[i]["role_id"]);
+                listUser.Add(u);
+            }
+            return listUser;
+        }
     }
 }
