@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Manager;
+using QLPhongKhamTuNhan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,18 +24,19 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         public AddUser()
         {
             InitializeComponent();
-            var role = new Dictionary<int, string>
-            {
-                [1] = "Admin",
-                [2] = "Bác sĩ",
-                [3] = "Tiếp tân"
-            };
-            cbRole.DataContext = role;
         }
 
         private void btnAddUserDB_Click(object sender, RoutedEventArgs e)
         {
-            var selectRole = cbRole.SelectedItem;
+            var selectRole = cbRole.SelectedIndex;
+            //Kiem tra du lieu trong cac o da duoc dien day du chua
+            if(txtAddUsername.Text == "" || txtAddPassword.Password == "" || txtAddConfirmPass.Password == "" || txtAddFullname.Text == "" || txtAddEmail.Text == "")
+            {
+                MessageBox.Show("Dữ liệu chưa đầy đủ");
+                return;
+            }
+            User newUser = new User(txtAddUsername.Text, txtAddFullname.Text, txtAddPassword.Password, txtAddEmail.Text, selectRole + 1);
+            int id = DataManager.getInstance().insertUser(newUser);
         }
     }
 }

@@ -64,5 +64,11 @@ namespace Helper
             }
             return result;
         }
+
+        static public int insertUser(User u)
+        {
+            int id = Active.insert("INSERT INTO user(user, name, pw, email, role_id) VALUES ('" + u.name + "',N'" + u.full_name + "','" + u.password + "','" + u.email + "','" + u.role_id + "')");
+            return id;
+        }
     }
 }
