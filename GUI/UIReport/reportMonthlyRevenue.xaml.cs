@@ -20,9 +20,9 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
     /// <summary>
     /// Interaction logic for reportDoanhThuThang.xaml
     /// </summary>
-    public partial class reportDoanhThuThang : Window
+    public partial class reportMonthlyRevenue : Window
     {
-        public reportDoanhThuThang()
+        public reportMonthlyRevenue()
         {
             InitializeComponent();
         }
