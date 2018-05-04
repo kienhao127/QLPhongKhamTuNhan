@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dataset" targetNamespace="http://tempuri.org/dataset.xsd" xmlns:mstns="http://tempuri.org/dataset.xsd" xmlns="http://tempuri.org/dataset.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dataset" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dataset" msprop:Generator_UserDSName="dataset">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="reportMonthlyRevenue" msprop:Generator_TableClassName="reportMonthlyRevenueDataTable" msprop:Generator_TableVarName="tablereportMonthlyRevenue" msprop:Generator_TablePropName="reportMonthlyRevenue" msprop:Generator_RowDeletingName="reportMonthlyRevenueRowDeleting" msprop:Generator_RowChangingName="reportMonthlyRevenueRowChanging" msprop:Generator_RowEvHandlerName="reportMonthlyRevenueRowChangeEventHandler" msprop:Generator_RowDeletedName="reportMonthlyRevenueRowDeleted" msprop:Generator_UserTableName="reportMonthlyRevenue" msprop:Generator_RowChangedName="reportMonthlyRevenueRowChanged" msprop:Generator_RowEvArgName="reportMonthlyRevenueRowChangeEvent" msprop:Generator_RowClassName="reportMonthlyRevenueRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="date_exam" msprop:Generator_ColumnVarNameInTable="columndate_exam" msprop:Generator_ColumnPropNameInRow="date_exam" msprop:Generator_ColumnPropNameInTable="date_examColumn" msprop:Generator_UserColumnName="date_exam" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="num_patient" msprop:Generator_ColumnVarNameInTable="columnnum_patient" msprop:Generator_ColumnPropNameInRow="num_patient" msprop:Generator_ColumnPropNameInTable="num_patientColumn" msprop:Generator_UserColumnName="num_patient" type="xs:short" minOccurs="0" />
+              <xs:element name="day_revenue" msprop:Generator_ColumnVarNameInTable="columnday_revenue" msprop:Generator_ColumnPropNameInRow="day_revenue" msprop:Generator_ColumnPropNameInTable="day_revenueColumn" msprop:Generator_UserColumnName="day_revenue" type="xs:int" minOccurs="0" />
+              <xs:element name="radio" msprop:Generator_ColumnVarNameInTable="columnradio" msprop:Generator_ColumnPropNameInRow="radio" msprop:Generator_ColumnPropNameInTable="radioColumn" msprop:Generator_UserColumnName="radio" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="reportUseMedicine" msprop:Generator_TableClassName="reportUseMedicineDataTable" msprop:Generator_TableVarName="tablereportUseMedicine" msprop:Generator_TablePropName="reportUseMedicine" msprop:Generator_RowDeletingName="reportUseMedicineRowDeleting" msprop:Generator_RowChangingName="reportUseMedicineRowChanging" msprop:Generator_RowEvHandlerName="reportUseMedicineRowChangeEventHandler" msprop:Generator_RowDeletedName="reportUseMedicineRowDeleted" msprop:Generator_UserTableName="reportUseMedicine" msprop:Generator_RowChangedName="reportUseMedicineRowChanged" msprop:Generator_RowEvArgName="reportUseMedicineRowChangeEvent" msprop:Generator_RowClassName="reportUseMedicineRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="medicine_name" msprop:Generator_ColumnVarNameInTable="columnmedicine_name" msprop:Generator_ColumnPropNameInRow="medicine_name" msprop:Generator_ColumnPropNameInTable="medicine_nameColumn" msprop:Generator_UserColumnName="medicine_name" type="xs:string" minOccurs="0" />
+              <xs:element name="unit" msprop:Generator_ColumnVarNameInTable="columnunit" msprop:Generator_ColumnPropNameInRow="unit" msprop:Generator_ColumnPropNameInTable="unitColumn" msprop:Generator_UserColumnName="unit" type="xs:string" minOccurs="0" />
+              <xs:element name="amount" msprop:Generator_ColumnVarNameInTable="columnamount" msprop:Generator_ColumnPropNameInRow="amount" msprop:Generator_ColumnPropNameInTable="amountColumn" msprop:Generator_UserColumnName="amount" type="xs:int" minOccurs="0" />
+              <xs:element name="number_times" msprop:Generator_ColumnVarNameInTable="columnnumber_times" msprop:Generator_ColumnPropNameInRow="number_times" msprop:Generator_ColumnPropNameInTable="number_timesColumn" msprop:Generator_UserColumnName="number_times" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

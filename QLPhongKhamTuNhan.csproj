@@ -48,6 +48,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,9 +59,11 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -109,9 +113,24 @@
     <Compile Include="GUI\UIAdmin\AddUser.xaml.cs">
       <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\UIReport\dataset.cs">
+      <DependentUpon>dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIReport\dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIReport\reportMonthlyRevenue.xaml.cs">
+      <DependentUpon>reportMonthlyRevenue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\UIReport\reportUseMedicine.xaml.cs">
+      <DependentUpon>reportUseMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Helper\Active.cs" />
     <Compile Include="Helper\DataHelper.cs" />
     <Compile Include="Manager\DataManager.cs" />
+    <Compile Include="Manager\DataReport.cs" />
     <Compile Include="Utils\encodePassword.cs" />
     <Compile Include="Utils\helper.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
@@ -152,6 +171,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\UIReport\Medicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIReport\reportMonthlyRevenue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIReport\reportUseMedicine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -327,10 +354,23 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="GUI\UIReport\reportMonthlyRevenue.rdlc" />
+    <EmbeddedResource Include="GUI\UIReport\reportUseMedicine.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="GUI\UIReport\dataset.xsc">
+      <DependentUpon>dataset.xsd</DependentUpon>
+    </None>
+    <None Include="GUI\UIReport\dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GUI\UIReport\dataset.xss">
+      <DependentUpon>dataset.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="packages\MaterialDesignColors.1.1.2\MaterialDesignColors.1.1.2.nupkg" />
     <None Include="packages\MaterialDesignThemes.2.3.0.823\MaterialDesignThemes.2.3.0.823.nupkg" />
