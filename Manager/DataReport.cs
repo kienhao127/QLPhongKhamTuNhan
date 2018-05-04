@@ -31,7 +31,7 @@ namespace QLPhongKhamTuNhan.Manager
                                  "GROUP by DATE(m0.date_exam);");
         }
 
-        static public DataTable UseMedicine(string month,string year)
+        static public DataTable UseMedicine(string month, string year)
         {
             return Active.select("SELECT medicine.name medicine_name, " +
                                  "unit_medicine.name unit, " +
@@ -45,6 +45,7 @@ namespace QLPhongKhamTuNhan.Manager
                                  "          FROM medical_exam " +
                                  "          WHERE MONTH(medical_exam.date_exam) = " + month +
                                  "              AND YEAR(medical_exam.date_exam) = " + year +
+                                 "              AND fee_medicine > 0 " +
                                  "      ) " +
                                  "GROUP BY medicine.name, unit_medicine.name");
         }
