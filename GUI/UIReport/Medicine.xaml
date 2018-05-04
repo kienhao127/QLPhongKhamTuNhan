@@ -10,15 +10,19 @@
       Title="Medicine" Initialized="Page_Initialized">
 
     <Grid>
-        <Border Height="50" Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4" Margin="10,10,10,660">
-            <TextBlock Text="Báo cáo sử dụng thuốc" VerticalAlignment="Center" FontSize="20" Margin="20,11,0,9" Height="29" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Height="50" Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4" Margin="00,00,00,1">
+            <TextBlock Text="Báo Cáo Sử Dụng Thuốc" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0"/>
         </Border>
-        <Button x:Name="button" Content="Xuất báo cáo" HorizontalAlignment="Left" Margin="612,65,0,0" VerticalAlignment="Top" Width="166" Click="button_Click" FontSize="16"/>
-        <ComboBox x:Name="cbxMonth" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="253,64,0,0" VerticalAlignment="Top" Width="44" FontSize="16"/>
-        <Label x:Name="label" Content=" Tháng:" HorizontalAlignment="Left" Margin="186,66,0,0" VerticalAlignment="Top" FontSize="16"/>
-        <Label x:Name="label1" Content="Năm:" HorizontalAlignment="Left" Margin="380,66,0,0" VerticalAlignment="Top" FontSize="16" RenderTransformOrigin="0.73,2.334"/>
-        <ComboBox x:Name="cbxYear" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Margin="427,65,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.424,-1.161" FontSize="16"/>
-        <WindowsFormsHost Name="wfh" HorizontalAlignment="Left" Height="607" Margin="10,103,0,0" VerticalAlignment="Top" Width="1200">
+        <Button x:Name="button" Content="Xuất báo cáo" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="612,10,0,0" Width="166" Height="37" Click="button_Click" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="label" Content="Tháng:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="178,10,0,0" FontSize="20" Grid.Row="1"/>
+        <Label x:Name="label1" Content="Năm:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="380,10,0,0" FontSize="20" Grid.Row="1"/>
+        <ComboBox x:Name="cbxMonth" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="253,10,0,0" Width="44" FontSize="20" Grid.Row="1"/>
+        <ComboBox x:Name="cbxYear" HorizontalAlignment="Left" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="427,10,0,0" Width="92" FontSize="20" Grid.Row="1"/>
+        <WindowsFormsHost Name="wfh" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,53,0,0" Height="607" Width="1200" Grid.Row="1">
             <rv:ReportViewer x:Name="report"/>
         </WindowsFormsHost>
     </Grid>

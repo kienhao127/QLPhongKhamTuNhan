@@ -43,18 +43,7 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
 
             report.RefreshReport();
         }
-
-        private void Window_Initialized(object sender, EventArgs e)
-        {
-            for (int i = 1; i <= 12; i++)
-                cbxMonth.Items.Add(i.ToString());
-            cbxMonth.SelectedValue = DateTime.Now.Month.ToString();
-
-            for (int i = DateTime.Now.Year; i >= 1996; i--)
-                cbxYear.Items.Add(i.ToString());
-            cbxYear.SelectedValue = DateTime.Now.Year.ToString();
-        }
-
+        
         private void Page_Initialized(object sender, EventArgs e)
         {
             for (int i = 1; i <= 12; i++)
