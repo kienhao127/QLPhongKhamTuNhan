@@ -46,5 +46,10 @@ namespace Manager
         {
             return DataHelper.getTurnover();
         }
+
+        public int insertUser(User u)
+        {
+            return DataHelper.insertUser(u);
+        }
     }
 }
