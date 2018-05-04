@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using QLPhongKhamTuNhan.Manager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,34 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
         public Medicine()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            report.Reset();
+
+
+            ReportDataSource ds = new ReportDataSource("dataset", DataReport.UseMedicine(cbxMonth.SelectedValue.ToString(), cbxYear.SelectedValue.ToString()));
+
+            report.LocalReport.DataSources.Add(ds);
+
+            report.LocalReport.ReportEmbeddedResource = "QLPhongKhamTuNhan.GUI.UIReport.reportUseMedicine.rdlc";
+
+            ReportParameter rp = new ReportParameter("txtMonth", "Tháng: " + cbxMonth.SelectedValue + " năm " + cbxYear.SelectedValue);
+            report.LocalReport.SetParameters(new ReportParameter[] { rp });
+
+            report.RefreshReport();
+        }
+
+        private void Page_Initialized(object sender, EventArgs e)
+        {
+            for (int i = 1; i <= 12; i++)
+                cbxMonth.Items.Add(i.ToString());
+            cbxMonth.SelectedValue = DateTime.Now.Month.ToString();
+
+            for (int i = DateTime.Now.Year; i >= 1996; i--)
+                cbxYear.Items.Add(i.ToString());
+            cbxYear.SelectedValue = DateTime.Now.Year.ToString();
         }
     }
 }
