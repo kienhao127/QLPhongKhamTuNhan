@@ -25,36 +25,74 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
     public partial class LapPhieuKhamBenh : Window
     {
         List<Prescription> listPrescription = new List<Prescription>();
-        Prescription prescription = new Prescription();
-        Patient p = new Patient(); 
+        Prescription prescription = null;
+        Prescription pre_Prescription = new Prescription();
+        int sicknessID = -1;
+        Patient p = new Patient();
+        string code = "";
 
-        public LapPhieuKhamBenh(Patient patient)
+        public LapPhieuKhamBenh(Patient patient, string code)
         {
             InitializeComponent();
             cboLoaiBenh.ItemsSource = DataManager.getInstance().getListSicknessName();
             p = patient;
             tbTenBanhNhan.Text = p.full_name;
             tbNgayKham.Text = helper.getDateTimeNow();
-
-            Prescription data = new Prescription();
-            donThuocDataGrid.Items.Add(data);
+            donThuocDataGrid.BeginningEdit += (s, ss) => ss.Cancel = true;
+            this.code = code;
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            taoDonThuoc();
+            if (sicknessID == -1)
+            {
+                MessageBox.Show("Loại bệnh rỗng");
+                return;
+            }
+            if (txtTrieuChung.Text == "")
+            {
+                MessageBox.Show("Triệu chứng rỗng");
+                return;
+            }
+
+            if (prescription != null)
+            {
+                if (prescription != listPrescription.LastOrDefault())
+                {
+                    listPrescription.Add(prescription);
+                }
+            }
+
+            DataManager.getInstance().updateMedicalExam(code, sicknessID, txtTrieuChung.Text, 1);
+            if (donThuocDataGrid.Items.Count != 0)
+            {
+                if ((prescription.medicine_id == 0) || (prescription.unit_id == 0) || (prescription.amount == 0) || (prescription.use_id == 0))
+                {
+                    Close();
+                    return;
+                }
+                DataManager.getInstance().insertPrescription(listPrescription, code);
+            }
             Close();
         }
 
         private void btnThemThuoc_Click(object sender, RoutedEventArgs e)
         {
-            if ((prescription.medicine_id == 0) || (prescription.unit_id == 0) || (prescription.amount == 0) || (prescription.use_id == 0))
+            if (donThuocDataGrid.Items.Count != 0)
             {
-                MessageBox.Show("Hàng thuốc trống hoặc không hợp lệ");
-                return;
+                if ((prescription.medicine_id == 0) || (prescription.unit_id == 0) || (prescription.amount == 0) || (prescription.use_id == 0))
+                {
+                    MessageBox.Show("Hàng thuốc trống hoặc không hợp lệ");
+                    return;
+                }
             }
             Prescription data = new Prescription();
             donThuocDataGrid.Items.Add(data);
+            if (prescription != null)
+            {
+                listPrescription.Add(prescription);
+            }
+            pre_Prescription = prescription;
             prescription = new Prescription();
         }
 
@@ -62,20 +100,6 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
-        }
-
-        private void taoDonThuoc()
-        {
-            if ((prescription.medicine_id == 0) || (prescription.unit_id == 0) || (prescription.amount == 0) || (prescription.use_id == 0))
-            {
-                MessageBox.Show("Hàng thuốc trống hoặc không hợp lệ");
-                return;
-            }
-            int n = donThuocDataGrid.Items.Count;
-            foreach (DataRowView row in donThuocDataGrid.SelectedItems)
-            {
-                string text = row.Row.ItemArray[0].ToString();
-            }
         }
 
         private void cboTenThuoc_Loaded(object sender, RoutedEventArgs e)
@@ -87,14 +111,16 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         private void cboTenThuoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cbo = (ComboBox)sender;
-            int id = DataManager.getInstance().getMedicineID(cbo.SelectedItem.ToString());
-            if (id != -1)
+            if (cbo.SelectedItem != null)
             {
-                prescription.medicine_id = id;
+                int id = DataManager.getInstance().getMedicineID(cbo.SelectedItem.ToString());
+                if (id != -1)
+                {
+                    prescription.medicine_id = id;
+                }
             }
+            
         }
-
-       
 
         private void cboDonViThuoc_Loaded(object sender, RoutedEventArgs e)
         {
@@ -104,10 +130,14 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         private void cboDonViThuoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cbo = (ComboBox)sender;
-            int id = DataManager.getInstance().getUnitID(cbo.SelectedItem.ToString());
-            if (id != -1)
+          
+            if (cbo.SelectedItem != null)
             {
-                prescription.unit_id = id;
+                int id = DataManager.getInstance().getUnitID(cbo.SelectedItem.ToString());
+                if (id != -1)
+                {
+                    prescription.unit_id = id;
+                }
             }
         }
 
@@ -121,10 +151,13 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         private void tbCachDung_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox cbo = (ComboBox)sender;
-            int id = DataManager.getInstance().getUseID(cbo.SelectedItem.ToString());
-            if (id != -1)
+            if (cbo.SelectedItem != null)
             {
-                prescription.use_id = id;
+                int id = DataManager.getInstance().getUseID(cbo.SelectedItem.ToString());
+                if (id != -1)
+                {
+                    prescription.use_id = id;
+                }
             }
         }
 
@@ -134,6 +167,26 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
             if (txt.Text != "")
             {
                 prescription.amount = Convert.ToInt32(txt.Text);
+            }
+        }
+
+        private void btnXoaThuoc_Click(object sender, RoutedEventArgs e)
+        {
+            int n = donThuocDataGrid.SelectedIndex;
+            donThuocDataGrid.Items.RemoveAt(n);
+            if (listPrescription.Count > n)
+            {
+                listPrescription.RemoveAt(n);
+            }
+            prescription = pre_Prescription;
+        }
+
+        private void cboLoaiBenh_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox cbo = (ComboBox)sender;
+            if (cbo.SelectedItem != null)
+            {
+                sicknessID = DataManager.getInstance().getSicknessID(cbo.SelectedItem.ToString());
             }
         }
     }

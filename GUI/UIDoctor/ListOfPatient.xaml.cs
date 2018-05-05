@@ -39,8 +39,20 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         private void btnLapPhieuKhamBenh_Click(object sender, RoutedEventArgs e)
         {
             var p = (Patient)patientDataGrid.SelectedItem;
-            LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p);
-            phieu.ShowDialog();
+            int n = DataManager.getInstance().countMedicalExam();
+            string code = "";
+            if (n < 40)
+            {
+                code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
+                DataManager.getInstance().insertMedicalExam(code, p.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
+
+                LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p, code);
+                phieu.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
+            }
         }
     }
 }

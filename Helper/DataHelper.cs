@@ -192,23 +192,25 @@ namespace Helper
         static public int getMedicineID(string medicineName)
         {
             DataTable dt = Active.select("SELECT id from medicine where name = '" + medicineName + "'");
-            if (dt.Rows[0]["id"] == null)
+            if (dt.Rows.Count == 0)
             {
                 return -1;
             }
             int id = Convert.ToInt32(dt.Rows[0]["id"]);
             return id;
+
         }
 
         static public int getUseID(string useName)
         {
             DataTable dt = Active.select("SELECT id from use_medicine where name = '" + useName + "'");
-            if (dt.Rows[0]["id"] == null)
+            if (dt.Rows.Count == 0)
             {
                 return -1;
             }
             int id = Convert.ToInt32(dt.Rows[0]["id"]);
             return id;
+
         }
 
         static public List<string> getListUseName()
@@ -242,12 +244,13 @@ namespace Helper
         static public int getUnitID(string unitName)
         {
             DataTable dt = Active.select("SELECT id from unit_medicine where name = '" + unitName + "'");
-            if (dt.Rows[0]["id"] == null)
+            if (dt.Rows.Count == 0)
             {
                 return -1;
             }
             int id = Convert.ToInt32(dt.Rows[0]["id"]);
             return id;
+
         }
 
         static public int insertSickness(Sickness sick, int user_update)
@@ -267,5 +270,46 @@ namespace Helper
             int id = Active.update("UPDATE sickness SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + sick_id + "");
             return id;
         }
+
+        static public int getSicknessID(string sicknessName)
+        {
+            DataTable dt = Active.select("SELECT id from sickness where name = '" + sicknessName + "'");
+            if (dt.Rows.Count == 0)
+            {
+                return -1;
+            }
+            int id = Convert.ToInt32(dt.Rows[0]["id"]);
+            return id;
+        }
+
+        static public int insertPrescription(Prescription p, string code)
+        {
+            int num = Active.insert("INSERT INTO prescription(code, medicine_id, unit_id, amount, use_id) VALUES ('" + code + "', " + p.medicine_id + ", " + p.unit_id + ", " + p.amount + ", " + p.use_id + ")");
+            return num;
+        }
+
+        static public int insertMedicalExam(string code, int patientID, int doctorID)
+        {
+            int num = Active.insert("INSERT INTO medical_exam(code, patient_id, physician_id, date_exam) VALUES ('" + code + "', " + patientID + ", " + doctorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "')");
+            return num;
+        }
+
+        static public int countMedicalExam()
+        {
+            DataTable dt = Active.select("SELECT COUNT(code) totalCode from medical_exam where date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "'");
+            if (dt.Rows[0]["totalCode"] == null)
+            {
+                return -1;
+            }
+            int id = Convert.ToInt32(dt.Rows[0]["totalCode"]);
+            return id;
+        }
+
+        static public int updateMedicalExam(string code, int sickID, string prognostic, int status)
+        {
+            int num = Active.update("UPDATE medical_exam SET sick_id = " + sickID + ", prognostic = N'" + prognostic + "', status = " + status + " where code = '" + code + "'");
+            return num;
+        }
+
     }
 }

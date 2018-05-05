@@ -138,5 +138,35 @@ namespace Manager
         {
             return DataHelper.deleteSickness(sick_id, user_change);
         }
+
+        public int getSicknessID(string sicknessName)
+        {
+            return DataHelper.getSicknessID(sicknessName);
+        }
+
+        public int insertMedicalExam(string code, int patientID, int doctorID)
+        {
+            return DataHelper.insertMedicalExam(code, patientID, doctorID);
+        }
+
+        public int countMedicalExam()
+        {
+            return DataHelper.countMedicalExam();
+        }
+
+        public int updateMedicalExam(string code, int sickID, string prognostic, int status)
+        {
+            return DataHelper.updateMedicalExam(code, sickID, prognostic, status);
+        }
+
+        public int insertPrescription(List<Prescription> listPrescription, string code)
+        {
+            foreach (Prescription p in listPrescription)
+            {
+                DataHelper.insertPrescription(p, code);
+            }
+            return 1;
+        }
+
     }
 }

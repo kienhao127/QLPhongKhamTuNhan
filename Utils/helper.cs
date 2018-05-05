@@ -13,5 +13,10 @@ namespace Utils
         {
             return String.Format("{0:dd-MM-yyyy}", DateTime.Now);
         }
+
+        static public string createExamCode()
+        {
+            return String.Format("{0:BNddMMyy}", DateTime.Now);
+        }
     }
 }
