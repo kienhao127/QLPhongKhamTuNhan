@@ -168,6 +168,7 @@ namespace Manager
             return 1;
         }
         
+        //Quan ly don vi thuoc
         public List<UnitMedicine> getAllUnit()
         {
             return DataHelper.getAllUnit();
@@ -186,6 +187,27 @@ namespace Manager
         public int deleteUnitMedicine(int unit_id, int user_change)
         {
             return DataHelper.deleteUnitMedicine(unit_id, user_change);
+        }
+
+        //Quan ly cach dung
+        public List<UserMedicine> getAllUseMedicine()
+        {
+            return DataHelper.getAllUseMedicine();
+        }
+
+        public int insertUseMedicine(UserMedicine use, int user_update)
+        {
+            return DataHelper.insertUseMedicine(use, user_update);
+        }
+
+        public int updateUseMedicine(UserMedicine use, int user_change)
+        {
+            return DataHelper.updateUseMedicine(use, user_change);
+        }
+
+        public int deleteUseMedicine(int use_id, int user_change)
+        {
+            return DataHelper.deleteUseMedicine(use_id, user_change);
         }
     }
 }

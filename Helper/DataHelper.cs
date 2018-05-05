@@ -343,5 +343,40 @@ namespace Helper
             int id = Active.update("UPDATE unit_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + unit_id + "");
             return id;
         }
+
+        //Quan ly cach dung
+        static public List<UserMedicine> getAllUseMedicine()
+        {
+            DataTable dt = Active.select("select * from use_medicine where is_delete = " + 0);
+            List<UserMedicine> listUseMedicine = new List<UserMedicine>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                UserMedicine use = new UserMedicine();
+                use.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                use.name = dt.Rows[i]["name"].ToString();
+                use.detail = dt.Rows[i]["detail"].ToString();
+                listUseMedicine.Add(use);
+            }
+            return listUseMedicine;
+        }
+
+        static public int insertUseMedicine(UserMedicine use, int user_update)
+        {
+            int id = Active.insert("INSERT INTO use_medicine(name, detail, user_change) VALUES (N'" + use.name + "',N'" + use.detail + "','"  + user_update + "')");
+            return id;
+        }
+
+        static public int updateUseMedicine(UserMedicine use, int user_change)
+        {
+            int id = Active.update("UPDATE use_medicine SET name = N'" + use.name + "', detail = '" + use.detail + "', user_change = '" + user_change + "' where id = " + use.id + "");
+            return id;
+        }
+
+        static public int deleteUseMedicine(int use_id, int user_change)
+        {
+            int id = Active.update("UPDATE use_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + use_id + "");
+            return id;
+        }
     }
 }

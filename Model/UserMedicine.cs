@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLPhongKhamTuNhan.Model
 {
-    class UserMedicine
+    public class UserMedicine
     {
         private int _id;
         private string _name;
@@ -17,7 +17,7 @@ namespace QLPhongKhamTuNhan.Model
 
         public int id { get { return _id; } set { _id = value; } }
         public string name { get { return _name; } set { _name = value; } }
-        public string detal { get { return _detal; } set { _detal = value; } }
+        public string detail { get { return _detal; } set { _detal = value; } }
         public bool is_delete { get { return _is_delete; } set { _is_delete = value; } }
         public int user_id_change { get { return _user_id_change; } set { _user_id_change = value; } }
         internal User user_change { get { return _user_change; } set { _user_change = value; } }
