@@ -78,7 +78,9 @@ namespace Helper
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
+                    connection.Open();
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
+                    connection.Close();
                 }
                 return change;
             }
@@ -97,7 +99,9 @@ namespace Helper
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
+                    connection.Open();
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
+                    connection.Close();
                 }
                 return change;
             }

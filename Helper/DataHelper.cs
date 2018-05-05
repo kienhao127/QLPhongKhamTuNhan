@@ -89,5 +89,17 @@ namespace Helper
             }
             return listUser;
         }
+
+        static public int updateUser(User u)
+        {
+            int id = Active.update("UPDATE user SET user = '" + u.name + "', name = N'" + u.full_name + "', pw = '" + u.password + "', email = '" + u.email + "', role_id = '" + u.role_id + "' where id = " + u.id + "");
+            return id;
+        }
+
+        static public int deleteUser(int userid, int is_delete)
+        {
+            int id = Active.update("UPDATE user SET is_delete = '" + is_delete + "' where id = '" + userid + "'");
+            return id;
+        }
     }
 }

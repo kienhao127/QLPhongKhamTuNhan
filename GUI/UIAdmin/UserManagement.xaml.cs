@@ -40,5 +40,21 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             AddUser editUser = new AddUser(item);
             editUser.ShowDialog();
         }
+
+        private void btnDeleteUser_Click(object sender, RoutedEventArgs e)
+        {
+            User item = userDataGrid.SelectedItem as User;
+            try
+            {
+                User currentUser = new User();
+                currentUser = (User)Application.Current.Properties["UserInfo"];
+                int id = DataManager.getInstance().deleteUser(item.id, currentUser.id);
+                MessageBox.Show("Xóa người dùng thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Xóa người dùng thất bại!");
+            }
+        }
     }
 }

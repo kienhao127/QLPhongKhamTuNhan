@@ -56,5 +56,15 @@ namespace Manager
         {
             return DataHelper.getAllUser();
         }
+
+        public int updateUser(User u)
+        {
+            return DataHelper.updateUser(u);
+        }
+
+        public int deleteUser(int userid, int is_delete)
+        {
+            return DataHelper.deleteUser(userid, is_delete);
+        }
     }
 }
