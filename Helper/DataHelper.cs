@@ -250,5 +250,22 @@ namespace Helper
             return id;
         }
 
+        static public int insertSickness(Sickness sick, int user_update)
+        {
+            int id = Active.insert("INSERT INTO sickness(name, noted, user_change) VALUES (N'" + sick.name + "',N'" + sick.noted + "','" + user_update + "')");
+            return id;
+        }
+
+        static public int updateSickness(Sickness sick, int user_change)
+        {
+            int id = Active.update("UPDATE sickness SET name = N'" + sick.name + "', noted = N'" + sick.noted + "', user_change = '" + user_change + "' where id = " + sick.id + "");
+            return id;
+        }
+
+        static public int deleteSickness(int sick_id, int user_change)
+        {
+            int id = Active.update("UPDATE sickness SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + sick_id + "");
+            return id;
+        }
     }
 }

@@ -20,10 +20,10 @@
         <Label Grid.ColumnSpan="2" x:Name="lblTitle" Content="TẠO MỚI LOẠI BỆNH" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">Tên loại bệnh:</Label>
         <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">Ghi chú:</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="txtAddSickness" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding name}" />
+        <TextBox Grid.Column="1" Grid.Row="1" Name="txtNameSickness" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding name}" />
         <TextBox Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Name="txtNotedSickness" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="60" Width="320" FontSize="16" Text="{Binding noted}"/>
-        <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnAddSickness" Content="Thêm" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Height="40" Margin="0,20,0,0"/>
-        <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnEditSickness" Content="Cập nhật" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Height="40" Margin="0,20,0,0"/>
+        <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnAddSickness" Content="Thêm" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Height="40" Margin="0,20,0,0" Click="btnAddSickness_Click" />
+        <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnEditSickness" Content="Cập nhật" VerticalAlignment="Top" HorizontalAlignment="Center" Width="120" Height="40" Margin="0,20,0,0" Click="btnEditSickness_Click" />
         <TextBox Visibility="Hidden" Text="{Binding id}" x:Name="txtSickId" />
     </Grid>
 </Window>

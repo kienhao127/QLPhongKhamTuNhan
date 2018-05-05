@@ -123,5 +123,20 @@ namespace Manager
         {
             return DataHelper.getUnitID(unitName);
         }
+
+        public int insertSickness(Sickness sick, int user_update)
+        {
+            return DataHelper.insertSickness(sick, user_update);
+        }
+
+        public int updateSickness(Sickness sick, int user_change)
+        {
+            return DataHelper.updateSickness(sick, user_change);
+        }
+
+        public int deleteSickness(int sick_id, int user_change)
+        {
+            return DataHelper.deleteSickness(sick_id, user_change);
+        }
     }
 }

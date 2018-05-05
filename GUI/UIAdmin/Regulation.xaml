@@ -81,14 +81,14 @@
                     <DataGridTemplateColumn Width="1*" x:Name="editCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditSickness">Sửa</Button>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditSickness" Click="btnEditSickness_Click">Sửa</Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                     <DataGridTemplateColumn x:Name="delCol" Width="1*">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteSickness" Background="Red" BorderBrush="Red">Xóa</Button>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteSickness" Background="Red" BorderBrush="Red" Click="btnDeleteSickness_Click">Xóa</Button>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

@@ -106,5 +106,28 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             AddSickness addSick = new AddSickness(null);
             addSick.ShowDialog();
         }
+
+        private void btnEditSickness_Click(object sender, RoutedEventArgs e)
+        {
+            Sickness sick = sicknessDataGrid.SelectedItem as Sickness;
+            AddSickness editSick = new AddSickness(sick);
+            editSick.ShowDialog();
+        }
+
+        private void btnDeleteSickness_Click(object sender, RoutedEventArgs e)
+        {
+            Sickness item = sicknessDataGrid.SelectedItem as Sickness;
+            try
+            {
+                User currentUser = new User();
+                currentUser = (User)Application.Current.Properties["UserInfo"];
+                int id = DataManager.getInstance().deleteSickness(item.id, currentUser.id);
+                MessageBox.Show("Xóa loại bệnh thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Xóa loại bệnh thất bại!");
+            }
+        }
     }
 }
