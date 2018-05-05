@@ -311,5 +311,37 @@ namespace Helper
             return num;
         }
 
+        static public List<UnitMedicine> getAllUnit()
+        {
+            DataTable dt = Active.select("select * from unit_medicine where is_delete = " + 0);
+            List<UnitMedicine> listUnit = new List<UnitMedicine>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                UnitMedicine unit = new UnitMedicine();
+                unit.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                unit.name = dt.Rows[i]["name"].ToString();
+                listUnit.Add(unit);
+            }
+            return listUnit;
+        }
+
+        static public int insertUnitMedicine(UnitMedicine unit, int user_update)
+        {
+            int id = Active.insert("INSERT INTO unit_medicine(name, user_change) VALUES (N'" + unit.name + "','" + user_update + "')");
+            return id;
+        }
+
+        static public int updateUnitMedicine(UnitMedicine unit, int user_change)
+        {
+            int id = Active.update("UPDATE unit_medicine SET name = N'" + unit.name + "', user_change = '" + user_change + "' where id = " + unit.id + "");
+            return id;
+        }
+
+        static public int deleteUnitMedicine(int unit_id, int user_change)
+        {
+            int id = Active.update("UPDATE unit_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + unit_id + "");
+            return id;
+        }
     }
 }

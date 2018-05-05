@@ -63,6 +63,10 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             //Quan ly danh sach loai benh
             List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
             sicknessDataGrid.DataContext = listSickness;
+
+            //Quan ly don vi thuoc
+            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+            unitDataGrid.DataContext = listUnit;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -127,6 +131,35 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             catch
             {
                 MessageBox.Show("Xóa loại bệnh thất bại!");
+            }
+        }
+
+        private void btnAddUnit_Click(object sender, RoutedEventArgs e)
+        {
+            AddUnitMedicine addUnit = new AddUnitMedicine(null);
+            addUnit.ShowDialog();
+        }
+
+        private void btnEditUnit_Click(object sender, RoutedEventArgs e)
+        {
+            UnitMedicine unit = unitDataGrid.SelectedItem as UnitMedicine;
+            AddUnitMedicine addUnit = new AddUnitMedicine(unit);
+            addUnit.ShowDialog();
+        }
+
+        private void btnDeleteUnit_Click(object sender, RoutedEventArgs e)
+        {
+            UnitMedicine item = sicknessDataGrid.SelectedItem as UnitMedicine;
+            try
+            {
+                User currentUser = new User();
+                currentUser = (User)Application.Current.Properties["UserInfo"];
+                int id = DataManager.getInstance().deleteUnitMedicine(item.id, currentUser.id);
+                MessageBox.Show("Xóa đơn vị thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Xóa đơn vị thất bại!");
             }
         }
     }

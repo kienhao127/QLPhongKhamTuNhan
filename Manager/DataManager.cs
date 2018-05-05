@@ -167,6 +167,25 @@ namespace Manager
             }
             return 1;
         }
+        
+        public List<UnitMedicine> getAllUnit()
+        {
+            return DataHelper.getAllUnit();
+        }
 
+        public int insertUnitMedicine(UnitMedicine unit, int user_update)
+        {
+            return DataHelper.insertUnitMedicine(unit, user_update);
+        }
+
+        public int updateUnitMedicine(UnitMedicine unit, int user_change)
+        {
+            return DataHelper.updateUnitMedicine(unit, user_change);
+        }
+
+        public int deleteUnitMedicine(int unit_id, int user_change)
+        {
+            return DataHelper.deleteUnitMedicine(unit_id, user_change);
+        }
     }
 }

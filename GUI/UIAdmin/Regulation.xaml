@@ -95,5 +95,107 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <!-- Đơn vị thuốc -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.ColumnSpan="2" Content="ĐƠN VỊ THUỐC" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+                <Button Grid.Row="1" Content="Thêm đơn vị" Width="120" Name="btnAddUnit" Click="btnAddUnit_Click" />
+                <DataGrid Grid.Row="2" CanUserAddRows="False"  
+                 x:Name="unitDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                    <DataGrid.Columns>
+                        <!--STT-->
+                        <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttUnitCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!--Tên đơn vị-->
+                        <DataGridTemplateColumn Width="2*" Header="Tên đơn vị" x:Name="nameUnitCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Chức năng -->
+                        <DataGridTemplateColumn Width="1*" x:Name="editUnitCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditUnit" Click="btnEditUnit_Click">Sửa</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="delUnitCol" Width="1*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteUnit" Background="Red" BorderBrush="Red" Click="btnDeleteUnit_Click">Xóa</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <!-- Cách dùng -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Grid.ColumnSpan="2" Content="CÁCH DÙNG" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+                <Button Grid.Row="1" Content="Thêm cách dùng" Width="140" Name="btnAddUseMedicine" Click="btnAddUseMedicine_Click" />
+                <DataGrid Grid.Row="2" CanUserAddRows="False"  
+                 x:Name="useMedicineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                    <DataGrid.Columns>
+                        <!--STT-->
+                        <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttUseCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!--Tên cách dùng-->
+                        <DataGridTemplateColumn Width="2*" Header="Tên đơn vị" x:Name="nameUseCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding name}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <!-- Chức năng -->
+                        <DataGridTemplateColumn Width="1*" x:Name="editUseCol">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditUseMedicine" Click="btnEditUseMedicine_Click">Sửa</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="delUseCol" Width="1*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteUseMedicine" Background="Red" BorderBrush="Red" Click="btnDeleteUseMedicine_Click">Xóa</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

@@ -70,9 +70,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\UIAdmin\AddUnitMedicine.xaml.cs">
+      <DependentUpon>AddUnitMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\encodePassword.cs" />
     <Compile Include="Utils\helper.cs" />
-	<Page Include="GUI\UIAdmin\AddSickness.xaml">
+    <Page Include="GUI\UIAdmin\AddSickness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\UIAdmin\AddUnitMedicine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -116,7 +123,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-	<Compile Include="GUI\UIAdmin\AddSickness.xaml.cs">
+    <Compile Include="GUI\UIAdmin\AddSickness.xaml.cs">
       <DependentUpon>AddSickness.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\UIAdmin\AddUser.xaml.cs">
