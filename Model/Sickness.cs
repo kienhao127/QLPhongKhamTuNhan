@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLPhongKhamTuNhan.Model
 {
-    class Sickness
+    public class Sickness
     {
         private int _id;
         private string _name;

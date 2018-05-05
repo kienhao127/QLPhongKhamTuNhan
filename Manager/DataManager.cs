@@ -91,5 +91,10 @@ namespace Manager
         {
             return DataHelper.updateRegulation(updateFee, updatePatient, user_change);
         }
+
+        public List<Sickness> getAllSickness()
+        {
+            return DataHelper.getAllSickness();
+        }
     }
 }

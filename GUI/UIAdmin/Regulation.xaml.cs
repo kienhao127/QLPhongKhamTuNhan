@@ -59,6 +59,10 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                     txtPatientId.Text = row.id_function.ToString();
                 }
             }
+
+            //Quan ly danh sach loai benh
+            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+            sicknessDataGrid.DataContext = listSickness;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -95,6 +99,12 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 MessageBox.Show("Cập nhật thất bại!");
             }
+        }
+
+        private void btnAddSickness_Click(object sender, RoutedEventArgs e)
+        {
+            AddSickness addSick = new AddSickness(null);
+            addSick.ShowDialog();
         }
     }
 }

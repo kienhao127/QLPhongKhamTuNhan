@@ -172,5 +172,21 @@ namespace Helper
             id = Active.update("UPDATE change_reg SET modifled_day = '" + updatePatient.modified.ToString("yyyy-MM-dd HH:mm:ss") + "', value_old = '" + updatePatient.value_old + "', value_new = '" + updatePatient.value_apply + "', user_change = '" + user_update + "', date_apply = '" + updatePatient.date_apply.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_function = " + updatePatient.id_function + "");
             return id;
         }
+
+        static public List<Sickness> getAllSickness()
+        {
+            DataTable dt = Active.select("select * from sickness where is_delete = " + 0);
+            List<Sickness> listSickness = new List<Sickness>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Sickness sick = new Sickness();
+                sick.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                sick.name = dt.Rows[i]["name"].ToString();
+                sick.noted = dt.Rows[i]["noted"].ToString();
+                listSickness.Add(sick);
+            }
+            return listSickness;
+        }
     }
 }
