@@ -39,6 +39,7 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
             {
                 outputPassword = GetMd5Hash(md5Hash, txtPassword.Password.ToString());
             }
+            outputPassword = txtPassword.Password.ToString();
             User currentUser = DataManager.getInstance().login(txtUserName.Text, outputPassword);
 
             if (currentUser != null)

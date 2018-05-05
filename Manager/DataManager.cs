@@ -66,5 +66,15 @@ namespace Manager
         {
             return DataHelper.deleteUser(userid, is_delete);
         }
+
+        public List<ChangeRegulation> getAllRegulation()
+        {
+            return DataHelper.getAllRegulation();
+        }
+
+        public int updateRegulation(ChangeRegulation updateFee, ChangeRegulation updatePatient, int user_change)
+        {
+            return DataHelper.updateRegulation(updateFee, updatePatient, user_change);
+        }
     }
 }

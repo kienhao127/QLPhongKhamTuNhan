@@ -101,5 +101,30 @@ namespace Helper
             int id = Active.update("UPDATE user SET is_delete = '" + is_delete + "' where id = '" + userid + "'");
             return id;
         }
+
+        static public List<ChangeRegulation> getAllRegulation()
+        {
+            DataTable dt = Active.select(" select * from change_reg ");
+            List<ChangeRegulation> listRegulation = new List<ChangeRegulation>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ChangeRegulation reg = new ChangeRegulation();
+                reg.id_function = Convert.ToInt32(dt.Rows[i]["id_function"]);
+                reg.name_function = dt.Rows[i]["name_function"].ToString();
+                reg.value_old = Convert.ToInt32(dt.Rows[i]["value_old"]);
+                reg.date_apply = Convert.ToDateTime(dt.Rows[i]["date_apply"]);
+                reg.value_apply = Convert.ToInt32(dt.Rows[i]["value_new"]);
+                listRegulation.Add(reg);
+            }
+            return listRegulation;
+        }
+
+        static public int updateRegulation(ChangeRegulation updateFee, ChangeRegulation updatePatient, int user_update)
+        {
+            int id = Active.update("UPDATE change_reg SET modifled_day = '" + updateFee.modified.ToString("yyyy-MM-dd HH:mm:ss") + "', value_old = '" + updateFee.value_old + "', value_new = '" + updateFee.value_apply + "', user_change = '" + user_update + "', date_apply = '" + updateFee.date_apply.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_function = " + updateFee.id_function + "");
+            id = Active.update("UPDATE change_reg SET modifled_day = '" + updatePatient.modified.ToString("yyyy-MM-dd HH:mm:ss") + "', value_old = '" + updatePatient.value_old + "', value_new = '" + updatePatient.value_apply + "', user_change = '" + user_update + "', date_apply = '" + updatePatient.date_apply.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_function = " + updatePatient.id_function + "");
+            return id;
+        }
     }
 }
