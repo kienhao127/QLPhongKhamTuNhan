@@ -71,6 +71,10 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             //Quan ly cach dung
             List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
             useMedicineDataGrid.DataContext = listUse;
+
+            //Quan ly thuoc
+            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+            medicineDataGrid.DataContext = listMedicine;
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -153,7 +157,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnDeleteUnit_Click(object sender, RoutedEventArgs e)
         {
-            UnitMedicine item = sicknessDataGrid.SelectedItem as UnitMedicine;
+            UnitMedicine item = unitDataGrid.SelectedItem as UnitMedicine;
             try
             {
                 User currentUser = new User();
@@ -163,7 +167,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
             catch
             {
-                MessageBox.Show("Xóa đơn vị thất bại!");
+                MessageBox.Show(e.ToString());
             }
         }
 
@@ -194,6 +198,21 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 MessageBox.Show("Xóa cách dùng thất bại!");
             }
+        }
+
+        private void btnAddMedicine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnEditMedicine_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeleteMedicine_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

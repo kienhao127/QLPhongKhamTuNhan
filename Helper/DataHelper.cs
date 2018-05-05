@@ -378,5 +378,44 @@ namespace Helper
             int id = Active.update("UPDATE use_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + use_id + "");
             return id;
         }
+
+        //Quan ly thuoc
+        static public List<FullMedicine> getAllMedicine()
+        {
+            DataTable dt = Active.select("select medicine.id, medicine.`name`, medicine.another_name, unit_price_medicine.unit_id, unit_medicine.`name` as unit, unit_price_medicine.unit_price, unit_price_medicine.num_smallest_unit from medicine, unit_price_medicine, unit_medicine where medicine.id = unit_price_medicine.medicine_id and unit_price_medicine.unit_id = unit_medicine.id and medicine.is_delete = " + 0);
+            List<FullMedicine> listFullMedicine = new List<FullMedicine>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                FullMedicine medicine = new FullMedicine();
+                medicine.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                medicine.name = dt.Rows[i]["name"].ToString();
+                medicine.another_name = dt.Rows[i]["another_name"].ToString();
+                medicine.unit_id = Convert.ToInt32(dt.Rows[i]["unit_id"]);
+                medicine.unit_name = dt.Rows[i]["unit"].ToString();
+                medicine.unit_price = Convert.ToInt64(dt.Rows[i]["unit_price"]);
+                medicine.num_smallest_unit = Convert.ToInt32(dt.Rows[i]["num_smallest_unit"]);
+                listFullMedicine.Add(medicine);
+            }
+            return listFullMedicine;
+        }
+
+        static public int insertMedicine(UserMedicine use, int user_update)
+        {
+            int id = Active.insert("INSERT INTO use_medicine(name, detail, user_change) VALUES (N'" + use.name + "',N'" + use.detail + "','" + user_update + "')");
+            return id;
+        }
+
+        static public int updateMedicine(UserMedicine use, int user_change)
+        {
+            int id = Active.update("UPDATE use_medicine SET name = N'" + use.name + "', detail = '" + use.detail + "', user_change = '" + user_change + "' where id = " + use.id + "");
+            return id;
+        }
+
+        static public int deleteMedicine(int use_id, int user_change)
+        {
+            int id = Active.update("UPDATE use_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + use_id + "");
+            return id;
+        }
     }
 }

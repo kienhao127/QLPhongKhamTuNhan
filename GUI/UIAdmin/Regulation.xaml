@@ -48,7 +48,7 @@
             <TextBox Visibility="Hidden" Name="txtPatientOld" />
         </Grid>
         <!-- Danh sách loại bệnh -->
-        <Grid Grid.Row="2">
+        <Grid Margin="15" Grid.Row="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="50" />
@@ -95,13 +95,13 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid Margin="15,0" Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <!-- Đơn vị thuốc -->
-            <Grid>
+            <Grid Margin="5,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
@@ -149,7 +149,7 @@
                 </DataGrid>
             </Grid>
             <!-- Cách dùng -->
-            <Grid Grid.Column="1">
+            <Grid Margin="5,0" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
@@ -170,7 +170,7 @@
                         </DataGridTemplateColumn>
 
                         <!--Tên cách dùng-->
-                        <DataGridTemplateColumn Width="2*" Header="Tên đơn vị" x:Name="nameUseCol">
+                        <DataGridTemplateColumn Width="2*" Header="Tên cách dùng" x:Name="nameUseCol">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding name}"/>
@@ -196,6 +196,71 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
+        </Grid>
+        <Grid Margin="15" Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Content="QUẢN LÝ THUỐC" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+            <Button Grid.Row="1" Content="Thêm thuốc" Width="120" Name="btnAddMedicine" Click="btnAddMedicine_Click" />
+            <DataGrid Grid.Row="2" CanUserAddRows="False"  
+                 x:Name="medicineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <!--STT-->
+                    <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttMedicineCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Tên thuốc-->
+                    <DataGridTemplateColumn Width="2*" Header="Tên đơn vị" x:Name="nameMedicineCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Đơn vị tính-->
+                    <DataGridTemplateColumn Width="2*" Header="Tên đơn vị" x:Name="unitMedicineCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding unit_name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Đơn giá-->
+                    <DataGridTemplateColumn Width="2*" Header="Đơn giá" x:Name="priceMedicineCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding unit_price}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Chức năng -->
+                    <DataGridTemplateColumn Width="1*" x:Name="editMedicineCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditMedicine" Click="btnEditMedicine_Click">Sửa</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="delMedicineCol" Width="1*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteMedicine" Background="Red" BorderBrush="Red" Click="btnDeleteMedicine_Click">Xóa</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Page>

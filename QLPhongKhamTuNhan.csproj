@@ -76,6 +76,7 @@
     <Compile Include="GUI\UIAdmin\AddUseMedicine.xaml.cs">
       <DependentUpon>AddUseMedicine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\FullMedicine.cs" />
     <Compile Include="Utils\encodePassword.cs" />
     <Compile Include="Utils\helper.cs" />
     <Page Include="GUI\UIAdmin\AddSickness.xaml">

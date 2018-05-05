@@ -209,5 +209,26 @@ namespace Manager
         {
             return DataHelper.deleteUseMedicine(use_id, user_change);
         }
+
+        //Quan ly thuoc
+        public List<FullMedicine> getAllMedicine()
+        {
+            return DataHelper.getAllMedicine();
+        }
+
+        public int insertMedicine(UserMedicine use, int user_update)
+        {
+            return DataHelper.insertUseMedicine(use, user_update);
+        }
+
+        public int updateMedicine(UserMedicine use, int user_change)
+        {
+            return DataHelper.updateUseMedicine(use, user_change);
+        }
+
+        public int deleteMedicine(int use_id, int user_change)
+        {
+            return DataHelper.deleteUseMedicine(use_id, user_change);
+        }
     }
 }
