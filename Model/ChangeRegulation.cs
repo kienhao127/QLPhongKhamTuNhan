@@ -15,7 +15,7 @@ namespace QLPhongKhamTuNhan.Model
         private DateTime _date_apply;
         private long _value_apply;
 
-        public DateTime odified { get { return _modified; } set { _modified = value; } }
+        public DateTime modified { get { return _modified; } set { _modified = value; } }
         public int id_function { get { return _id_function; } set { _id_function = value; } }
         public string name_function { get { return _name_function; } set { _name_function = value; } }
         public long value_old { get { return _value_old; } set { _value_old = value; } }

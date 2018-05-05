@@ -8,13 +8,99 @@
       d:DesignHeight="720" d:DesignWidth="1220"
       Title="Regulation">
 
-    <Grid>
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
-            <RowDefinition />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
         </Grid.RowDefinitions>
-        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4" Grid.ColumnSpan="2">
             <TextBlock Text="Quản lý quy định" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
         </Border>
+        <!-- Quy định chung -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="2" x:Name="lblTitle" Content="QUY ĐỊNH CHUNG" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+            <Label Grid.Row="1" Content="Số bệnh nhân: " VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <Label Grid.Row="2" Content="Tiền khám: " VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <Label Grid.Row="3" Content="Ngày áp dụng: " VerticalAlignment="Center" HorizontalAlignment="Right" />
+            <TextBox Grid.Column="1" Grid.Row="1" Name="txtNumOfPatient" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="250" FontSize="16" PreviewTextInput="NumberValidationTextBox" />
+            <TextBox Grid.Column="1" Grid.Row="2" Name="txtFeeExam" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="250" FontSize="16" PreviewTextInput="NumberValidationTextBox" />
+            <DatePicker Grid.Row="3" Grid.Column="1" Name="dpApplyDate" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="250" FontSize="16" />
+            <Button Grid.Column="1" Grid.Row="4" Content="Lưu" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10" Name="SaveRegulation" Click="SaveRegulation_Click" />
+            <TextBox Visibility="Hidden" Name="txtFeeId" />
+            <TextBox Visibility="Hidden" Name="txtPatientId" />
+            <TextBox Visibility="Hidden" Name="txtFeeOld" />
+            <TextBox Visibility="Hidden" Name="txtPatientOld" />
+        </Grid>
+        <!-- Danh sách loại bệnh -->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="2" Content="DANH SÁCH LOẠI BỆNH" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+            <DataGrid Grid.Row="2" CanUserAddRows="False"  
+                 x:Name="sicknessDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                <DataGrid.Columns>
+                    <!--STT-->
+                    <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Tên loại bệnh-->
+                    <DataGridTemplateColumn Width="200"  Header="Tên loại bệnh" x:Name="nameCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!--Ghi chú-->
+                    <DataGridTemplateColumn Width="200"  Header="Ghi chú" x:Name="notedCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding noted}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <!-- Chức năng -->
+                    <DataGridTemplateColumn x:Name="editCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnEditSickness">Sửa</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="delCol">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Grid.Row="1" Width="60" Height="30" x:Name="btnDeleteSickness" Background="Red" BorderBrush="Red">Xóa</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
     </Grid>
 </Page>

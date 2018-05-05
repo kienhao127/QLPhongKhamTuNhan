@@ -29,7 +29,8 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                 lblTitle.Content = "CHỈNH SỬA NGƯỜI DÙNG";
                 DataContext = u;
                 u.role_id = u.role_id - 1;
-                btnAddUserDB.Visibility = Visibility.Hidden;            }
+                btnAddUserDB.Visibility = Visibility.Hidden;
+            }
             else
             {
                 User us = new User();
@@ -48,13 +49,40 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                 MessageBox.Show("Dữ liệu chưa đầy đủ");
                 return;
             }
-            User newUser = new User(txtAddUsername.Text, txtAddFullname.Text, txtAddPassword.Password, txtAddEmail.Text, selectRole + 1);
-            int id = DataManager.getInstance().insertUser(newUser);
+            try
+            {
+                User newUser = new User(txtAddUsername.Text, txtAddFullname.Text, txtAddPassword.Password, txtAddEmail.Text, selectRole + 1);
+                int id = DataManager.getInstance().insertUser(newUser);
+                MessageBox.Show("Thêm người dùng thành công!");
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Thêm người dùng thất bại!");
+            }
         }
 
         private void btnEditUserDB_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectRole = cbRole.SelectedIndex;
+            //Kiem tra du lieu trong cac o da duoc dien day du chua
+            if (txtAddUsername.Text == "" || txtAddPassword.Password == "" || txtAddConfirmPass.Password == "" || txtAddFullname.Text == "" || txtAddEmail.Text == "")
+            {
+                MessageBox.Show("Dữ liệu chưa đầy đủ");
+                return;
+            }
+            try
+            {
+                User editUser = new User(txtAddUsername.Text, txtAddFullname.Text, txtAddPassword.Password, txtAddEmail.Text, selectRole + 1);
+                editUser.id = Convert.ToInt32(txtUserId.Text);
+                int id = DataManager.getInstance().updateUser(editUser);
+                MessageBox.Show("Cập nhật người dùng thành công!");
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("Cập nhật người dùng thất bại!");
+            }
         }
     }
 }
