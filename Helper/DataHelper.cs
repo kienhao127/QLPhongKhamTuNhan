@@ -23,8 +23,8 @@ namespace Helper
             User user = new User();
             for (int i = 0; i < dt.Rows.Count && dt != null; i++)
             {
-                user.id = Convert.ToInt32(dt.Rows[i].ItemArray[0]);
-                user.role_id = Convert.ToInt32(dt.Rows[i].ItemArray[1]);
+                user.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                user.role_id = Convert.ToInt32(dt.Rows[i]["role_id"]);
             }
             return user;
         }
@@ -37,7 +37,7 @@ namespace Helper
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                listFunc.Add(Convert.ToInt32(dt.Rows[i].ItemArray[0]));
+                listFunc.Add(Convert.ToInt32(dt.Rows[i]["function"]));
             }
             return listFunc;
         }
@@ -89,7 +89,7 @@ namespace Helper
             }
             return listUser;
         }
-
+        
         static public List<string> getListSicknessName()
         {
             List<string> listSickName = new List<string>();
@@ -128,13 +128,49 @@ namespace Helper
                 Patient p = new Patient();
                 p.id = Convert.ToInt32(dt.Rows[i]["id"]);
                 p.full_name = dt.Rows[i]["name"].ToString();
-                p.sex = Convert.ToInt32(dt.Rows[i]["sex"]) == 1 ? "Nam" : "Nữ" ;
+                p.sex = Convert.ToInt32(dt.Rows[i]["sex"]) == 1 ? "Nam" : "Nữ";
                 p.year_of_birth = Convert.ToInt32(dt.Rows[i]["yob"]);
                 p.address = dt.Rows[i]["address"].ToString();
                 listPatient.Add(p);
             }
             return listPatient;
+        }
+            
+        static public int updateUser(User u)
+        {
+            int id = Active.update("UPDATE user SET user = '" + u.name + "', name = N'" + u.full_name + "', pw = '" + u.password + "', email = '" + u.email + "', role_id = '" + u.role_id + "' where id = " + u.id + "");
+            return id;
+        }
 
+        static public int deleteUser(int userid, int is_delete)
+        {
+            int id = Active.update("UPDATE user SET is_delete = '" + is_delete + "' where id = '" + userid + "'");
+            return id;
+        }
+
+        static public List<ChangeRegulation> getAllRegulation()
+        {
+            DataTable dt = Active.select(" select * from change_reg ");
+            List<ChangeRegulation> listRegulation = new List<ChangeRegulation>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                ChangeRegulation reg = new ChangeRegulation();
+                reg.id_function = Convert.ToInt32(dt.Rows[i]["id_function"]);
+                reg.name_function = dt.Rows[i]["name_function"].ToString();
+                reg.value_old = Convert.ToInt32(dt.Rows[i]["value_old"]);
+                reg.date_apply = Convert.ToDateTime(dt.Rows[i]["date_apply"]);
+                reg.value_apply = Convert.ToInt32(dt.Rows[i]["value_new"]);
+                listRegulation.Add(reg);
+            }
+            return listRegulation;
+        }
+
+        static public int updateRegulation(ChangeRegulation updateFee, ChangeRegulation updatePatient, int user_update)
+        {
+            int id = Active.update("UPDATE change_reg SET modifled_day = '" + updateFee.modified.ToString("yyyy-MM-dd HH:mm:ss") + "', value_old = '" + updateFee.value_old + "', value_new = '" + updateFee.value_apply + "', user_change = '" + user_update + "', date_apply = '" + updateFee.date_apply.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_function = " + updateFee.id_function + "");
+            id = Active.update("UPDATE change_reg SET modifled_day = '" + updatePatient.modified.ToString("yyyy-MM-dd HH:mm:ss") + "', value_old = '" + updatePatient.value_old + "', value_new = '" + updatePatient.value_apply + "', user_change = '" + user_update + "', date_apply = '" + updatePatient.date_apply.ToString("yyyy-MM-dd HH:mm:ss") + "' where id_function = " + updatePatient.id_function + "");
+            return id;
         }
     }
 }

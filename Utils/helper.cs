@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Utils
 {
-    class helper
+    public class helper
     {
         static public string getDateTimeNow()
         {
-            return String.Format("{0:yyyy-MM-dd HH:mm:ss}", DateTime.Now);
+            return String.Format("{0:dd-MM-yyyy}", DateTime.Now);
         }
     }
 }

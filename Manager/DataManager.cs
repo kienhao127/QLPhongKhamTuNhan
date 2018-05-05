@@ -56,7 +56,7 @@ namespace Manager
         {
             return DataHelper.getAllUser();
         }
-
+        
         public List<string> getListSicknessName()
         {
             return DataHelper.getListSicknessName();
@@ -70,6 +70,26 @@ namespace Manager
         public List<Patient> getListPatient()
         {
             return DataHelper.getListPatient();
+        }
+
+        public int updateUser(User u)
+        {
+            return DataHelper.updateUser(u);
+        }
+
+        public int deleteUser(int userid, int is_delete)
+        {
+            return DataHelper.deleteUser(userid, is_delete);
+        }
+
+        public List<ChangeRegulation> getAllRegulation()
+        {
+            return DataHelper.getAllRegulation();
+        }
+
+        public int updateRegulation(ChangeRegulation updateFee, ChangeRegulation updatePatient, int user_change)
+        {
+            return DataHelper.updateRegulation(updateFee, updatePatient, user_change);
         }
     }
 }

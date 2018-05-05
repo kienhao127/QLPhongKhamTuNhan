@@ -70,6 +70,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Utils\encodePassword.cs" />
+    <Compile Include="Utils\helper.cs" />
     <Page Include="GUI\UIAdmin\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,8 +133,6 @@
     <Compile Include="Helper\DataHelper.cs" />
     <Compile Include="Manager\DataManager.cs" />
     <Compile Include="Manager\DataReport.cs" />
-    <Compile Include="Utils\encodePassword.cs" />
-    <Compile Include="Utils\helper.cs" />
     <Compile Include="GUI\UIAdmin\Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
