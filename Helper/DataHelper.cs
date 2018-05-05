@@ -19,7 +19,7 @@ namespace Helper
         //Người dùng
         static public User login(string username, string pw)
         {
-            DataTable dt = Active.select("select id, role_id from user where user='" + username + "' and pw='" + pw + "'");
+            DataTable dt = Active.select("select id, role_id from user where user='" + username + "' and pw='" + pw + "' and is_delete = " + 0);
             User user = new User();
             for (int i = 0; i < dt.Rows.Count && dt != null; i++)
             {
@@ -88,6 +88,53 @@ namespace Helper
                 listUser.Add(u);
             }
             return listUser;
+        }
+
+        static public List<string> getListSicknessName()
+        {
+            List<string> listSickName = new List<string>();
+            DataTable dt = Active.select("select name from sickness where is_delete = " + 0);
+            
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string s = "";
+                s = dt.Rows[i]["name"].ToString();
+                listSickName.Add(s);
+            }
+            return listSickName;
+        }
+
+        static public List<string> getListMedicineName()
+        {
+            List<string> listMedicineName = new List<string>();
+            DataTable dt = Active.select("select name from medicine where is_delete = " + 0);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string s = "";
+                s = dt.Rows[i]["name"].ToString();
+                listMedicineName.Add(s);
+            }
+            return listMedicineName;
+        }
+
+        static public List<Patient> getListPatient()
+        {
+            List<Patient> listPatient = new List<Patient>();
+            DataTable dt = Active.select("select * from patient where is_delete = " + 0);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                Patient p = new Patient();
+                p.id = Convert.ToInt32(dt.Rows[i]["id"]);
+                p.full_name = dt.Rows[i]["name"].ToString();
+                p.sex = Convert.ToInt32(dt.Rows[i]["sex"]) == 1 ? "Nam" : "Nữ" ;
+                p.year_of_birth = Convert.ToInt32(dt.Rows[i]["yob"]);
+                p.address = dt.Rows[i]["address"].ToString();
+                listPatient.Add(p);
+            }
+            return listPatient;
+
         }
     }
 }

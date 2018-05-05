@@ -56,5 +56,20 @@ namespace Manager
         {
             return DataHelper.getAllUser();
         }
+
+        public List<string> getListSicknessName()
+        {
+            return DataHelper.getListSicknessName();
+        }
+
+        public List<string> getListMedicineName()
+        {
+            return DataHelper.getListMedicineName();
+        }
+
+        public List<Patient> getListPatient()
+        {
+            return DataHelper.getListPatient();
+        }
     }
 }

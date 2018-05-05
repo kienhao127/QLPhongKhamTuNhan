@@ -18,7 +18,7 @@
         </Border>
 
         <DataGrid Grid.Row="3" CanUserAddRows="False"  
-                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
+                 x:Name="patientDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True"  ItemsSource="{Binding UpdateSourceTrigger=PropertyChanged}">
             <DataGrid.Columns>
                 <!--STT-->
                 <DataGridTemplateColumn Width="SizeToHeader" Header="STT" x:Name="sttCol">

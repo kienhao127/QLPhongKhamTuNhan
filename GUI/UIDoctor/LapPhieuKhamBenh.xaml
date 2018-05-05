@@ -23,60 +23,60 @@
             </Grid.RowDefinitions>
             <!--Hàng 1-->
             <TextBlock Grid.Column="0" Text="Họ tên bệnh nhân: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBox Grid.Column="1" Name="txtBenhNhan" Margin="5"/>
+            <TextBlock Grid.Column="1" Name="tbTenBanhNhan" Margin="5" Text="Nguyễn Văn A" VerticalAlignment="Center"/>
             <TextBlock  Grid.Column="2" Text="Ngày khám: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <DatePicker Grid.Column="3" Name="dpNgayKham" Margin="5"/>
+            <TextBlock Grid.Column="3" Name="tbNgayKham" VerticalAlignment="Center" Text="22.10.1996"/>
 
             <!--Hàng 2-->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Triệu chứng: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
             <TextBox Grid.Row="1" Grid.Column="1" Name="txtTrieuChung" Margin="5"/>
             <TextBlock  Grid.Column="2" Grid.Row="1" Text="Dự đoán loại bệnh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <ComboBox Grid.Column="3" Grid.Row="1" Name="cboLoaiBenh" Margin="5"/>
-            
+            <ComboBox Grid.Column="3" Grid.Row="1" Name="cboLoaiBenh" Margin="5" SelectedIndex="0" IsEditable="True"/>
+
             <!--Hàng 3-->
-            <DataGrid Grid.Row="2" Grid.ColumnSpan="4" Margin="2,10">
+            <DataGrid Grid.Row="2" Grid.ColumnSpan="4" CanUserAddRows="True" Margin="2,10"  x:Name="donThuocDataGrid">
                 <DataGrid.Columns>
                     <!--STT-->
-                    <DataGridTemplateColumn Width="50" Header="STT" x:Name="sttCol">
+                    <DataGridTemplateColumn Width="50"  Header="STT" x:Name="sttCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding id}" HorizontalAlignment="Center"/>
+                                <TextBox x:Name="txtSTT" PreviewTextInput="NumberValidationTextBox"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
                     <!--Thuốc-->
-                    <DataGridTemplateColumn Width="150"  Header="Thuốc" x:Name="fullnameCol">
+                    <DataGridTemplateColumn Width="150"  Header="Thuốc" x:Name="tenCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding full_name}"/>
+                                <ComboBox x:Name="cboTenThuoc" IsEditable="True" Loaded="cboTenThuoc_Loaded"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
                     <!--Đơn vị-->
-                    <DataGridTemplateColumn Width="150"  Header="Đơn vị" x:Name="sexCol">
+                    <DataGridTemplateColumn Width="150"  Header="Đơn vị" x:Name="donviCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox Text="{Binding sex}"/>
+                                <ComboBox x:Name="cboDonViThuoc"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
                     <!--Số lượng-->
-                    <DataGridTemplateColumn Width="150"  Header="Số lượng" x:Name="yobCol">
+                    <DataGridTemplateColumn Width="150"  Header="Số lượng" x:Name="soLuongCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding year_of_birth}"/>
+                                <TextBox x:Name="txtSoLuong" PreviewTextInput="NumberValidationTextBox"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 
                     <!--Cách dùng-->
-                    <DataGridTemplateColumn Width="150"  Header="Cách dùng" x:Name="addressCol">
+                    <DataGridTemplateColumn Width="150"  Header="Cách dùng" x:Name="cachDungCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding address, StringFormat=d}"/>
+                                <ComboBox x:Name="tbCachDung"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -85,7 +85,12 @@
             </DataGrid>
             
             <!--Hàng 4-->
-            <Button Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center" x:Name="btnOK" Click="btnOK_Click">OK</Button>
+
+            <Button Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" x:Name="btnThemThuoc" Click="btnThemThuoc_Click" Width="110">Thêm thuốc</Button>
+            
+            <Button Grid.Row="4" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Center" x:Name="btnOK" Click="btnOK_Click" Width="110">OK</Button>
+
+           
         </Grid>
     </StackPanel>
 

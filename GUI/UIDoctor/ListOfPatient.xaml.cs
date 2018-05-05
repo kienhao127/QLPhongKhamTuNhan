@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QLPhongKhamTuNhan.GUI.UIDoctor;
 using QLPhongKhamTuNhan.Model;
+using Manager;
 
 namespace QLPhongKhamTuNhan.GUI.UIDoctor
 {
@@ -28,8 +29,8 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
             List<Patient> listPatient = new List<Patient>();
             for (int i = 0; i < 10; i++)
             {
-                var data = new Patient { id = 1, full_name = "Test2", address = "add", is_delete = false, sex = "Nam", year_of_birth = 1996 };
-                listPatient.Add(data);
+                
+                listPatient = DataManager.getInstance().getListPatient();
             }
 
             DataContext = listPatient;
@@ -37,7 +38,8 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         
         private void btnLapPhieuKhamBenh_Click(object sender, RoutedEventArgs e)
         {
-            LapPhieuKhamBenh phieu = new LapPhieuKhamBenh();
+            var p = (Patient)patientDataGrid.SelectedItem;
+            LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p);
             phieu.ShowDialog();
         }
     }
