@@ -12,6 +12,7 @@ namespace QLPhongKhamTuNhan.Model
         private int _medicine_id;
         private int _unit_id;
         private int _amount;
+        private int _use_id;
         private int _user_id_create;
         private MedicalExam _medical_exam;
         private UnitPriceMedicine _unit_price_medicine;
@@ -21,6 +22,7 @@ namespace QLPhongKhamTuNhan.Model
         public int medicine_id { get { return _medicine_id; } set { _medicine_id = value; } }
         public int unit_id { get { return _unit_id; } set { _unit_id = value; } }
         public int amount { get { return _amount; } set { _amount = value; } }
+        public int use_id { get { return _use_id; } set { _use_id = value; } }
         public int user_id_create { get { return _user_id_create; } set { _user_id_create = value; } }
         internal MedicalExam medical_exam { get { return _medical_exam; } set { _medical_exam = value; } }
         internal UnitPriceMedicine unit_price_medicine { get { return _unit_price_medicine; } set { _unit_price_medicine = value; } }

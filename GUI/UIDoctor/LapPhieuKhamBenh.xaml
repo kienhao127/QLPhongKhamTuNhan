@@ -49,7 +49,7 @@
                     <DataGridTemplateColumn Width="150"  Header="Thuốc" x:Name="tenCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox x:Name="cboTenThuoc" IsEditable="True" Loaded="cboTenThuoc_Loaded"/>
+                                <ComboBox x:Name="cboTenThuoc" IsEditable="True" Loaded="cboTenThuoc_Loaded" SelectionChanged="cboTenThuoc_SelectionChanged"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -58,7 +58,7 @@
                     <DataGridTemplateColumn Width="150"  Header="Đơn vị" x:Name="donviCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox x:Name="cboDonViThuoc"/>
+                                <ComboBox x:Name="cboDonViThuoc" SelectionChanged="cboDonViThuoc_SelectionChanged" IsEditable="True" Loaded="cboDonViThuoc_Loaded"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -67,7 +67,7 @@
                     <DataGridTemplateColumn Width="150"  Header="Số lượng" x:Name="soLuongCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBox x:Name="txtSoLuong" PreviewTextInput="NumberValidationTextBox"/>
+                                <TextBox x:Name="txtSoLuong" PreviewTextInput="NumberValidationTextBox" TextChanged="txtSoLuong_TextChanged"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
@@ -76,7 +76,7 @@
                     <DataGridTemplateColumn Width="150"  Header="Cách dùng" x:Name="cachDungCol">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <ComboBox x:Name="tbCachDung"/>
+                                <ComboBox x:Name="tbCachDung" IsEditable="True" SelectionChanged="tbCachDung_SelectionChanged"  Loaded="tbCachDung_Loaded"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

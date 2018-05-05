@@ -188,5 +188,67 @@ namespace Helper
             }
             return listSickness;
         }
+
+        static public int getMedicineID(string medicineName)
+        {
+            DataTable dt = Active.select("SELECT id from medicine where name = '" + medicineName + "'");
+            if (dt.Rows[0]["id"] == null)
+            {
+                return -1;
+            }
+            int id = Convert.ToInt32(dt.Rows[0]["id"]);
+            return id;
+        }
+
+        static public int getUseID(string useName)
+        {
+            DataTable dt = Active.select("SELECT id from use_medicine where name = '" + useName + "'");
+            if (dt.Rows[0]["id"] == null)
+            {
+                return -1;
+            }
+            int id = Convert.ToInt32(dt.Rows[0]["id"]);
+            return id;
+        }
+
+        static public List<string> getListUseName()
+        {
+            List<string> listUseName = new List<string>();
+            DataTable dt = Active.select("select name from use_medicine where is_delete = " + 0);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string s = "";
+                s = dt.Rows[i]["name"].ToString();
+                listUseName.Add(s);
+            }
+            return listUseName;
+        }
+
+        static public List<string> getListUnitName()
+        {
+            List<string> listUnitName = new List<string>();
+            DataTable dt = Active.select("select name from unit_medicine where is_delete = " + 0);
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                string s = "";
+                s = dt.Rows[i]["name"].ToString();
+                listUnitName.Add(s);
+            }
+            return listUnitName;
+        }
+
+        static public int getUnitID(string unitName)
+        {
+            DataTable dt = Active.select("SELECT id from unit_medicine where name = '" + unitName + "'");
+            if (dt.Rows[0]["id"] == null)
+            {
+                return -1;
+            }
+            int id = Convert.ToInt32(dt.Rows[0]["id"]);
+            return id;
+        }
+
     }
 }

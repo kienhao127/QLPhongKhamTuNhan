@@ -34,12 +34,11 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             //   int iLogIn = relatedUser.logIn(txtUserName.Text, txtPassword.Password);
-            string outputPassword;
+            string outputPassword = "";
             using (MD5 md5Hash = MD5.Create())
             {
                 outputPassword = GetMd5Hash(md5Hash, txtPassword.Password.ToString());
             }
-            outputPassword = txtPassword.Password.ToString();
 
             User currentUser = DataManager.getInstance().login(txtUserName.Text, outputPassword);
 

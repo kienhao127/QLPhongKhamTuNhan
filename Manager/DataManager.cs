@@ -96,5 +96,32 @@ namespace Manager
         {
             return DataHelper.getAllSickness();
         }
+
+
+
+        public int getMedicineID(string medicineName)
+        {
+            return DataHelper.getMedicineID(medicineName);
+        }
+
+        public int getUseID(string useName)
+        {
+            return DataHelper.getUseID(useName);
+        }
+
+        public List<string> getListUseName()
+        {
+            return DataHelper.getListUseName();
+        }
+
+        public List<string> getListUnitName()
+        {
+            return DataHelper.getListUnitName();
+        }
+
+        public int getUnitID(string unitName)
+        {
+            return DataHelper.getUnitID(unitName);
+        }
     }
 }
