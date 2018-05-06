@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,6 +40,44 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnAddMedicine_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra thuoc da ton tai chua
+            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+
+            foreach (var m in listMedicine)
+            {
+                if(m.name == txtNameMedicine.Text)
+                {
+                    MessageBox.Show("Tên thuốc đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if(txtNameMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên thuốc!");
+                return;
+            }
+
+            if(cbUnitMedicine.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị tính của thuốc!");
+                return;
+            }
+
+            if(txtUnitPriceMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đơn giá của thuốc!");
+                return;
+            }
+
+            if(txtSmallestMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số lượng tối thiểu của thuốc!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh insert vao database
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
@@ -66,6 +105,44 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnEditMedicine_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra thuoc da ton tai chua
+            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+
+            foreach (var m in listMedicine)
+            {
+                if (m.name == txtNameMedicine.Text)
+                {
+                    MessageBox.Show("Tên thuốc đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên thuốc!");
+                return;
+            }
+
+            if (cbUnitMedicine.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn đơn vị tính của thuốc!");
+                return;
+            }
+
+            if (txtUnitPriceMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đơn giá của thuốc!");
+                return;
+            }
+
+            if (txtSmallestMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập số lượng tối thiểu của thuốc!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh cap nhat du lieu
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
@@ -90,6 +167,18 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 MessageBox.Show("Cập nhật thuốc thất bại!");
             }
+        }
+
+        private void txtUnitPriceMedicine_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void txtSmallestMedicine_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

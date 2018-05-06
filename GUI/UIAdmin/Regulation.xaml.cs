@@ -204,6 +204,8 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         {
             AddMedicine addMedicine = new AddMedicine(null);
             addMedicine.ShowDialog();
+            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+            medicineDataGrid.DataContext = listMedicine;
         }
 
         private void btnEditMedicine_Click(object sender, RoutedEventArgs e)
@@ -211,6 +213,8 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             FullMedicine medicine = medicineDataGrid.SelectedItem as FullMedicine;
             AddMedicine addMedicine = new AddMedicine(medicine);
             addMedicine.ShowDialog();
+            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+            medicineDataGrid.DataContext = listMedicine;
         }
 
         private void btnDeleteMedicine_Click(object sender, RoutedEventArgs e)
@@ -222,6 +226,8 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                 currentUser = (User)Application.Current.Properties["UserInfo"];
                 int id = DataManager.getInstance().deleteMedicine(item.id, currentUser.id);
                 MessageBox.Show("Xóa thuốc thành công!");
+                List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+                medicineDataGrid.DataContext = listMedicine;
             }
             catch
             {
