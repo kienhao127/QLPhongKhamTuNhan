@@ -539,5 +539,14 @@ namespace Helper
             quantity = dt.Rows.Count;
             return quantity;
         }
+
+        //dem so don thuoc theo ma cach dung
+        static public int countPrescriptionByUseID(int id)
+        {
+            int quantity = 0;
+            DataTable dt = Active.select("select * from prescription where use_id = " + id);
+            quantity = dt.Rows.Count;
+            return quantity;
+        }
     }
 }

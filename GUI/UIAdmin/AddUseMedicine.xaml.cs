@@ -37,6 +37,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnAddUseMedicine_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra cach dung da ton tai chua
+            List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+
+            foreach (var u in listUse)
+            {
+                if (u.name == txtNameUseMedicine.Text)
+                {
+                    MessageBox.Show("Tên cách dùng đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameUseMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên cách dùng!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh insert vao database
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
@@ -58,6 +78,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnEditUseMedicine_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra cach dung da ton tai chua
+            List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+
+            foreach (var u in listUse)
+            {
+                if (u.name == txtNameUseMedicine.Text)
+                {
+                    MessageBox.Show("Tên cách dùng đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameUseMedicine.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên cách dùng!");
+                return;
+            }
+
+            //Thoa man cac dieu kien tien hanh cap nhat du lieu
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 

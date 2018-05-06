@@ -171,10 +171,13 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
         }
 
+        //Quan ly cach dung
         private void btnAddUseMedicine_Click(object sender, RoutedEventArgs e)
         {
             AddUseMedicine addUse = new AddUseMedicine(null);
             addUse.ShowDialog();
+            List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+            useMedicineDataGrid.DataContext = listUse;
         }
 
         private void btnEditUseMedicine_Click(object sender, RoutedEventArgs e)
@@ -182,17 +185,27 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             UserMedicine use = useMedicineDataGrid.SelectedItem as UserMedicine;
             AddUseMedicine addUse = new AddUseMedicine(use);
             addUse.ShowDialog();
+            List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+            useMedicineDataGrid.DataContext = listUse;
         }
 
         private void btnDeleteUseMedicine_Click(object sender, RoutedEventArgs e)
         {
             UserMedicine item = useMedicineDataGrid.SelectedItem as UserMedicine;
+            int countPrescription = DataManager.getInstance().countPrescriptionByUseID(item.id);
+            if (countPrescription > 0)
+            {
+                MessageBox.Show("Có đơn thuốc đang sử dụng cách dùng này. Không thể xóa được!");
+                return;
+            }
             try
             {
                 User currentUser = new User();
                 currentUser = (User)Application.Current.Properties["UserInfo"];
                 int id = DataManager.getInstance().deleteUseMedicine(item.id, currentUser.id);
                 MessageBox.Show("Xóa cách dùng thành công!");
+                List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+                useMedicineDataGrid.DataContext = listUse;
             }
             catch
             {
@@ -200,6 +213,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
         }
 
+        //Quan ly thuoc
         private void btnAddMedicine_Click(object sender, RoutedEventArgs e)
         {
             AddMedicine addMedicine = new AddMedicine(null);
