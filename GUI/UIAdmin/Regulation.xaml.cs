@@ -28,21 +28,29 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             InitializeComponent();
             LoadRegulation();
 
-            //Quan ly danh sach loai benh
-            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
-            sicknessDataGrid.DataContext = listSickness;
+            try
+            {
+                //Quan ly danh sach loai benh
+                List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+                sicknessDataGrid.DataContext = listSickness;
 
-            //Quan ly don vi thuoc
-            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
-            unitDataGrid.DataContext = listUnit;
+                //Quan ly don vi thuoc
+                List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+                unitDataGrid.DataContext = listUnit;
 
-            //Quan ly cach dung
-            List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
-            useMedicineDataGrid.DataContext = listUse;
+                //Quan ly cach dung
+                List<UserMedicine> listUse = DataManager.getInstance().getAllUseMedicine();
+                useMedicineDataGrid.DataContext = listUse;
 
-            //Quan ly thuoc
-            List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
-            medicineDataGrid.DataContext = listMedicine;
+                //Quan ly thuoc
+                List<FullMedicine> listMedicine = DataManager.getInstance().getAllMedicine();
+                medicineDataGrid.DataContext = listMedicine;
+            }
+            catch
+            {
+                MessageBox.Show("Error!");
+            }
+            
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -85,37 +93,44 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         public void LoadRegulation()
         {
             dpApplyDate.SelectedDate = DateTime.Today;
-            List<ChangeRegulation> listReg = DataManager.getInstance().getAllRegulation();
-            foreach (var row in listReg)
+            try
             {
-                if (row.name_function == "fee")
+                List<ChangeRegulation> listReg = DataManager.getInstance().getAllRegulation();
+                foreach (var row in listReg)
                 {
-                    if (row.date_apply < DateTime.Now)
+                    if (row.name_function == "fee")
                     {
-                        txtFeeExam.Text = row.value_apply.ToString();
-                        txtFeeOld.Text = row.value_apply.ToString();
+                        if (row.date_apply < DateTime.Now)
+                        {
+                            txtFeeExam.Text = row.value_apply.ToString();
+                            txtFeeOld.Text = row.value_apply.ToString();
+                        }
+                        else
+                        {
+                            txtFeeExam.Text = row.value_old.ToString();
+                            txtFeeOld.Text = row.value_old.ToString();
+                        }
+                        txtFeeId.Text = row.id_function.ToString();
                     }
-                    else
+                    if (row.name_function == "patient")
                     {
-                        txtFeeExam.Text = row.value_old.ToString();
-                        txtFeeOld.Text = row.value_old.ToString();
+                        if (row.date_apply < DateTime.Now)
+                        {
+                            txtNumOfPatient.Text = row.value_apply.ToString();
+                            txtPatientOld.Text = row.value_apply.ToString();
+                        }
+                        else
+                        {
+                            txtNumOfPatient.Text = row.value_old.ToString();
+                            txtPatientOld.Text = row.value_old.ToString();
+                        }
+                        txtPatientId.Text = row.id_function.ToString();
                     }
-                    txtFeeId.Text = row.id_function.ToString();
                 }
-                if (row.name_function == "patient")
-                {
-                    if (row.date_apply < DateTime.Now)
-                    {
-                        txtNumOfPatient.Text = row.value_apply.ToString();
-                        txtPatientOld.Text = row.value_apply.ToString();
-                    }
-                    else
-                    {
-                        txtNumOfPatient.Text = row.value_old.ToString();
-                        txtPatientOld.Text = row.value_old.ToString();
-                    }
-                    txtPatientId.Text = row.id_function.ToString();
-                }
+            }
+            catch
+            {
+                MessageBox.Show("Error!");
             }
         }
 

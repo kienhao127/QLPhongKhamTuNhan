@@ -573,5 +573,22 @@ namespace Helper
             int id = Active.update("UPDATE user SET user = '" + u.name + "', name = N'" + u.full_name + "', email = '" + u.email + "', role_id = '" + u.role_id + "' where id = " + u.id + "");
             return id;
         }
+
+        //lay thong tin user theo user_id
+        static public User getUserWithID(int id)
+        {
+            User u = new User();
+            DataTable dt = Active.select("SELECT * FROM user WHERE id = " + id + " and is_delete = " + 0);
+            if (dt.Rows.Count != 0)
+            {
+                u.id = id;
+                u.name = dt.Rows[0]["user"].ToString();
+                u.full_name = dt.Rows[0]["name"].ToString();
+                u.email = dt.Rows[0]["email"].ToString();
+                return u;
+            }
+            u.id = -1;
+            return u;
+        }
     }
 }

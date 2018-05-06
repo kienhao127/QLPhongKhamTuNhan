@@ -13,9 +13,9 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Width="60" Orientation="Vertical" HorizontalAlignment="Left" Background="#FF03A9F4">
-            <Border CornerRadius="50" Margin="5" Width="50" Height="50" Background="DarkCyan">
-                <TextBlock Text="Avatar" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />
-            </Border>
+            <Button Name="btnMyAccount" Background="Transparent" BorderThickness="0" Padding="0" Margin="0,10,0,0" Click="btnMyAccount_Click" ToolTip="Tài khoản của tôi" ToolTipService.Placement="Right">
+                <Image Source="../Icons/default_avatar.png" Width="50" />
+            </Button>
             <Button Name="btnDashboard" Click="btnDashboard_Click" Background="Transparent" Padding="0" BorderThickness="0" Margin="0,30,0,0" ToolTip="Dashboard" Tag="1" ToolTipService.Placement="Right" >
                 <Image Source="../Icons/Dashboard.png" Width="50" />
             </Button>

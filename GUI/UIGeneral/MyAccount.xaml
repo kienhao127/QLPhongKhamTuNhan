@@ -1,0 +1,54 @@
+﻿<Page x:Class="QLPhongKhamTuNhan.GUI.UIGeneral.MyAccount"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:QLPhongKhamTuNhan.GUI.UIGeneral"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1220"
+      Title="Tài khoản của tôi">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Background="#eff4ff" BorderThickness="0,0,0,1" BorderBrush="#FF03A9F4">
+            <TextBlock Text="Dashboard" VerticalAlignment="Center" FontSize="20" Margin="20,0,0,0" />
+        </Border>
+        <Grid HorizontalAlignment="Center" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="2" x:Name="lblTitle" Content="THÔNG TIN TÀI KHOẢN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
+            <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">Tên người dùng:</Label>
+            <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Name="lblNewPass">Mật khẩu mới:</Label>
+            <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Name="lblConfirmNewPass">Nhập lại mật khẩu:</Label>
+            <Label Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">Họ và tên:</Label>
+            <Label Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">Email:</Label>
+            <Label Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center">Loại người dùng:</Label>
+            <TextBox Grid.Column="1" Grid.Row="1" Name="txtAddUsername" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding name}" />
+            <PasswordBox Grid.Column="1" Grid.Row="2" Name="txtNewPassword" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16"/>
+            <PasswordBox Grid.Column="1" Grid.Row="3" Name="txtConfirmNewPass" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16"/>
+            <TextBox Grid.Column="1" Grid.Row="4" Name="txtAddFullname" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding full_name}" />
+            <TextBox Grid.Column="1" Grid.Row="5" Name="txtAddEmail" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" Text="{Binding email}" />
+            <TextBlock Grid.Column="1" Grid.Row="6" Name="tblRole" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="320" FontSize="16" />
+            <Button Grid.Column="1" Grid.Row="7" Name="btnSaveUserDB" Content="Lưu" VerticalAlignment="Top" HorizontalAlignment="Left"
+                Click="btnSaveUserDB_Click" Width="120" Height="40" Margin="10,20,0,0"/>
+            <Button Grid.ColumnSpan="2" Grid.Row="7" Name="btnLogout" Content="Đăng xuất" VerticalAlignment="Top" HorizontalAlignment="Right"
+                 Width="120" Height="40" Margin="0,20,10,0" Click="btnLogout_Click"/>
+            <TextBox Visibility="Hidden" Text="{Binding id}" x:Name="txtUserId" />
+        </Grid>
+    </Grid>
+</Page>

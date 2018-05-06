@@ -24,8 +24,7 @@
         <Label Grid.Row="2" Name="lblPassword" Content="Mật khẩu:" HorizontalAlignment="Right"  VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Grid.Row="1" Name="txtUserName" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="300" FontSize="16" />
         <PasswordBox Grid.Column="1" Grid.Row="2" Name="txtPassword" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" Height="30" Width="300" FontSize="16"/>
-        <Button Grid.Row="3" Grid.Column="1" Name="btnLogin" Content="Đăng nhập" VerticalAlignment="Top" HorizontalAlignment="Right"
+        <Button Grid.Row="3" Grid.Column="1" Name="btnLogin" Content="Đăng nhập" VerticalAlignment="Top" HorizontalAlignment="Center"
                 Click="btnLogin_Click" Margin="0,20,45,0" Width="100" Height="30"/>
-        <Label Name="lblForgetPassword" Content="Quên mật khẩu?" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,20,10,10"/>
     </Grid>
 </Window>

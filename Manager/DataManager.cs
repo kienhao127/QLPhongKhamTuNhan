@@ -331,5 +331,10 @@ namespace Manager
         {
             return DataHelper.updateUserNoPass(u);
         }
+
+        public User getUserWithID(int id)
+        {
+            return DataHelper.getUserWithID(id);
+        }
     }
 }

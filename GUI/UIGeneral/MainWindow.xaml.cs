@@ -91,5 +91,10 @@ namespace QLPhongKhamTuNhan
                 btnUserMenu.Visibility = Visibility.Collapsed;
             }
         }
+
+        private void btnMyAccount_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new MyAccount();
+        }
     }
 }
