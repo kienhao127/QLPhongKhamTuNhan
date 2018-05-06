@@ -73,10 +73,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.01667in</Width>
+              <Width>0.86042in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.81875in</Width>
+              <Width>1.96458in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.69375in</Width>
@@ -312,6 +312,10 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value xml:space="preserve">  </Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!medicine_name.Value</Value>
                               <Style />
                             </TextRun>
@@ -454,7 +458,7 @@
         <Top>0.98833in</Top>
         <Left>0.29167in</Left>
         <Height>0.5in</Height>
-        <Width>7.91667in</Width>
+        <Width>7.90625in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -463,7 +467,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>12in</Height>
+    <Height>1.73958in</Height>
     <Style />
   </Body>
   <Width>8.5in</Width>

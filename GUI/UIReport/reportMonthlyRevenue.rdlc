@@ -307,7 +307,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!day_revenue.Value," ### ### ### VNĐ  ")</Value>
+                              <Value>=Format(Fields!day_revenue.Value," ### ### ### VNĐ")</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve">  </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -339,6 +343,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Format(Fields!radio.Value,"P")</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve">  </Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
