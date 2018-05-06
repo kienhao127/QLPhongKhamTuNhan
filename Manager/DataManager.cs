@@ -310,5 +310,15 @@ namespace Manager
         {
             return DataHelper.countUnitPriceMedicineByUnitID(id);
         }
+
+        public int countMedicalExamBySickID(int id)
+        {
+            return DataHelper.countMedicalExamBySickID(id);
+        }
+
+        public int updateUserNoPass(User u)
+        {
+            return DataHelper.updateUserNoPass(u);
+        }
     }
 }

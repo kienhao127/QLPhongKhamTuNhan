@@ -32,6 +32,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         {
             AddUser newUser = new AddUser(null);
             newUser.ShowDialog();
+            DataContext = DataManager.getInstance().getAllUser();
         }
 
         private void btnEditUser_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             User item = userDataGrid.SelectedItem as User;
             AddUser editUser = new AddUser(item);
             editUser.ShowDialog();
+            DataContext = DataManager.getInstance().getAllUser();
         }
 
         private void btnDeleteUser_Click(object sender, RoutedEventArgs e)
@@ -50,6 +52,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                 currentUser = (User)Application.Current.Properties["UserInfo"];
                 int id = DataManager.getInstance().deleteUser(item.id, currentUser.id);
                 MessageBox.Show("Xóa người dùng thành công!");
+                DataContext = DataManager.getInstance().getAllUser();
             }
             catch
             {

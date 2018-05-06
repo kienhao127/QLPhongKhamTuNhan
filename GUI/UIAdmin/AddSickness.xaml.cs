@@ -37,6 +37,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnAddSickness_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra loai benh da ton tai chua
+            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+
+            foreach (var s in listSickness)
+            {
+                if (s.name == txtNameSickness.Text)
+                {
+                    MessageBox.Show("Tên loại bệnh đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameSickness.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên loại bệnh!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh insert vao database
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
@@ -58,6 +78,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnEditSickness_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra thuoc da ton tai chua
+            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+
+            foreach (var s in listSickness)
+            {
+                if (s.name == txtNameSickness.Text)
+                {
+                    MessageBox.Show("Tên loại bệnh đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameSickness.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên loại bệnh!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh cap nhat du lieu
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 

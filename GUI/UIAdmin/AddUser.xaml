@@ -23,8 +23,8 @@
         </Grid.RowDefinitions>
         <Label Grid.ColumnSpan="2" x:Name="lblTitle" Content="TẠO MỚI TÀI KHOẢN" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" />
         <Label Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center">Tên người dùng:</Label>
-        <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center">Mật khẩu:</Label>
-        <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center">Nhập lại mật khẩu:</Label>
+        <Label Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Name="lblPass">Mật khẩu:</Label>
+        <Label Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Name="lblConfirmPass">Nhập lại mật khẩu:</Label>
         <Label Grid.Row="4" HorizontalAlignment="Right" VerticalAlignment="Center">Họ và tên:</Label>
         <Label Grid.Row="5" HorizontalAlignment="Right" VerticalAlignment="Center">Email:</Label>
         <Label Grid.Row="6" HorizontalAlignment="Right" VerticalAlignment="Center">Loại người dùng:</Label>

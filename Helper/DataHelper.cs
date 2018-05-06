@@ -557,5 +557,21 @@ namespace Helper
             quantity = dt.Rows.Count;
             return quantity;
         }
+
+        //dem phieu kham benh theo ma loai benh
+        static public int countMedicalExamBySickID(int id)
+        {
+            int quantity = 0;
+            DataTable dt = Active.select("select * from medical_exam where sick_id = " + id);
+            quantity = dt.Rows.Count;
+            return quantity;
+        }
+
+        //update user (khong thay doi password)
+        static public int updateUserNoPass(User u)
+        {
+            int id = Active.update("UPDATE user SET user = '" + u.name + "', name = N'" + u.full_name + "', email = '" + u.email + "', role_id = '" + u.role_id + "' where id = " + u.id + "");
+            return id;
+        }
     }
 }

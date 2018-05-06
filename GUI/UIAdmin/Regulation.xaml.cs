@@ -26,39 +26,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         public Regulation()
         {
             InitializeComponent();
-            dpApplyDate.SelectedDate = DateTime.Today;
-            List<ChangeRegulation> listReg = DataManager.getInstance().getAllRegulation();
-            foreach (var row in listReg)
-            {
-                if (row.name_function == "fee")
-                {
-                    if(row.date_apply < DateTime.Now)
-                    {
-                        txtFeeExam.Text = row.value_apply.ToString();
-                        txtFeeOld.Text = row.value_apply.ToString();
-                    }
-                    else
-                    {
-                        txtFeeExam.Text = row.value_old.ToString();
-                        txtFeeOld.Text = row.value_old.ToString();
-                    }
-                    txtFeeId.Text = row.id_function.ToString();
-                }
-                if (row.name_function == "patient")
-                {
-                    if (row.date_apply < DateTime.Now)
-                    {
-                        txtNumOfPatient.Text = row.value_apply.ToString();
-                        txtPatientOld.Text = row.value_apply.ToString();
-                    }
-                    else
-                    {
-                        txtNumOfPatient.Text = row.value_old.ToString();
-                        txtPatientOld.Text = row.value_old.ToString();
-                    }
-                    txtPatientId.Text = row.id_function.ToString();
-                }
-            }
+            LoadRegulation();
 
             //Quan ly danh sach loai benh
             List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
@@ -106,6 +74,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 int id = DataManager.getInstance().updateRegulation(updateFee, updateNumOfPatient, currentUser.id);
                 MessageBox.Show("Cập nhật thành công!");
+                LoadRegulation();
             }
             catch
             {
@@ -113,10 +82,50 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
         }
 
+        public void LoadRegulation()
+        {
+            dpApplyDate.SelectedDate = DateTime.Today;
+            List<ChangeRegulation> listReg = DataManager.getInstance().getAllRegulation();
+            foreach (var row in listReg)
+            {
+                if (row.name_function == "fee")
+                {
+                    if (row.date_apply < DateTime.Now)
+                    {
+                        txtFeeExam.Text = row.value_apply.ToString();
+                        txtFeeOld.Text = row.value_apply.ToString();
+                    }
+                    else
+                    {
+                        txtFeeExam.Text = row.value_old.ToString();
+                        txtFeeOld.Text = row.value_old.ToString();
+                    }
+                    txtFeeId.Text = row.id_function.ToString();
+                }
+                if (row.name_function == "patient")
+                {
+                    if (row.date_apply < DateTime.Now)
+                    {
+                        txtNumOfPatient.Text = row.value_apply.ToString();
+                        txtPatientOld.Text = row.value_apply.ToString();
+                    }
+                    else
+                    {
+                        txtNumOfPatient.Text = row.value_old.ToString();
+                        txtPatientOld.Text = row.value_old.ToString();
+                    }
+                    txtPatientId.Text = row.id_function.ToString();
+                }
+            }
+        }
+
+        //Quan ly loai benh
         private void btnAddSickness_Click(object sender, RoutedEventArgs e)
         {
             AddSickness addSick = new AddSickness(null);
             addSick.ShowDialog();
+            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+            sicknessDataGrid.DataContext = listSickness;
         }
 
         private void btnEditSickness_Click(object sender, RoutedEventArgs e)
@@ -124,17 +133,27 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             Sickness sick = sicknessDataGrid.SelectedItem as Sickness;
             AddSickness editSick = new AddSickness(sick);
             editSick.ShowDialog();
+            List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+            sicknessDataGrid.DataContext = listSickness;
         }
 
         private void btnDeleteSickness_Click(object sender, RoutedEventArgs e)
         {
             Sickness item = sicknessDataGrid.SelectedItem as Sickness;
+            int countMedicalExam = DataManager.getInstance().countMedicalExamBySickID(item.id);
+            if (countMedicalExam > 0)
+            {
+                MessageBox.Show("Có phiếu khám bệnh đang sử dụng loại bệnh này. Không thể xóa được!");
+                return;
+            }
             try
             {
                 User currentUser = new User();
                 currentUser = (User)Application.Current.Properties["UserInfo"];
                 int id = DataManager.getInstance().deleteSickness(item.id, currentUser.id);
                 MessageBox.Show("Xóa loại bệnh thành công!");
+                List<Sickness> listSickness = DataManager.getInstance().getAllSickness();
+                sicknessDataGrid.DataContext = listSickness;
             }
             catch
             {
