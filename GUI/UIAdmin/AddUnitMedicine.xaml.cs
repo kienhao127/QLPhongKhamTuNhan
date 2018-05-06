@@ -32,6 +32,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 btnAddUnit.Visibility = Visibility.Hidden;
                 DataContext = unit;
+                lblTitle.Content = "CHỈNH SỬA ĐƠN VỊ THUỐC";
             }
         }
 

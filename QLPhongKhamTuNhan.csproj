@@ -448,7 +448,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="GUI\Icons\ad_user.png" />
-    <Resource Include="GUI\Icons\default_avatar.jpg" />
     <Resource Include="GUI\Icons\default_avatar.png" />
     <Content Include="packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll" />
     <Content Include="packages\MaterialDesignThemes.2.3.0.823\lib\net45\MaterialDesignThemes.Wpf.dll" />

@@ -42,6 +42,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
                 }
                 btnAddMedicine.Visibility = Visibility.Hidden;
                 DataContext = medicine;
+                lblTitle.Content = "CHỈNH SỬA THUỐC";
             }
         }
 

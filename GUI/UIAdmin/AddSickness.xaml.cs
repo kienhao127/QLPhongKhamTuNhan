@@ -32,6 +32,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 btnAddSickness.Visibility = Visibility.Hidden;
                 DataContext = sick;
+                lblTitle.Content = "CHỈNH SỬA LOẠI BỆNH";
             }
         }
 

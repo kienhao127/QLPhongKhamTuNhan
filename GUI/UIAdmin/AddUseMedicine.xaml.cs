@@ -32,6 +32,7 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             {
                 btnAddUseMedicine.Visibility = Visibility.Hidden;
                 DataContext = use;
+                lblTitle.Content = "CHỈNH SỬA CÁCH DÙNG";
             }
         }
 
