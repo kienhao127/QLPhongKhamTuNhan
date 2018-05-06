@@ -412,21 +412,28 @@ namespace Helper
             return listFullMedicine;
         }
 
-        static public int insertMedicine(UserMedicine use, int user_update)
+        static public int insertMedicine(FullMedicine medicine, int user_update)
         {
-            int id = Active.insert("INSERT INTO use_medicine(name, detail, user_change) VALUES (N'" + use.name + "',N'" + use.detail + "','" + user_update + "')");
+            int id = Active.insert("INSERT INTO medicine(name, another_name, user_change) VALUES (N'" + medicine.name + "',N'" + medicine.another_name + "','" + user_update + "')");
+            if(id > 0)
+            {
+                int id_unit_price = Active.insert("INSERT INTO unit_price_medicine(medicine_id, unit_id, unit_price, num_smallest_unit, user_change) VALUES ('" + id + "','" + medicine.unit_id + "','" + medicine.unit_price + "','" + medicine.num_smallest_unit + "','" + user_update + "')");
+                return id;
+            }
+            return 0;
+        }
+
+        static public int updateMedicine(FullMedicine medicine, int user_change)
+        {
+            int id = Active.update("UPDATE medicine SET name = N'" + medicine.name + "', another_name = N'" + medicine.another_name + "', user_change = '" + user_change + "' where id = " + medicine.id + "");
+            id = Active.update("UPDATE unit_price_medicine SET unit_id = '" + medicine.unit_id + "', unit_price = '" + medicine.unit_price + "', num_smallest_unit = '" + medicine.num_smallest_unit + "', user_change = '" + user_change + "' where medicine_id = " + medicine.id + "");
             return id;
         }
 
-        static public int updateMedicine(UserMedicine use, int user_change)
+        static public int deleteMedicine(int medicine_id, int user_change)
         {
-            int id = Active.update("UPDATE use_medicine SET name = N'" + use.name + "', detail = '" + use.detail + "', user_change = '" + user_change + "' where id = " + use.id + "");
-            return id;
-        }
-
-        static public int deleteMedicine(int use_id, int user_change)
-        {
-            int id = Active.update("UPDATE use_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + use_id + "");
+            int id = Active.update("UPDATE medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + medicine_id + "");
+            id = Active.update("UPDATE unit_price_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where medicine_id = " + medicine_id + "");
             return id;
         }
 

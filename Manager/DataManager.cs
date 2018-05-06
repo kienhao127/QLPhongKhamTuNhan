@@ -216,19 +216,19 @@ namespace Manager
             return DataHelper.getAllMedicine();
         }
 
-        public int insertMedicine(UserMedicine use, int user_update)
+        public int insertMedicine(FullMedicine medicine, int user_update)
         {
-            return DataHelper.insertUseMedicine(use, user_update);
+            return DataHelper.insertMedicine(medicine, user_update);
         }
 
-        public int updateMedicine(UserMedicine use, int user_change)
+        public int updateMedicine(FullMedicine medicine, int user_change)
         {
-            return DataHelper.updateUseMedicine(use, user_change);
+            return DataHelper.updateMedicine(medicine, user_change);
         }
 
-        public int deleteMedicine(int use_id, int user_change)
+        public int deleteMedicine(int medicine_id, int user_change)
         {
-            return DataHelper.deleteUseMedicine(use_id, user_change);
+            return DataHelper.deleteMedicine(medicine_id, user_change);
         }
 
         public int insertPatient(Patient p)
