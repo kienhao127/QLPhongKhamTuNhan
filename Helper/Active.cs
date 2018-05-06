@@ -52,6 +52,7 @@ namespace Helper
         public static short insert(string query)
         {
             short change = 0;
+            short id = 0;
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connectString()))
@@ -59,9 +60,10 @@ namespace Helper
                 {
                     connection.Open();
                     change = Convert.ToInt16(cmd.ExecuteNonQuery());
+                    id = Convert.ToInt16(cmd.LastInsertedId);
                     connection.Close();
                 }
-                return change;
+                return id;
             }
             catch (Exception e)
             {

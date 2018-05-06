@@ -202,17 +202,31 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnAddMedicine_Click(object sender, RoutedEventArgs e)
         {
-
+            AddMedicine addMedicine = new AddMedicine(null);
+            addMedicine.ShowDialog();
         }
 
         private void btnEditMedicine_Click(object sender, RoutedEventArgs e)
         {
-
+            FullMedicine medicine = medicineDataGrid.SelectedItem as FullMedicine;
+            AddMedicine addMedicine = new AddMedicine(medicine);
+            addMedicine.ShowDialog();
         }
 
         private void btnDeleteMedicine_Click(object sender, RoutedEventArgs e)
         {
-
+            FullMedicine item = medicineDataGrid.SelectedItem as FullMedicine;
+            try
+            {
+                User currentUser = new User();
+                currentUser = (User)Application.Current.Properties["UserInfo"];
+                int id = DataManager.getInstance().deleteMedicine(item.id, currentUser.id);
+                MessageBox.Show("Xóa thuốc thành công!");
+            }
+            catch
+            {
+                MessageBox.Show("Xóa thuốc thất bại!");
+            }
         }
     }
 }
