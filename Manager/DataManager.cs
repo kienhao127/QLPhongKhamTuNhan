@@ -1,5 +1,6 @@
 ﻿using Helper;
 using QLPhongKhamTuNhan.Model;
+using System;
 using System.Collections.Generic;
 
 namespace Manager
@@ -281,9 +282,19 @@ namespace Manager
             return DataHelper.getMedicalExamStatus(patientid);
         }
 
-        public int getFeeExam()
+        public long getFeeExam()
         {
-            return 40000;
+            ChangeRegulation[] listReg = DataHelper.getAllRegulation().ToArray();
+            long value = 0;
+            if (listReg[0].date_apply > DateTime.Now)
+            {
+                value = listReg[0].value_old;
+            }
+            else
+            {
+                value = listReg[0].value_apply;
+            }
+            return value;
         }
 
         public int getFeeMedicine(string code)
@@ -291,7 +302,7 @@ namespace Manager
             return DataHelper.getFeeMedicine(code);
         }
 
-        public int updateMedicineExam(string code, int feeExam, int feeMedicine)
+        public int updateMedicineExam(string code, long feeExam, int feeMedicine)
         {
             return DataHelper.updateMedicalExam(code, feeExam, feeMedicine);
         }

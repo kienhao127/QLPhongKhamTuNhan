@@ -35,11 +35,32 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         
         private void btnCreatePatient_Click(object sender, RoutedEventArgs e)
         {
-            CreatePatient createPatient = new CreatePatient();
-            createPatient.ShowDialog();
+            ChangeRegulation[] listReg = DataManager.getInstance().getAllRegulation().ToArray();
 
-            patientDataGrid.ItemsSource = null;
-            patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
+            int n = DataManager.getInstance().countMedicalExam();
+            long value = 0;
+            if (listReg[1].date_apply > DateTime.Now)
+            {
+                value = listReg[1].value_old;
+            }
+            else
+            {
+                value = listReg[1].value_apply;
+            }
+
+            if (n < value)
+            {
+                CreatePatient createPatient = new CreatePatient();
+                createPatient.ShowDialog();
+
+                patientDataGrid.ItemsSource = null;
+                patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
+            }
+            else
+            {
+                MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
+            }
+            
             
 
         }

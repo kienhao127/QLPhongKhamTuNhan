@@ -317,7 +317,7 @@ namespace Helper
             return num;
         }
 
-        static public int updateMedicalExam(string code, int feeExam, int feeMedicine)
+        static public int updateMedicalExam(string code, long feeExam, int feeMedicine)
         {
             int num = Active.update("UPDATE medical_exam SET fee_exam = " + feeExam + ", fee_medicine = " + feeMedicine + " where code = '" + code + "'");
             return num;

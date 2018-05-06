@@ -23,7 +23,7 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
     {
         Patient p = new Patient();
         string code = "";
-        int feeExam = 0;
+        long feeExam = 0;
         int feeMedicine = 0;
         public CreateBill(Patient patient, string code)
         {

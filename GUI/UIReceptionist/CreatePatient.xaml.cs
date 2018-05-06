@@ -51,22 +51,15 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             {
                 int n = DataManager.getInstance().countMedicalExam();
                 string code = "";
-                if (n < 40)
-                {
-                    patient.full_name = txtHoTen.Text;
-                    patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
-                    patient.address = txtDiaChi.Text;
-                    patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
-                    DataManager.getInstance().insertPatient(patient);
-                    patient.id = DataManager.getInstance().getLastPatientID();
-                    code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
-                    DataManager.getInstance().insertMedicalExam(code, patient.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
-                    MessageBox.Show("Thêm thành công");
-                }
-                else
-                {
-                    MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
-                }
+                patient.full_name = txtHoTen.Text;
+                patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
+                patient.address = txtDiaChi.Text;
+                patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
+                DataManager.getInstance().insertPatient(patient);
+                patient.id = DataManager.getInstance().getLastPatientID();
+                code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
+                DataManager.getInstance().insertMedicalExam(code, patient.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
+                MessageBox.Show("Thêm thành công");
             }
             else
             {

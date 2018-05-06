@@ -42,7 +42,7 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
 
             User currentUser = DataManager.getInstance().login(txtUserName.Text, outputPassword);
 
-            if (currentUser != null)
+            if (currentUser.id != 0)
             {
                 if (Application.Current.Properties["UserInfo"] == null)
                 {
@@ -52,6 +52,10 @@ namespace QLPhongKhamTuNhan.GUI.UIGeneral
                 MainWindow mainWindow = new MainWindow();
                 this.Close();
                 mainWindow.Show();
+            }
+            else
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không đúng");
             }
         }
 

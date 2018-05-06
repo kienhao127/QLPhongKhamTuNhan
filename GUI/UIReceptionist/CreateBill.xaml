@@ -21,16 +21,16 @@
                 <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Column="0" Text="Họ và tên: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBlock Grid.Column="1" Name="txtHoTen" Margin="5"/>
+            <TextBlock Grid.Column="1" Name="txtHoTen" Margin="5" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Column="2" Text="Ngày khám: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBlock Grid.Column="3" Name="txtNgayKham" Margin="5"/>
+            <TextBlock Grid.Column="3" Name="txtNgayKham" VerticalAlignment="Center" Margin="5"/>
 
             <TextBlock Grid.Column="0" Grid.Row="1" Text="Tiền khám: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBlock Grid.Column="1" Grid.Row="1" Name="txtTienKham" Margin="5"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Name="txtTienKham" Margin="5" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Column="2" Grid.Row="1" Text="Tiền thuốc: " VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <TextBlock Grid.Column="3" Grid.Row="1" Name="txtTienThuoc" Margin="5"/>
+            <TextBlock Grid.Column="3" Grid.Row="1" Name="txtTienThuoc" Margin="5" VerticalAlignment="Center"/>
 
             <Button Content="OK" Name="btnOK" Click="btnOK_Click" Grid.Row="3" Grid.ColumnSpan="4" HorizontalAlignment="Center" Width="100" Margin="0, 19"/>
         </Grid>
