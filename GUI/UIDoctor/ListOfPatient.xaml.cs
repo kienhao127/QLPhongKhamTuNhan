@@ -38,6 +38,8 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
             string code = DataManager.getInstance().getExamCode(p.id);
             LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p, code);
             phieu.ShowDialog();
+            patientDataGrid.ItemsSource = null;
+            patientDataGrid.ItemsSource = DataManager.getInstance().getListPatientForDoctor();
             
         }
     }

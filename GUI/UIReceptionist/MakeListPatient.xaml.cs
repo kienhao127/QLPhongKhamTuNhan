@@ -53,6 +53,8 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             {
                 CreateBill bill = new CreateBill(p, code);
                 bill.ShowDialog();
+                patientDataGrid.ItemsSource = null;
+                patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
             }
             else
             {
