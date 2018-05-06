@@ -34,7 +34,7 @@
             
             <!--Hàng 3-->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Năm sinh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Name="txtNamSinh" Margin="5"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txtNamSinh" PreviewTextInput="NumberValidationTextBox" Margin="5"/>
 
             <!--Hàng 4-->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Địa chỉ: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
