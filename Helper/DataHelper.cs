@@ -121,7 +121,7 @@ namespace Helper
         static public List<Patient> getListPatient()
         {
             List<Patient> listPatient = new List<Patient>();
-            DataTable dt = Active.select("select * from patient where is_delete = " + 0);
+            DataTable dt = Active.select("select p.* from patient p, medical_exam m where p.is_delete = " + 0 + " and m.patient_id = p.id and m.date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") +"'");
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -440,11 +440,17 @@ namespace Helper
         static public Patient getPatientWithID(int id)
         {
             Patient p = new Patient();
-            DataTable dt = Active.select("SELECT * FROM patient WHERE id = " + id);
-            p.id = id;
-            p.full_name = dt.Rows[0]["name"].ToString();
-            p.sex = Convert.ToInt32(dt.Rows[0]["sex"]) == 1 ? "Name" : "Nữ";
-            p.address = dt.Rows[0]["address"].ToString();
+            DataTable dt = Active.select("SELECT * FROM patient WHERE id = " + id + " and is_delete = " + 0);
+            if (dt.Rows.Count != 0)
+            {
+                p.id = id;
+                p.full_name = dt.Rows[0]["name"].ToString();
+                p.sex = Convert.ToInt32(dt.Rows[0]["sex"]) == 1 ? "Nam" : "Nữ";
+                p.address = dt.Rows[0]["address"].ToString();
+                p.year_of_birth = Convert.ToInt32(dt.Rows[0]["yob"]);
+                return p;
+            }
+            p.id = -1;
             return p;
         }
 
@@ -453,6 +459,25 @@ namespace Helper
             DataTable dt = Active.select("SELECT code FROM medical_exam WHERE patient_id = " + patientID);
             string code = dt.Rows[0]["code"].ToString();
             return code;
+        }
+
+        static public int updatePatient(Patient p)
+        {
+            int sex = p.sex == "Nam" ? 1 : 0;
+            int id = Active.update("UPDATE patient SET name = N'" + p.full_name + "', sex = " + sex + ", yob = " + p.year_of_birth + ", address = N'" + p.address + "' where id = " + p.id);
+            return id;
+        }
+
+        static public int deletePatient(int pid)
+        {
+            int id = Active.update("UPDATE patient SET is_delete = " + 1 + " where id = " + pid);
+            return id;
+        }
+
+        static public int getLastPatientID()
+        {
+            DataTable dt = Active.select("select MAX(id) id from patient where is_delete = 0");
+            return Convert.ToInt32(dt.Rows[0]["id"]);
         }
     }
 }

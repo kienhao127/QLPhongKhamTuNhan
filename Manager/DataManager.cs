@@ -244,7 +244,9 @@ namespace Manager
             {
                 Patient p = new Patient();
                 p = DataHelper.getPatientWithID(id);
-                listPatient.Add(p);
+                if (p.id != -1) {
+                    listPatient.Add(p);
+                }
             }
             return listPatient;
         }
@@ -252,6 +254,21 @@ namespace Manager
         public string getExamCode(int patientID)
         {
             return DataHelper.getExamCode(patientID);
+        }
+
+        public int updatePatient(Patient p)
+        {
+            return DataHelper.updatePatient(p);
+        }
+
+        public int deletePatient(int pid)
+        {
+            return DataHelper.deletePatient(pid);
+        }
+
+        public int getLastPatientID()
+        {
+            return DataHelper.getLastPatientID();
         }
     }
 }

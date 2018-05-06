@@ -25,6 +25,7 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         public CreatePatient()
         {
             InitializeComponent();
+            btnCreate.Content = "Thêm";
         }
 
         public CreatePatient(Patient p)
@@ -41,27 +42,50 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             {
                 cboGioiTinh.SelectedIndex = 1;
             }
+            btnCreate.Content = "Sửa";
         }
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            int n = DataManager.getInstance().countMedicalExam();
-            string code = "";
-            if (n < 40)
+            if (btnCreate.Content.ToString() == "Thêm")
             {
-                patient.full_name = txtHoTen.Text;
-                patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
-                patient.address = txtDiaChi.Text;
-                patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
-                DataManager.getInstance().insertPatient(patient);
-                patient = DataManager.getInstance().getListPatient().LastOrDefault();
-                code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
-                DataManager.getInstance().insertMedicalExam(code, patient.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
+                int n = DataManager.getInstance().countMedicalExam();
+                string code = "";
+                if (n < 40)
+                {
+                    patient.full_name = txtHoTen.Text;
+                    patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
+                    patient.address = txtDiaChi.Text;
+                    patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
+                    DataManager.getInstance().insertPatient(patient);
+                    patient.id = DataManager.getInstance().getLastPatientID();
+                    code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
+                    DataManager.getInstance().insertMedicalExam(code, patient.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
+                    MessageBox.Show("Thêm thành công");
+                }
+                else
+                {
+                    MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
+                }
             }
             else
             {
-                MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
-            }       
+                Patient p = new Patient();
+                txtHoTen.Text = p.full_name;
+                txtNamSinh.Text = p.year_of_birth.ToString();
+                txtDiaChi.Text = p.address;
+                if (p.sex == "Nam")
+                {
+                    cboGioiTinh.SelectedIndex = 0;
+                }
+                else
+                {
+                    cboGioiTinh.SelectedIndex = 1;
+                }
+                DataManager.getInstance().updatePatient(p);
+                MessageBox.Show("Sửa thành công");
+            }
+            
 
             Close();
         }

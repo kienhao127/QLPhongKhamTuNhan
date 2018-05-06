@@ -54,10 +54,17 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         {
             CreatePatient createPatient = new CreatePatient((Patient) patientDataGrid.SelectedItem);
             createPatient.ShowDialog();
+            patientDataGrid.ItemsSource = null;
+            patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
+            Patient p = (Patient)patientDataGrid.SelectedItem;
+            DataManager.getInstance().deletePatient(p.id);
+            MessageBox.Show("Xóa thành công");
+            patientDataGrid.ItemsSource = null;
+            patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
 
         }
     }
