@@ -73,6 +73,7 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
                 }
                 DataManager.getInstance().insertPrescription(listPrescription, code);
             }
+            DataManager.getInstance().updateMedicalExamStatus(code, 0);
             Close();
         }
 

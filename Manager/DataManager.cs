@@ -270,5 +270,30 @@ namespace Manager
         {
             return DataHelper.getLastPatientID();
         }
+
+        public int updateMedicalExamStatus(string code, int status)
+        {
+            return DataHelper.updateMedicalExamStatus(code, status);
+        }
+
+        public int getMedicalExamStatus(int patientid)
+        {
+            return DataHelper.getMedicalExamStatus(patientid);
+        }
+
+        public int getFeeExam()
+        {
+            return 40000;
+        }
+
+        public int getFeeMedicine(string code)
+        {
+            return DataHelper.getFeeMedicine(code);
+        }
+
+        public int updateMedicineExam(string code, int feeExam, int feeMedicine)
+        {
+            return DataHelper.updateMedicalExam(code, feeExam, feeMedicine);
+        }
     }
 }

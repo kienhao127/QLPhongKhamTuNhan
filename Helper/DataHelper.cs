@@ -121,7 +121,7 @@ namespace Helper
         static public List<Patient> getListPatient()
         {
             List<Patient> listPatient = new List<Patient>();
-            DataTable dt = Active.select("select p.* from patient p, medical_exam m where p.is_delete = " + 0 + " and m.patient_id = p.id and m.date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") +"'");
+            DataTable dt = Active.select("select p.* from patient p, medical_exam m where p.is_delete = " + 0 + " and m.patient_id = p.id and m.fee_exam = 0 and m.date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") +"'");
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -290,7 +290,13 @@ namespace Helper
 
         static public int insertMedicalExam(string code, int patientID, int doctorID)
         {
-            int num = Active.insert("INSERT INTO medical_exam(code, patient_id, physician_id, date_exam) VALUES ('" + code + "', " + patientID + ", " + doctorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "')");
+            int num = Active.insert("INSERT INTO medical_exam(code, patient_id, physician_id, date_exam, status, fee_exam, fee_medicine) VALUES ('" + code + "', " + patientID + ", " + doctorID + ", '" + DateTime.Now.ToString("yyyy-MM-dd") + "', 1, 0, 0)");
+            return num;
+        }
+
+        static public int updateMedicalExamStatus(string code, int status)
+        {
+            int num = Active.update("UPDATE medical_exam SET status = " + status + " WHERE code = '" + code + "'");
             return num;
         }
 
@@ -308,6 +314,12 @@ namespace Helper
         static public int updateMedicalExam(string code, int sickID, string prognostic, int status)
         {
             int num = Active.update("UPDATE medical_exam SET sick_id = " + sickID + ", prognostic = N'" + prognostic + "', status = " + status + " where code = '" + code + "'");
+            return num;
+        }
+
+        static public int updateMedicalExam(string code, int feeExam, int feeMedicine)
+        {
+            int num = Active.update("UPDATE medical_exam SET fee_exam = " + feeExam + ", fee_medicine = " + feeMedicine + " where code = '" + code + "'");
             return num;
         }
 
@@ -428,7 +440,7 @@ namespace Helper
         static public List<int> getPatientIdInExam()
         {
             List<int> listID = new List<int>();
-            DataTable dt = Active.select("SELECT patient_id FROM medical_exam WHERE date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "'");
+            DataTable dt = Active.select("SELECT patient_id FROM medical_exam WHERE date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "' and status = 1");
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 int id = Convert.ToInt32(dt.Rows[i]["patient_id"]);
@@ -456,7 +468,7 @@ namespace Helper
 
         static public string getExamCode(int patientID)
         {
-            DataTable dt = Active.select("SELECT code FROM medical_exam WHERE patient_id = " + patientID);
+            DataTable dt = Active.select("SELECT code FROM medical_exam WHERE patient_id = " + patientID + " and date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "'"); 
             string code = dt.Rows[0]["code"].ToString();
             return code;
         }
@@ -478,6 +490,38 @@ namespace Helper
         {
             DataTable dt = Active.select("select MAX(id) id from patient where is_delete = 0");
             return Convert.ToInt32(dt.Rows[0]["id"]);
+        }
+
+        static public int getMedicalExamStatus(int patientID)
+        {
+            DataTable dt = Active.select("select status from medical_exam where patient_id = " + patientID + " and date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "'");
+            return Convert.ToInt32(dt.Rows[0]["status"]);
+        }
+
+        static public int getFeeMedicine(string code)
+        {
+            DataTable dt = Active.select("SELECT medicine_id, unit_id, amount FROM prescription WHERE code = '" + code + "'");
+            int n = dt.Rows.Count;
+            int price = 0;
+            if (n > 0)
+            {
+                for (int i = 0; i < n; i++)
+                {
+                    int medicineID = Convert.ToInt32(dt.Rows[i]["medicine_id"]);
+                    int unitID = Convert.ToInt32(dt.Rows[i]["unit_id"]);
+                    int amount = Convert.ToInt32(dt.Rows[i]["amount"]);
+                    int unitPrice = 0;
+
+                    DataTable dt2 = Active.select("SELECT unit_price FROM unit_price_medicine WHERE medicine_id = " + medicineID + " and unit_id = " + unitID);
+                    int m = dt.Rows.Count;
+                    if (m > 0)
+                    {
+                        unitPrice = Convert.ToInt32(dt2.Rows[0]["unit_price"]);
+                    }
+                    price += amount * unitPrice;
+                }
+            }
+            return price;
         }
     }
 }

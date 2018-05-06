@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Manager;
+using QLPhongKhamTuNhan.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,13 +21,26 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
     /// </summary>
     public partial class CreateBill : Window
     {
-        public CreateBill()
+        Patient p = new Patient();
+        string code = "";
+        int feeExam = 0;
+        int feeMedicine = 0;
+        public CreateBill(Patient patient, string code)
         {
             InitializeComponent();
+            p = patient;
+            this.code = code;
+            txtHoTen.Text = p.full_name;
+            txtNgayKham.Text = Utils.helper.getDateTimeNow();
+            feeExam = DataManager.getInstance().getFeeExam();
+            txtTienKham.Text = feeExam.ToString();
+            feeMedicine = DataManager.getInstance().getFeeMedicine(code);
+            txtTienThuoc.Text = feeMedicine.ToString();
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            DataManager.getInstance().updateMedicineExam(code, feeExam, feeMedicine);
             Close();
         }
     }

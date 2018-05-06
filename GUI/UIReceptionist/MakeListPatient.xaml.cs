@@ -29,7 +29,7 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             currentDay.Text = DateTime.Today.ToShortDateString();
             List<Patient> listPatient = new List<Patient>();
             listPatient = DataManager.getInstance().getListPatient();
-       
+
             DataContext = listPatient;
         }
         
@@ -40,14 +40,24 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 
             patientDataGrid.ItemsSource = null;
             patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
-
+            
 
         }
 
         private void btnCreateBill_Click(object sender, RoutedEventArgs e)
         {
-            CreateBill bill = new CreateBill();
-            bill.ShowDialog();
+            Patient p = (Patient)patientDataGrid.SelectedItem;
+            int status = DataManager.getInstance().getMedicalExamStatus(p.id);
+            string code = DataManager.getInstance().getExamCode(p.id);
+            if (status == 0)
+            {
+                CreateBill bill = new CreateBill(p, code);
+                bill.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bệnh nhân chưa khám");
+            }
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
