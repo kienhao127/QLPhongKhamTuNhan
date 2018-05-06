@@ -230,5 +230,10 @@ namespace Manager
         {
             return DataHelper.deleteUseMedicine(use_id, user_change);
         }
+
+        public int insertPatient(Patient p)
+        {
+            return DataHelper.insertPatient(p);
+        }
     }
 }

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QLPhongKhamTuNhan.GUI.UIReceptionist;
 using QLPhongKhamTuNhan.Model;
+using Manager;
 
 namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 {
@@ -27,12 +28,8 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
             InitializeComponent();
             currentDay.Text = DateTime.Today.ToShortDateString();
             List<Patient> listPatient = new List<Patient>();
-            for (int i = 0; i < 10; i++)
-            {
-                var data = new Patient { id = 1, full_name = "Test2", address = "add", is_delete = false, sex = "Nam", year_of_birth = 1996 };
-                listPatient.Add(data);
-            }
-
+            listPatient = DataManager.getInstance().getListPatient();
+       
             DataContext = listPatient;
         }
         
@@ -50,7 +47,8 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            CreatePatient createPatient = new CreatePatient((Patient) patientDataGrid.SelectedItem);
+            createPatient.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

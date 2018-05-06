@@ -417,5 +417,12 @@ namespace Helper
             int id = Active.update("UPDATE use_medicine SET is_delete = N'" + 1 + "', user_change = N'" + user_change + "' where id = " + use_id + "");
             return id;
         }
+
+        static public int insertPatient(Patient p)
+        {
+            int sex = p.sex == "Nam" ? 1 : 0;
+            int id = Active.insert("INSERT INTO patient(name, sex, yob, address, is_delete) VALUES (N'" + p.full_name + "', " + sex + ", " + p.year_of_birth +", N'" + p.address + "', 0)");
+            return id;
+        }
     }
 }

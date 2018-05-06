@@ -27,7 +27,10 @@
             
             <!--Hàng 2-->
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Giới tính: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
-            <ComboBox Grid.Row="1" Grid.Column="1" Name="cboGioiTinh" Margin="5"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" Name="cboGioiTinh" Margin="5" SelectedIndex="0">
+                <ComboBoxItem Name="cboiNam" Tag="1">Nam</ComboBoxItem>
+                <ComboBoxItem Name="cboiNu" Tag="0">Nữ</ComboBoxItem>
+            </ComboBox>
             
             <!--Hàng 3-->
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Năm sinh: " VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0"/>
