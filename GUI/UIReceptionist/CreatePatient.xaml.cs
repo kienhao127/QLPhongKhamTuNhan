@@ -45,11 +45,24 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            patient.full_name = txtHoTen.Text;
-            patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
-            patient.address = txtDiaChi.Text;
-            patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
-            DataManager.getInstance().insertPatient(patient);
+            int n = DataManager.getInstance().countMedicalExam();
+            string code = "";
+            if (n < 40)
+            {
+                patient.full_name = txtHoTen.Text;
+                patient.year_of_birth = Convert.ToInt32(txtNamSinh.Text);
+                patient.address = txtDiaChi.Text;
+                patient.sex = cboGioiTinh.SelectedIndex == 0 ? "Nam" : "Nữ";
+                DataManager.getInstance().insertPatient(patient);
+                patient = DataManager.getInstance().getListPatient().LastOrDefault();
+                code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
+                DataManager.getInstance().insertMedicalExam(code, patient.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
+            }
+            else
+            {
+                MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
+            }       
+
             Close();
         }
     }

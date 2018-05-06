@@ -27,11 +27,7 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         {
             InitializeComponent();
             List<Patient> listPatient = new List<Patient>();
-            for (int i = 0; i < 10; i++)
-            {
-                
-                listPatient = DataManager.getInstance().getListPatient();
-            }
+            listPatient = DataManager.getInstance().getListPatientForDoctor();
 
             DataContext = listPatient;
         }
@@ -39,20 +35,10 @@ namespace QLPhongKhamTuNhan.GUI.UIDoctor
         private void btnLapPhieuKhamBenh_Click(object sender, RoutedEventArgs e)
         {
             var p = (Patient)patientDataGrid.SelectedItem;
-            int n = DataManager.getInstance().countMedicalExam();
-            string code = "";
-            if (n < 40)
-            {
-                code = Utils.helper.createExamCode() + String.Format("{0:000}", n);
-                DataManager.getInstance().insertMedicalExam(code, p.id, ((Model.User)Application.Current.Properties["UserInfo"]).id);
-
-                LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p, code);
-                phieu.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Đã vượt qua mức quy định khám bệnh trong ngày");
-            }
+            string code = DataManager.getInstance().getExamCode(p.id);
+            LapPhieuKhamBenh phieu = new LapPhieuKhamBenh(p, code);
+            phieu.ShowDialog();
+            
         }
     }
 }

@@ -37,6 +37,11 @@ namespace QLPhongKhamTuNhan.GUI.UIReceptionist
         {
             CreatePatient createPatient = new CreatePatient();
             createPatient.ShowDialog();
+
+            patientDataGrid.ItemsSource = null;
+            patientDataGrid.ItemsSource = DataManager.getInstance().getListPatient();
+
+
         }
 
         private void btnCreateBill_Click(object sender, RoutedEventArgs e)

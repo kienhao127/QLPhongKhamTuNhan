@@ -424,5 +424,35 @@ namespace Helper
             int id = Active.insert("INSERT INTO patient(name, sex, yob, address, is_delete) VALUES (N'" + p.full_name + "', " + sex + ", " + p.year_of_birth +", N'" + p.address + "', 0)");
             return id;
         }
+
+        static public List<int> getPatientIdInExam()
+        {
+            List<int> listID = new List<int>();
+            DataTable dt = Active.select("SELECT patient_id FROM medical_exam WHERE date_exam = '" + DateTime.Now.ToString("yyyy-MM-dd") + "'");
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                int id = Convert.ToInt32(dt.Rows[i]["patient_id"]);
+                listID.Add(id);
+            }
+            return listID;
+        }
+        
+        static public Patient getPatientWithID(int id)
+        {
+            Patient p = new Patient();
+            DataTable dt = Active.select("SELECT * FROM patient WHERE id = " + id);
+            p.id = id;
+            p.full_name = dt.Rows[0]["name"].ToString();
+            p.sex = Convert.ToInt32(dt.Rows[0]["sex"]) == 1 ? "Name" : "Nữ";
+            p.address = dt.Rows[0]["address"].ToString();
+            return p;
+        }
+
+        static public string getExamCode(int patientID)
+        {
+            DataTable dt = Active.select("SELECT code FROM medical_exam WHERE patient_id = " + patientID);
+            string code = dt.Rows[0]["code"].ToString();
+            return code;
+        }
     }
 }

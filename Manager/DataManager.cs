@@ -235,5 +235,23 @@ namespace Manager
         {
             return DataHelper.insertPatient(p);
         }
+
+        public List<Patient> getListPatientForDoctor()
+        {
+            List<int> listID = DataHelper.getPatientIdInExam();
+            List<Patient> listPatient = new List<Patient>();
+            foreach (int id in listID)
+            {
+                Patient p = new Patient();
+                p = DataHelper.getPatientWithID(id);
+                listPatient.Add(p);
+            }
+            return listPatient;
+        }
+
+        public string getExamCode(int patientID)
+        {
+            return DataHelper.getExamCode(patientID);
+        }
     }
 }
