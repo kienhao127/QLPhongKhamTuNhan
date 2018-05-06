@@ -548,5 +548,14 @@ namespace Helper
             quantity = dt.Rows.Count;
             return quantity;
         }
+
+        //dem don gia thuoc theo ma don vi thuoc
+        static public int countUnitPriceMedicineByUnitID(int id)
+        {
+            int quantity = 0;
+            DataTable dt = Active.select("select * from unit_price_medicine where unit_id = " + id + " and is_delete = " + 0);
+            quantity = dt.Rows.Count;
+            return quantity;
+        }
     }
 }

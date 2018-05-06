@@ -142,10 +142,13 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
         }
 
+        //Quan ly don vi thuoc
         private void btnAddUnit_Click(object sender, RoutedEventArgs e)
         {
             AddUnitMedicine addUnit = new AddUnitMedicine(null);
             addUnit.ShowDialog();
+            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+            unitDataGrid.DataContext = listUnit;
         }
 
         private void btnEditUnit_Click(object sender, RoutedEventArgs e)
@@ -153,17 +156,27 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             UnitMedicine unit = unitDataGrid.SelectedItem as UnitMedicine;
             AddUnitMedicine addUnit = new AddUnitMedicine(unit);
             addUnit.ShowDialog();
+            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+            unitDataGrid.DataContext = listUnit;
         }
 
         private void btnDeleteUnit_Click(object sender, RoutedEventArgs e)
         {
             UnitMedicine item = unitDataGrid.SelectedItem as UnitMedicine;
+            int countUnitPrice = DataManager.getInstance().countUnitPriceMedicineByUnitID(item.id);
+            if (countUnitPrice > 0)
+            {
+                MessageBox.Show("Có thuốc đang sử dụng đơn vị này. Không thể xóa được!");
+                return;
+            }
             try
             {
                 User currentUser = new User();
                 currentUser = (User)Application.Current.Properties["UserInfo"];
                 int id = DataManager.getInstance().deleteUnitMedicine(item.id, currentUser.id);
                 MessageBox.Show("Xóa đơn vị thành công!");
+                List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+                unitDataGrid.DataContext = listUnit;
             }
             catch
             {

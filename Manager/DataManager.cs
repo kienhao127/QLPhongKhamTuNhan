@@ -305,5 +305,10 @@ namespace Manager
         {
             return DataHelper.countPrescriptionByUseID(id);
         }
+
+        public int countUnitPriceMedicineByUnitID(int id)
+        {
+            return DataHelper.countUnitPriceMedicineByUnitID(id);
+        }
     }
 }

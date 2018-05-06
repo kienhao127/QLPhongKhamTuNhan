@@ -37,6 +37,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnAddUnit_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra don vi thuoc da ton tai chua
+            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+
+            foreach (var u in listUnit)
+            {
+                if (u.name == txtNameUnit.Text)
+                {
+                    MessageBox.Show("Tên đơn vị thuốc đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameUnit.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên đơn vị!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh insert vao database
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
@@ -57,6 +77,26 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
 
         private void btnEditUnit_Click(object sender, RoutedEventArgs e)
         {
+            //Validation
+            //Kiem tra don vi thuoc da ton tai chua
+            List<UnitMedicine> listUnit = DataManager.getInstance().getAllUnit();
+
+            foreach (var u in listUnit)
+            {
+                if (u.name == txtNameUnit.Text)
+                {
+                    MessageBox.Show("Tên đơn vị thuốc đã tồn tại. Vui lòng nhập tên khác!");
+                    return;
+                }
+            }
+            //Kiem tra cac truong du lieu da nhap du chua
+            if (txtNameUnit.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập tên thuốc!");
+                return;
+            }
+
+            //Thoa man cac dieu kien va tien hanh insert cập nhật dữ liệu
             User currentUser = new User();
             currentUser = (User)Application.Current.Properties["UserInfo"];
 
