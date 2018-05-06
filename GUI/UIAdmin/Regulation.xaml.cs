@@ -220,6 +220,12 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
         private void btnDeleteMedicine_Click(object sender, RoutedEventArgs e)
         {
             FullMedicine item = medicineDataGrid.SelectedItem as FullMedicine;
+            int countPrescription = DataManager.getInstance().countPrescriptionByID(item.id);
+            if(countPrescription > 0)
+            {
+                MessageBox.Show("Có đơn thuốc đang sử dụng loại thuốc này. Không thể xóa được!");
+                return;
+            }
             try
             {
                 User currentUser = new User();

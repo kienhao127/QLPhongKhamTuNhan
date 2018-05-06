@@ -295,5 +295,10 @@ namespace Manager
         {
             return DataHelper.updateMedicalExam(code, feeExam, feeMedicine);
         }
+
+        public int countPrescriptionByID(int id)
+        {
+            return DataHelper.countPrescriptionByID(id);
+        }
     }
 }

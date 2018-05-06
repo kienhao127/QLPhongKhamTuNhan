@@ -530,5 +530,14 @@ namespace Helper
             }
             return price;
         }
+
+        //dem so don thuoc theo ma thuoc
+        static public int countPrescriptionByID(int id)
+        {
+            int quantity = 0;
+            DataTable dt = Active.select("select * from prescription where medicine_id = " + id);
+            quantity = dt.Rows.Count;
+            return quantity;
+        }
     }
 }

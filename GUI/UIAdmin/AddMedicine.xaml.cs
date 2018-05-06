@@ -33,6 +33,13 @@ namespace QLPhongKhamTuNhan.GUI.UIAdmin
             }
             else
             {
+                foreach (var unit in listUnit)
+                {
+                    if(unit.id == medicine.unit_id)
+                    {
+                        cbUnitMedicine.SelectedItem = unit;
+                    }
+                }
                 btnAddMedicine.Visibility = Visibility.Hidden;
                 DataContext = medicine;
             }
