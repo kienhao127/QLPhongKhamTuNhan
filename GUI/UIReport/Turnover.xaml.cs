@@ -36,7 +36,7 @@ namespace QLPhongKhamTuNhan.GUI.UIReport
 
             report.LocalReport.ReportEmbeddedResource = "QLPhongKhamTuNhan.GUI.UIReport.reportMonthlyRevenue.rdlc";
 
-            ReportParameter rp = new ReportParameter("txtMonth", "Tháng: " + cbxMonth.SelectedValue + "/" + cbxYear.SelectedValue);
+            ReportParameter rp = new ReportParameter("txtMonth", "Tháng: " + cbxMonth.SelectedValue + " năm " + cbxYear.SelectedValue);
             report.LocalReport.SetParameters(new ReportParameter[] { rp });
 
             report.ZoomMode = ZoomMode.PageWidth;

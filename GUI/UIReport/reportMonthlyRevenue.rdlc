@@ -307,7 +307,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!day_revenue.Value,"#.##0")</Value>
+                              <Value>=Format(Fields!day_revenue.Value," ### ### ### VNĐ  ")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -338,7 +338,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!radio.Value*100+" %"</Value>
+                              <Value>=Format(Fields!radio.Value,"P")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -387,7 +387,7 @@
         <Top>0.95708in</Top>
         <Left>0.405in</Left>
         <Height>0.5in</Height>
-        <Width>7.66667in</Width>
+        <Width>7.66666in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -463,7 +463,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>11in</Height>
+    <Height>1.78125in</Height>
     <Style>
       <Border>
         <Style>None</Style>
