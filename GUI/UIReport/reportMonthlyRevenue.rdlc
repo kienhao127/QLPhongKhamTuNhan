@@ -18,7 +18,7 @@
               <Width>1.61875in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.30625in</Width>
+              <Width>0.95208in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -342,7 +342,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!radio.Value,"P")</Value>
+                              <Value>=Format(Fields!day_revenue.Value/Sum(Fields!day_revenue.Value, "dataset"),"P")</Value>
                               <Style />
                             </TextRun>
                             <TextRun>
@@ -398,7 +398,7 @@
         <Top>0.95708in</Top>
         <Left>0.405in</Left>
         <Height>0.5in</Height>
-        <Width>7.66666in</Width>
+        <Width>7.31249in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -579,42 +579,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Textbox14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Format(Sum(Fields!radio.Value, "dataset"),"P")</Value>
-                <Style />
-              </TextRun>
-              <TextRun>
-                <Value xml:space="preserve">  </Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox14</rd:DefaultName>
-        <Top>1.47097in</Top>
-        <Left>6.76541in</Left>
-        <Height>0.25in</Height>
-        <Width>1.30625in</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>2.34375in</Height>
     <Style>
@@ -659,10 +623,6 @@
         <Field Name="day_revenue">
           <DataField>day_revenue</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="radio">
-          <DataField>radio</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

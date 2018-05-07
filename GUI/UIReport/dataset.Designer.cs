@@ -320,8 +320,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
             
             private global::System.Data.DataColumn columnday_revenue;
             
-            private global::System.Data.DataColumn columnradio;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public reportMonthlyRevenueDataTable() {
@@ -381,14 +379,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn radioColumn {
-                get {
-                    return this.columnradio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -424,13 +414,12 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public reportMonthlyRevenueRow AddreportMonthlyRevenueRow(System.DateTime date_exam, short num_patient, int day_revenue, decimal radio) {
+            public reportMonthlyRevenueRow AddreportMonthlyRevenueRow(System.DateTime date_exam, short num_patient, int day_revenue) {
                 reportMonthlyRevenueRow rowreportMonthlyRevenueRow = ((reportMonthlyRevenueRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         date_exam,
                         num_patient,
-                        day_revenue,
-                        radio};
+                        day_revenue};
                 rowreportMonthlyRevenueRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowreportMonthlyRevenueRow);
                 return rowreportMonthlyRevenueRow;
@@ -456,7 +445,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
                 this.columndate_exam = base.Columns["date_exam"];
                 this.columnnum_patient = base.Columns["num_patient"];
                 this.columnday_revenue = base.Columns["day_revenue"];
-                this.columnradio = base.Columns["radio"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -468,8 +456,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
                 base.Columns.Add(this.columnnum_patient);
                 this.columnday_revenue = new global::System.Data.DataColumn("day_revenue", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnday_revenue);
-                this.columnradio = new global::System.Data.DataColumn("radio", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnradio);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -949,22 +935,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal radio {
-                get {
-                    try {
-                        return ((decimal)(this[this.tablereportMonthlyRevenue.radioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'radio\' in table \'reportMonthlyRevenue\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablereportMonthlyRevenue.radioColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool Isdate_examNull() {
                 return this.IsNull(this.tablereportMonthlyRevenue.date_examColumn);
             }
@@ -997,18 +967,6 @@ namespace QLPhongKhamTuNhan.GUI.UIReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setday_revenueNull() {
                 this[this.tablereportMonthlyRevenue.day_revenueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsradioNull() {
-                return this.IsNull(this.tablereportMonthlyRevenue.radioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetradioNull() {
-                this[this.tablereportMonthlyRevenue.radioColumn] = global::System.Convert.DBNull;
             }
         }
         
